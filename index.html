@@ -21,7 +21,7 @@
             --glass-border: rgba(255, 255, 255, 0.1);
             --font-display: 'Outfit', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         * {
@@ -70,8 +70,8 @@
             position: absolute;
             top: -10%;
             right: -10%;
-            width: 50%;
-            height: 50%;
+            width: 60%;
+            height: 60%;
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
             filter: blur(80px);
             opacity: 0.3;
@@ -81,8 +81,8 @@
             position: absolute;
             bottom: -10%;
             left: -10%;
-            width: 40%;
-            height: 40%;
+            width: 50%;
+            height: 50%;
             background: radial-gradient(circle, rgba(192, 132, 252, 0.2) 0%, transparent 70%);
             filter: blur(80px);
             opacity: 0.2;
@@ -92,16 +92,20 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         .section-padding {
-            padding: 10rem 0;
+            padding: 5rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding { padding: 10rem 0; }
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: var(--transition);
         }
 
@@ -120,7 +124,8 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 1rem 2.5rem;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
             border-radius: 9999px;
             font-weight: 700;
             text-decoration: none;
@@ -130,7 +135,11 @@
             font-family: var(--font-display);
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 480px) {
+            .btn { width: 100%; padding: 1.1rem; }
         }
 
         .btn-primary {
@@ -164,13 +173,13 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1.5rem 0;
+            padding: 1.2rem 0;
             transition: var(--transition);
         }
 
         nav.scrolled {
-            padding: 1rem 0;
-            background: rgba(3, 7, 18, 0.8);
+            padding: 0.8rem 0;
+            background: rgba(3, 7, 18, 0.9);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
         }
@@ -183,18 +192,18 @@
 
         .logo {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
+            z-index: 1001;
         }
 
-        .logo span {
-            color: var(--primary);
-        }
+        .logo span { color: var(--primary); }
 
         .nav-links {
             display: flex;
@@ -206,92 +215,113 @@
             text-decoration: none;
             color: var(--text-dim);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+        .nav-links a:hover { color: var(--primary); }
 
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            z-index: 1001;
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #030712;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease-in-out;
+                gap: 2.5rem;
+            }
+
+            .nav-links.active { right: 0; }
+
+            .nav-links a { font-size: 1.5rem; color: white; }
+
+            .mobile-menu-btn { display: block; }
+            
+            .nav-cta-desktop { display: none; }
         }
 
         /* --- Hero Section --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            padding: 100px 0 60px;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            gap: 4rem;
+            gap: 3rem;
         }
+
+        .hero-text { z-index: 2; }
 
         .hero-tag {
             background: rgba(99, 102, 241, 0.1);
             border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 0.5rem 1.2rem;
+            padding: 0.4rem 1rem;
             border-radius: 999px;
             color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
             display: inline-block;
             margin-bottom: 1.5rem;
-            animation: fadeInDown 1s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
             font-family: var(--font-display);
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             line-height: 1.1;
             font-weight: 800;
-            margin-bottom: 2rem;
-            animation: fadeInDown 1.2s ease;
+            margin-bottom: 1.5rem;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             color: var(--text-dim);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             max-width: 600px;
-            animation: fadeInDown 1.4s ease;
         }
 
         .hero-ctas {
             display: flex;
-            gap: 1.5rem;
-            animation: fadeInDown 1.6s ease;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .hero-visual {
             position: relative;
-            animation: fadeIn 2s ease;
+            display: flex;
+            justify-content: center;
         }
 
         .hero-image-container {
-            position: relative;
-            z-index: 2;
+            width: 100%;
+            max-width: 500px;
             border-radius: 2rem;
             overflow: hidden;
-            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5);
-            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+            transform: perspective(1000px) rotateY(-5deg);
             transition: var(--transition);
-        }
-
-        .hero-image-container:hover {
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
         }
 
         .hero-image-container img {
@@ -300,41 +330,40 @@
             display: block;
         }
 
+        @media (max-width: 992px) {
+            .hero { text-align: center; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero p { margin: 0 auto 2.5rem; }
+            .hero-ctas { justify-content: center; }
+            .hero-visual { margin-top: 3rem; }
+            .hero-image-container { transform: none; }
+        }
+
         .floating-card {
             position: absolute;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 1.5rem;
+            padding: 1rem;
             border-radius: 1rem;
             z-index: 3;
             animation: float 6s ease-in-out infinite;
         }
 
-        .card-1 { top: 10%; right: -10%; animation-delay: 0s; }
-        .card-2 { bottom: 10%; left: -10%; animation-delay: 2s; }
+        .card-1 { top: 10%; right: -5%; }
+        .card-2 { bottom: 10%; left: -5%; animation-delay: 2s; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            50% { transform: translateY(-15px); }
         }
 
         /* --- Stats Section --- */
         .stats-bar {
-            background: rgba(255, 255, 255, 0.02);
             border-top: 1px solid var(--glass-border);
             border-bottom: 1px solid var(--glass-border);
             padding: 4rem 0;
+            background: rgba(255,255,255,0.01);
         }
 
         .stats-grid {
@@ -344,9 +373,13 @@
             text-align: center;
         }
 
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+        }
+
         .stat-item h3 {
             font-family: var(--font-display);
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 0.5rem;
@@ -354,373 +387,158 @@
 
         .stat-item p {
             color: var(--text-dim);
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         /* --- Services Bento Grid --- */
-        .section-title {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-
-        .section-title h2 {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-title p {
-            color: var(--text-dim);
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
-            padding: 3rem;
-            border-radius: 2rem;
+            padding: 2rem;
+            border-radius: 1.5rem;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 350px;
+            min-height: 300px;
         }
+
+        @media (min-width: 768px) { .service-card { padding: 2.5rem; } }
 
         .service-card:hover {
-            transform: translateY(-10px);
             border-color: var(--primary);
+            transform: translateY(-10px);
             background: rgba(99, 102, 241, 0.05);
-            box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
         }
 
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-        }
+        .service-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+        
+        .service-card h3 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1rem; }
+        
+        .service-card p { color: var(--text-dim); font-size: 0.95rem; }
 
-        .service-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 50%);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .service-card:hover::after {
-            opacity: 1;
-        }
+        @media (min-width: 1024px) { .card-wide { grid-column: span 2; } }
 
         /* --- Methodology --- */
         .methodology-row {
             display: flex;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 5rem;
         }
 
-        .methodology-row:nth-child(even) {
-            flex-direction: row-reverse;
+        @media (min-width: 992px) {
+            .methodology-row { flex-direction: row; align-items: center; gap: 4rem; }
+            .methodology-row:nth-child(even) { flex-direction: row-reverse; }
+            .method-img, .method-content { flex: 1; }
         }
 
         .method-img {
-            flex: 1;
-            border-radius: 2rem;
-            overflow: hidden;
-            height: 400px;
+            height: 250px;
             background: linear-gradient(45deg, #1e1b4b, #312e81);
+            border-radius: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 4rem;
             border: 1px solid var(--glass-border);
         }
 
-        .method-content {
-            flex: 1;
-        }
+        @media (min-width: 768px) { .method-img { height: 350px; } }
 
-        .method-num {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            display: block;
-        }
+        .method-num { color: var(--primary); font-weight: 800; font-size: 0.9rem; margin-bottom: 1rem; display: block; }
 
-        .method-content h3 {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
+        .method-content h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
 
-        /* --- Parallax Section --- */
-        .parallax-banner {
-            height: 50vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2426&q=80');
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 5rem 0;
-        }
-
-        .parallax-banner h2 {
-            font-family: var(--font-display);
-            font-size: 4rem;
-            font-weight: 800;
-            color: white;
-        }
-
-        /* --- Contact Form --- */
+        /* --- Contact --- */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr;
             gap: 4rem;
             background: var(--bg-card);
-            padding: 4rem;
-            border-radius: 3rem;
+            padding: 2.5rem;
+            border-radius: 2.5rem;
             border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
         }
 
-        .contact-info h3 {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+        @media (min-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr 1.5fr; padding: 4.5rem; }
         }
 
-        .contact-details {
-            list-style: none;
-            margin-top: 3rem;
-        }
-
-        .contact-details li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dim);
-        }
-
-        .contact-details i {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
+        .form-group { margin-bottom: 1.5rem; }
+        
+        .form-group label { display: block; margin-bottom: 0.6rem; font-weight: 600; color: var(--text-dim); font-size: 0.85rem; }
+        
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--glass-border);
-            padding: 1.2rem;
+            padding: 1.1rem;
             border-radius: 1rem;
             color: white;
             font-family: inherit;
-            transition: var(--transition);
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-        }
+        .form-group input:focus { border-color: var(--primary); }
 
         /* --- Footer --- */
-        footer {
-            padding: 5rem 0;
-            border-top: 1px solid var(--glass-border);
-            text-align: center;
-        }
+        footer { padding: 5rem 0; text-align: center; border-top: 1px solid var(--glass-border); }
+        
+        .footer-logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: block; color: white; text-decoration: none; }
+        
+        .social-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 2rem; }
+        
+        .social-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        
+        .social-links a:hover { color: white; }
 
-        .footer-logo {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            display: block;
-            text-decoration: none;
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            list-style: none;
-        }
-
-        .copyright {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero h1 { font-size: 3.5rem; }
-            .hero-ctas { justify-content: center; }
-            .hero p { margin-left: auto; margin-right: auto; }
-            .hero-visual { display: none; }
-            .services-grid { grid-template-columns: 1fr 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .hero h1 { font-size: 2.8rem; }
-            .section-title h2 { font-size: 2.5rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .section-padding { padding: 5rem 0; }
-            .methodology-row, .methodology-row:nth-child(even) { flex-direction: column; }
-        }
+        /* --- FAQ --- */
+        .faq-item { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 1.2rem; margin-bottom: 1rem; overflow: hidden; }
+        
+        .faq-question { padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-family: var(--font-display); }
+        
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: 0.4s ease-out; color: var(--text-dim); font-size: 0.95rem; }
+        
+        .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 1.5rem; }
+        
+        .faq-icon { transition: 0.3s; color: var(--primary); }
+        
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
     </style>
-    <!-- SEO & AEO Optimization (Schema.org) -->
+
+    <!-- SEO Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Bvyon Marketing",
-      "image": "https://tu-dominio.cl/assets/hero.png",
-      "@id": "",
-      "url": "https://tu-dominio.cl",
+      "image": "https://metrilabcl.github.io/bvyon-marketing/assets/hero.png",
+      "url": "https://metrilabcl.github.io/bvyon-marketing",
       "telephone": "+569XXXXXXXX",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Santiago",
         "addressLocality": "Santiago",
-        "addressRegion": "Metropolitana",
-        "postalCode": "8320000",
         "addressCountry": "CL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -33.4489,
-        "longitude": -70.6693
-      },
-      "servesCrawl": "CL",
-      "areaServed": {
-        "@type": "Country",
-        "name": "Chile"
-      },
-      "description": "Agencia de Marketing Digital 360 en Chile especializada en Google Ads, SEO, AEO y Automatización con IA.",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:30"
       }
     }
     </script>
-    
-    <style>
-        /* FAQ Styles */
-        .faq-grid {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: 1.5rem;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-question {
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 700;
-            font-family: var(--font-display);
-        }
-
-        .faq-answer {
-            padding: 0 2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        .faq-item.active {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 1000px;
-            padding-bottom: 1.5rem;
-            transition: all 0.5s cubic-bezier(1, 0, 1, 0);
-        }
-
-        .faq-icon {
-            transition: var(--transition);
-            color: var(--primary);
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-    </style>
 </head>
 <body>
 
@@ -731,301 +549,212 @@
 
     <nav id="navbar">
         <div class="container nav-content">
-            <a href="#" class="logo" aria-label="Bvyon Marketing Home"><span>Bvyon</span> Marketing</a>
-            <ul class="nav-links" role="list">
+            <a href="#" class="logo"><span>Bvyon</span> Marketing</a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#metodologia">Metodología</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contacto">Contacto</a></li>
+                <li class="nav-cta-mobile"><a href="#contacto" class="btn btn-primary" style="margin-top: 1rem;">Consultoría Gratis</a></li>
             </ul>
-            <a href="#contacto" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Empezar Proyecto</a>
-            <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+            <div class="nav-cta-desktop">
+                <a href="#contacto" class="btn btn-primary">Empezar Proyecto</a>
+            </div>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
         <div class="container hero-grid">
-            <div class="hero-text">
-                <span class="hero-tag">AGENCIA DE MARKETING DIGITAL 360 EN CHILE</span>
-                <h1>Marketing que <span class="gradient-text">Convierte Visitas</span> en Ingresos Reales</h1>
-                <p>Estrategia SEO, AEO y Performance Marketing para negocios en Santiago y todo Chile que buscan resultados medibles en la era de la IA.</p>
+            <div class="hero-text reveal">
+                <span class="hero-tag">Marketing Digital 360 Chile</span>
+                <h1>Marketing que <span class="gradient-text">Convierte Visitas</span> en Ingresos</h1>
+                <p>Estrategia, SEO, AEO y Performance para negocios que buscan resultados reales en la era de la IA. Especialistas locales con visión global.</p>
                 <div class="hero-ctas">
                     <a href="#contacto" class="btn btn-primary">Agendar Consultoría</a>
-                    <a href="#servicios" class="btn btn-outline">Explorar Servicios</a>
+                    <a href="#servicios" class="btn btn-outline">Nuestros Servicios</a>
                 </div>
             </div>
-            <div class="hero-visual">
+            <div class="hero-visual reveal">
                 <div class="hero-image-container">
-                    <img src="assets/hero.png" alt="Estrategia de Marketing Digital 360 Bvyon en Chile" onerror="this.src='https://images.unsplash.com/photo-1551288049-bbda38a5f971?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                    <img src="assets/hero.png" alt="Marketing Bvyon" onerror="this.src='https://images.unsplash.com/photo-1551288049-bbda38a5f971?q=80&w=1000'">
                 </div>
                 <div class="floating-card card-1">
-                    <div style="font-weight: 800; color: var(--primary); font-size: 1.2rem;">+7 Años</div>
-                    <div style="font-size: 0.8rem; color: var(--text-dim);">Trayectoria en Chile</div>
+                    <div style="font-weight: 800; color: var(--primary);">+7 Años</div>
+                    <div style="font-size: 0.7rem; color: var(--text-dim);">Trayectoria</div>
                 </div>
                 <div class="floating-card card-2">
-                    <div style="font-weight: 800; color: var(--accent); font-size: 1.2rem;">AEO Ready</div>
-                    <div style="font-size: 0.8rem; color: var(--text-dim);">Optimizado para IA</div>
+                    <div style="font-weight: 800; color: var(--accent);">SEO / AEO</div>
+                    <div style="font-size: 0.7rem; color: var(--text-dim);">Optimizado</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Stats Section -->
     <section class="stats-bar">
         <div class="container stats-grid">
             <div class="stat-item">
                 <h3 class="counter" data-target="7">0</h3>
-                <p>Años de Experiencia Local</p>
+                <p>Años de Experiencia</p>
             </div>
             <div class="stat-item">
                 <h3 class="counter" data-target="100">0</h3>
-                <p>% Estrategia de Datos</p>
+                <p>% Orientado a Datos</p>
             </div>
             <div class="stat-item">
                 <h3 class="counter" data-target="360">0</h3>
-                <p>Visión Holística</p>
+                <p>Visión 360°</p>
             </div>
             <div class="stat-item">
-                <h3>SEO/AEO</h3>
-                <p>Vanguardia en Chile</p>
+                <h3>Local</h3>
+                <p>Santiago, Chile</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="servicios" class="section-padding">
         <div class="container">
             <div class="section-title reveal">
-                <span class="hero-tag">SERVICIOS DIGITALES</span>
-                <h2>Ecosistema Digital <span class="gradient-text">Premium</span></h2>
-                <p>Soluciones integrales de marketing digital en Chile: desde posicionamiento orgánico hasta automatización avanzada.</p>
+                <span class="hero-tag">Servicios Digitales</span>
+                <h2>Ecosistema <span class="gradient-text">Premium</span></h2>
+                <p>Soluciones integrales diseñadas para el mercado chileno.</p>
             </div>
 
             <div class="services-grid">
-                <!-- Bento Item 1 -->
-                <article class="service-card reveal" style="grid-column: span 1;">
+                <article class="service-card reveal">
                     <div>
-                        <span class="service-icon" aria-hidden="true">🌐</span>
-                        <h3>Diseño Web en Chile</h3>
-                        <p>Sitios web ultra-rápidos que no solo se ven bien, sino que están optimizados para el mercado chileno y la conversión.</p>
+                        <span class="service-icon">🌐</span>
+                        <h3>Diseño Web Pro</h3>
+                        <p>Sitios ultra-rápidos optimizados para convertir cada visita en un cliente potencial.</p>
                     </div>
                 </article>
-                <!-- Bento Item 2 -->
-                <article class="service-card reveal" style="grid-column: span 1;">
+                <article class="service-card reveal">
                     <div>
-                        <span class="service-icon" aria-hidden="true">🔍</span>
+                        <span class="service-icon">🔍</span>
                         <h3>SEO & AEO Local</h3>
-                        <p>Domina Google y las búsquedas por IA (Generative Engine Optimization) para que te encuentren en Santiago y todo Chile.</p>
+                        <p>Domina los buscadores tradicionales y los nuevos motores de respuesta por IA.</p>
                     </div>
                 </article>
-                <!-- Bento Item 3 -->
-                <article class="service-card reveal" style="grid-column: span 1;">
+                <article class="service-card reveal">
                     <div>
-                        <span class="service-icon" aria-hidden="true">🤖</span>
-                        <h3>Automatización IA</h3>
-                        <p>Reducimos fricción en ventas con flujos inteligentes que califican leads en tiempo real 24/7.</p>
+                        <span class="service-icon">🤖</span>
+                        <h3>Automatización</h3>
+                        <p>Flujos inteligentes con IA para calificar leads y ahorrar tiempo en ventas.</p>
                     </div>
                 </article>
-                <!-- Bento Item 4 -->
-                <article class="service-card reveal" style="grid-column: span 2;">
-                    <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
-                        <span class="service-icon" aria-hidden="true">📊</span>
-                        <h3>Analítica de Negocio</h3>
-                        <p>Transformamos datos de marketing en dashboards visuales claros. Entiende tu ROI real y toma decisiones basadas en evidencia local y global.</p>
-                    </div>
-                </article>
-                <!-- Bento Item 5 -->
-                <article class="service-card reveal" style="grid-column: span 1;">
+                <article class="service-card reveal card-wide">
                     <div>
-                        <span class="service-icon" aria-hidden="true">📱</span>
-                        <h3>Ads & Performance</h3>
-                        <p>Campañas de Google, Meta y TikTok con segmentación precisa para el público chileno y creativos de alto impacto.</p>
+                        <span class="service-icon">📊</span>
+                        <h3>Dashboards & Datos</h3>
+                        <p>Visualiza tu ROI real en tiempo real. Toma decisiones basadas en evidencias, no en suposiciones. Centralizamos tus métricas en tableros interactivos.</p>
+                    </div>
+                </article>
+                <article class="service-card reveal">
+                    <div>
+                        <span class="service-icon">📱</span>
+                        <h3>Ads Performance</h3>
+                        <p>Campañas de alta precisión en Google, Meta y TikTok para maximizar tu retorno.</p>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section (AEO & User Value) -->
-    <section id="faq" class="section-padding" style="background: rgba(255,255,255,0.01)">
+    <section id="metodologia" class="section-padding" style="background: rgba(255,255,255,0.01)">
         <div class="container">
             <div class="section-title reveal">
-                <span class="hero-tag">PREGUNTAS FRECUENTES</span>
-                <h2>Resolviendo tus <span class="gradient-text">Dudas</span></h2>
-                <p>Información clave sobre nuestros servicios de marketing digital en Chile.</p>
+                <span class="hero-tag">Metodología</span>
+                <h2>Cómo <span class="gradient-text">Crecemos</span></h2>
+            </div>
+
+            <div class="methodology-row reveal">
+                <div class="method-img">🔍</div>
+                <div class="method-content">
+                    <span class="method-num">01 / DIAGNÓSTICO</span>
+                    <h3>Auditoría Profunda</h3>
+                    <p>Analizamos tu competencia y tus canales actuales para detectar fugas de dinero y oportunidades de oro.</p>
+                </div>
+            </div>
+
+            <div class="methodology-row reveal">
+                <div class="method-img">🎯</div>
+                <div class="method-content">
+                    <span class="method-num">02 / ESTRATEGIA</span>
+                    <h3>Plan a Medida</h3>
+                    <p>Diseñamos un funnel de ventas digital alineado con los hábitos de consumo del público chileno.</p>
+                </div>
+            </div>
+
+            <div class="methodology-row reveal">
+                <div class="method-img">🚀</div>
+                <div class="method-content">
+                    <span class="method-num">03 / CRECIMIENTO</span>
+                    <h3>Optimización</h3>
+                    <p>Lanzamos, medimos y ajustamos semanalmente para asegurar que tu inversión rinda al máximo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <span class="hero-tag">Dudas Comunes</span>
+                <h2>FAQ <span class="gradient-text">Rápida</span></h2>
             </div>
 
             <div class="faq-grid reveal">
                 <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Qué es el marketing 360° y cómo beneficia a mi negocio en Chile?
-                        <span class="faq-icon">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        El marketing 360° integra todos los canales digitales (SEO, Ads, Web, Social) de forma coherente. En el mercado chileno, esto asegura que tu marca esté presente en cada etapa del viaje del cliente, maximizando la confianza y la conversión.
-                    </div>
+                    <div class="faq-question">¿En cuánto tiempo veré resultados? <span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">Los Ads generan tráfico inmediato. Para SEO/AEO, los resultados sólidos suelen aparecer entre el mes 3 y el 6.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Qué diferencia hay entre SEO y AEO?
-                        <span class="faq-icon">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        El SEO optimiza para buscadores tradicionales como Google. El AEO (Answer Engine Optimization) optimiza para motores de respuesta de IA como ChatGPT o Gemini, asegurando que tu negocio sea la fuente de información que estas IAs recomiendan.
-                    </div>
+                    <div class="faq-question">¿Trabajas con empresas en todo Chile? <span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">Sí, brindo servicios de forma remota a todo el país con una metodología de comunicación constante.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Cuánto tiempo toma ver resultados con una estrategia digital?
-                        <span class="faq-icon">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        Mientras que los Ads pueden generar tráfico inmediato, una estrategia sólida de SEO/AEO suele mostrar resultados significativos entre 3 a 6 meses. Mi enfoque se centra en generar victorias rápidas mientras construimos valor a largo plazo.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Trabajas con negocios fuera de Santiago?
-                        <span class="faq-icon">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        Sí, brindo servicios de marketing digital a empresas en todo Chile, desde Arica hasta Punta Arenas, utilizando metodologías de trabajo remoto altamente efectivas.
-                    </div>
+                    <div class="faq-question">¿Qué es el AEO? <span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">Es la optimización para motores de respuesta de IA como ChatGPT, asegurando que tu marca sea la recomendada por estas IAs.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Parallax Section -->
-    <section class="parallax-banner" role="img" aria-label="Fondo decorativo de marketing digital">
-        <div class="container">
-            <h2 class="reveal">Impulsa tu Presencia Digital en Chile</h2>
-            <p class="reveal" style="font-size: 1.5rem; margin-top: 1rem;">Estrategias locales con visión global.</p>
-        </div>
-    </section>
-
-    <!-- Methodology Section -->
-    <section id="metodologia" class="section-padding">
-        <div class="container">
-            <div class="section-title reveal">
-                <span class="hero-tag">NUESTRA METODOLOGÍA</span>
-                <h2>Resultados <span class="gradient-text">Comprobados</span></h2>
-            </div>
-
-            <div class="methodology-row reveal">
-                <div class="method-img" aria-hidden="true">
-                    <span style="font-size: 5rem;">🔍</span>
-                </div>
-                <article class="method-content">
-                    <span class="method-num">01 / DIAGNÓSTICO</span>
-                    <h3>Auditoría de Mercado Local</h3>
-                    <p>Analizamos tu presencia digital actual frente a tus competidores directos en Chile, identificando brechas de SEO, AEO y usabilidad web.</p>
-                </article>
-            </div>
-
-            <div class="methodology-row reveal">
-                <div class="method-img" aria-hidden="true">
-                    <span style="font-size: 5rem;">🎯</span>
-                </div>
-                <article class="method-content">
-                    <span class="method-num">02 / ESTRATEGIA</span>
-                    <h3>Estrategia Personalizada 360</h3>
-                    <p>Diseñamos un plan de marketing digital que alinea tus objetivos de negocio con las necesidades del consumidor chileno actual.</p>
-                </article>
-            </div>
-
-            <div class="methodology-row reveal">
-                <div class="method-img" aria-hidden="true">
-                    <span style="font-size: 5rem;">🚀</span>
-                </div>
-                <article class="method-content">
-                    <span class="method-num">03 / CRECIMIENTO</span>
-                    <h3>Optimización Continua</h3>
-                    <p>Implementamos, medimos y ajustamos. El marketing digital no es estático; mi trabajo es asegurar que tu inversión rinda cada día más.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience / About Section -->
-    <section id="experiencia" class="section-padding" style="background: rgba(255,255,255,0.02)">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <span class="hero-tag">SOBRE BVYON</span>
-                    <h2>Estratega Digital en <span class="gradient-text">Chile</span></h2>
-                    <p>Con más de 7 años de experiencia, ayudo a empresas chilenas a navegar el complejo mundo digital, combinando tecnología de punta con marketing orientado a ventas.</p>
-                    <ul class="contact-details" role="list">
-                        <li><i>📍</i> Santiago, Chile (Servicio Nacional)</li>
-                        <li><i>✉️</i> b.vyon94@gmail.com</li>
-                        <li><i>⚡</i> Especialista en Performance & SEO</li>
-                    </ul>
-                </div>
-                <div class="reveal">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div class="service-card" style="min-height: 150px; padding: 1.5rem;">
-                            <h4 style="font-size: 2rem; color: var(--primary);">+7</h4>
-                            <p>Años de Historia</p>
-                        </div>
-                        <div class="service-card" style="min-height: 150px; padding: 1.5rem;">
-                            <h4 style="font-size: 2rem; color: var(--accent);">360°</h4>
-                            <p>Enfoque Integral</p>
-                        </div>
-                        <div class="service-card" style="min-height: 150px; padding: 1.5rem;">
-                            <h4 style="font-size: 2rem; color: var(--primary);">Local</h4>
-                            <p>Expertos en Chile</p>
-                        </div>
-                        <div class="service-card" style="min-height: 150px; padding: 1.5rem;">
-                            <h4 style="font-size: 2rem; color: var(--accent);">Data</h4>
-                            <p>Toma de Decisiones</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
     <section id="contacto" class="section-padding">
         <div class="container">
             <div class="contact-grid reveal">
                 <div class="contact-info">
-                    <h2>Agenda tu <span class="gradient-text">Evaluación Gratis</span></h2>
-                    <p>Descubre cómo mejorar tu marketing digital en Chile. Obtén un diagnóstico real y sin compromiso.</p>
-                    <div style="margin-top: 3rem; padding: 2rem; background: rgba(99,102,241,0.1); border-radius: 1.5rem;">
-                        <p style="font-weight: 700; color: white;">¿Qué analizaremos?</p>
-                        <ul style="font-size: 0.9rem; margin-top: 0.8rem; list-style: none; color: var(--text-dim);">
-                            <li style="margin-bottom: 0.5rem;">✓ Estado de tu SEO/AEO actual</li>
-                            <li style="margin-bottom: 0.5rem;">✓ Potencial de conversión de tu web</li>
-                            <li>✓ Oportunidades en Google/Meta Ads</li>
-                        </ul>
-                    </div>
+                    <h2>¿Listo para <span class="gradient-text">Escalar?</span></h2>
+                    <p>Agenda tu evaluación gratuita y recibe un diagnóstico real de tu presencia digital.</p>
+                    <ul class="contact-details">
+                        <li>📍 Santiago, Chile</li>
+                        <li>✉️ b.vyon94@gmail.com</li>
+                        <li>⚡ Respuesta < 24h</li>
+                    </ul>
                 </div>
-                <form id="contactForm" aria-label="Formulario de contacto">
+                <form id="contactForm">
                     <div class="form-group">
-                        <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" placeholder="Ej. Juan Pérez" required>
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email de Contacto</label>
-                        <input type="email" id="email" placeholder="juan@empresa.cl" required>
+                        <label>Email Corporativo</label>
+                        <input type="email" placeholder="tu@empresa.cl" required>
                     </div>
                     <div class="form-group">
-                        <label for="service">Servicio de Interés</label>
-                        <select id="service">
-                            <option>Marketing Digital Completo (360°)</option>
-                            <option>SEO & AEO Local Chile</option>
-                            <option>Automatización con IA</option>
-                            <option>Dashboards de Datos</option>
-                            <option>Diseño Web Profesional</option>
+                        <label>Servicio</label>
+                        <select>
+                            <option>Marketing 360°</option>
+                            <option>SEO / AEO Local</option>
+                            <option>Automatización IA</option>
+                            <option>Diseño Web</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Cuéntanos tu desafío</label>
-                        <textarea id="message" rows="4" placeholder="¿Cómo puedo ayudarte a crecer?"></textarea>
+                        <label>Mensaje</label>
+                        <textarea rows="4" placeholder="¿Cuál es tu desafío hoy?"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Solicitar Evaluación Gratis</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
                 </form>
             </div>
         </div>
@@ -1034,115 +763,87 @@
     <footer>
         <div class="container">
             <a href="#" class="footer-logo"><span>Bvyon</span> Marketing</a>
-            <p style="margin-bottom: 2rem; color: var(--text-dim);">Agencia de Marketing Digital en Chile · Estratega Performance · Santiago</p>
-            <nav class="social-links" aria-label="Redes Sociales">
-                <a href="#" style="color: white; text-decoration: none;">LinkedIn</a>
-                <a href="#" style="color: white; text-decoration: none;">WhatsApp</a>
-            </nav>
-            <p class="copyright">© <span id="year"></span> Bvyon Marketing. Especialistas en Marketing Digital 360 en Chile. Todos los derechos reservados.</p>
+            <p class="footer-text">Agencia Digital 360 especializada en Performance y SEO en Chile.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">WhatsApp</a>
+            </div>
+            <p class="copyright">© <span id="year"></span> Bvyon Marketing. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Set dynamic year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
 
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.textContent = '☰';
             });
         });
 
-        // Intersection Observer for Reveal Animations
-        const observerOptions = {
-            threshold: 0.15
-        };
+        // Scroll Navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
 
-        const revealObserver = new IntersectionObserver((entries) => {
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            revealObserver.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Counter Animation
+        // Counters
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const counter = entry.target;
-                    const target = parseInt(counter.getAttribute('data-target'));
+                    const target = +counter.dataset.target;
                     let count = 0;
-                    const duration = 2000;
-                    const increment = target / (duration / 16);
-
-                    const updateCount = () => {
+                    const update = () => {
+                        const inc = target / 100;
                         if (count < target) {
-                            count += increment;
-                            counter.innerText = Math.ceil(count) + (target === 7 ? '' : '+');
-                            if (target === 360) counter.innerText = Math.ceil(count) + '°';
-                            requestAnimationFrame(updateCount);
+                            count += inc;
+                            counter.innerText = Math.ceil(count) + (target === 360 ? '°' : '+');
+                            setTimeout(update, 20);
                         } else {
-                            counter.innerText = target + (target === 7 ? '' : '+');
-                            if (target === 360) counter.innerText = target + '°';
+                            counter.innerText = target + (target === 360 ? '°' : '+');
                         }
                     };
-                    updateCount();
+                    update();
                     counterObserver.unobserve(counter);
                 }
             });
         }, { threshold: 0.5 });
 
-        document.querySelectorAll('.counter').forEach(counter => {
-            counterObserver.observe(counter);
+        document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
         });
 
-        // Form Submission (Simulated)
+        // Form
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = 'Enviando...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('¡Gracias! Me pondré en contacto contigo en menos de 24 horas para agendar tu evaluación.');
-                btn.innerText = '¡Enviado!';
-                e.target.reset();
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                }, 3000);
-            }, 1500);
-        });
-
-        // Simple Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('.hero-image-container');
-            if (heroImage) {
-                heroImage.style.transform = `perspective(1000px) rotateY(${-10 + scrolled/100}deg) translateY(${scrolled * 0.05}px)`;
-            }
+            alert('¡Gracias! Me pondré en contacto contigo en breve.');
+            e.target.reset();
         });
     </script>
-</body>
-</html>
-
 </body>
 </html>
