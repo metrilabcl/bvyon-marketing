@@ -225,16 +225,190 @@
             min-height: 80vh;
             display: flex;
             align-items: center;
+            position: relative;
         }
 
         .hero-content {
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto var(--space-6);
+            border: 3px solid var(--color-border-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 122, 255, 0.3), inset 0 0 60px rgba(0, 0, 0, 0.5);
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            animation: glitch-shift 8s infinite, rgb-split 6s infinite;
+        }
+
+        /* TV Scanlines */
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.15) 2px,
+                rgba(0, 0, 0, 0.15) 4px
+            );
+            pointer-events: none;
+            z-index: 3;
+            animation: scanline-scroll 10s linear infinite;
+        }
+
+        /* Static Noise Overlay */
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0;
+            pointer-events: none;
+            z-index: 4;
+            animation: static-flicker 0.5s infinite, static-appear 12s infinite;
+        }
+
+        /* Glitch Bar */
+        .glitch-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-accent-blue);
+            z-index: 5;
+            opacity: 0;
+            animation: glitch-bar-move 8s infinite;
+            box-shadow: 0 0 10px var(--color-accent-blue);
+        }
+
+        /* TV Vignette */
+        .tv-vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Signal Loss Effect */
+        .signal-loss {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--color-primary-light);
+            font-size: 12px;
+            opacity: 0;
+            z-index: 6;
+            animation: signal-loss-text 15s infinite;
+            text-shadow: 0 0 5px var(--color-accent-blue);
+            letter-spacing: 2px;
+        }
+
+        /* Animations */
+        @keyframes glitch-shift {
+            0%, 91%, 100% { transform: translate(0); }
+            92% { transform: translate(-3px, 2px); }
+            93% { transform: translate(3px, -2px); }
+            94% { transform: translate(-2px, 3px); }
+            95% { transform: translate(2px, -3px); }
+            96% { transform: translate(-3px, -2px); }
+            97% { transform: translate(3px, 2px); }
+            98% { transform: translate(-2px, -3px); }
+            99% { transform: translate(2px, 3px); }
+        }
+
+        @keyframes rgb-split {
+            0%, 89%, 92%, 100% {
+                filter: none;
+            }
+            90% {
+                filter: drop-shadow(3px 0 0 rgba(255, 0, 0, 0.7)) drop-shadow(-3px 0 0 rgba(0, 255, 255, 0.7));
+            }
+            91% {
+                filter: drop-shadow(-3px 0 0 rgba(255, 0, 0, 0.7)) drop-shadow(3px 0 0 rgba(0, 255, 255, 0.7));
+            }
+        }
+
+        @keyframes scanline-scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        @keyframes static-flicker {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.08; }
+        }
+
+        @keyframes static-appear {
+            0%, 78%, 82%, 85%, 100% { opacity: 0; }
+            80% { opacity: 0.15; }
+            86% { opacity: 0.1; }
+        }
+
+        @keyframes glitch-bar-move {
+            0%, 87%, 100% { top: -10%; opacity: 0; }
+            88% { top: 30%; opacity: 0.8; }
+            89% { top: 60%; opacity: 0.6; }
+            90% { top: 90%; opacity: 0; }
+        }
+
+        @keyframes signal-loss-text {
+            0%, 93%, 100% { opacity: 0; }
+            94% { opacity: 1; }
+            95% { opacity: 0; }
+            96% { opacity: 1; }
+            97% { opacity: 0; }
+        }
+
+        /* Screen Flicker */
+        .hero-image-wrapper {
+            animation: screen-flicker 10s infinite;
+        }
+
+        @keyframes screen-flicker {
+            0%, 98.5%, 100% { opacity: 1; }
+            99% { opacity: 0.8; }
+            99.5% { opacity: 0.9; }
         }
 
         .hero-content h1 {
             color: var(--color-primary-light);
+            position: relative;
+            animation: text-glitch 15s infinite;
+        }
+
+        @keyframes text-glitch {
+            0%, 91%, 100% { transform: translate(0); text-shadow: none; }
+            92% { transform: translate(2px, 0); text-shadow: -2px 0 rgba(255, 0, 0, 0.5); }
+            93% { transform: translate(-2px, 0); text-shadow: 2px 0 rgba(0, 255, 255, 0.5); }
         }
 
         .hero-content p {
@@ -490,6 +664,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
+            <div class="hero-image-wrapper">
+                <img src="assets/hero.png" alt="Bvyon Marketing Hero" class="hero-image">
+                <div class="glitch-bar"></div>
+                <div class="tv-vignette"></div>
+                <div class="signal-loss">NO SIGNAL</div>
+            </div>
             <h1>Domina tu Mercado con Datos.</h1>
             <p class="body-medium">Agencia Digital Premium especializada en Performance, SEO y Estrategias 360° que transforman clics en ingresos reales.</p>
             <div class="hero-actions">
