@@ -20,7 +20,7 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.18;
+            opacity: 0.35;
         }
 
         body > *:not(#bg-canvas) {
@@ -278,6 +278,26 @@
             margin-bottom: var(--space-8);
         }
 
+        .process-row {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-8);
+        }
+
+        .process-icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+            margin-top: 4px;
+            opacity: 0.8;
+            background-color: var(--color-dark-surface);
+            border-radius: var(--radius-micro);
+            padding: 4px;
+            border: 1px solid var(--color-border-warm);
+        }
+
         .process-text h3 {
             font-size: 16px;
             font-weight: 700;
@@ -295,6 +315,25 @@
             display: flex;
             flex-direction: column;
             gap: var(--space-4);
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+        }
+
+        .service-icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+            margin-top: 4px;
+            opacity: 0.8;
+            background-color: var(--color-dark-surface);
+            border-radius: var(--radius-micro);
+            padding: 4px;
+            border: 1px solid var(--color-border-warm);
         }
 
         .service-item h3 {
@@ -468,6 +507,7 @@
         </div>
 
         <div class="process-row">
+            <img src="assets/auditoria.png" alt="Auditoría" class="process-icon">
             <div class="process-text">
                 <h3>01. Auditoría de Impacto</h3>
                 <p>Analizamos cada rincón de tu presencia digital para identificar fugas de conversión y oportunidades ocultas frente a tu competencia.</p>
@@ -475,6 +515,7 @@
         </div>
 
         <div class="process-row">
+            <img src="assets/funnel.png" alt="Embudo" class="process-icon">
             <div class="process-text">
                 <h3>02. Embudo Estratégico</h3>
                 <p>Diseñamos un funnel de ventas optimizado que guía a tu cliente ideal desde el primer contacto hasta la compra recurrente.</p>
@@ -482,6 +523,7 @@
         </div>
 
         <div class="process-row">
+            <img src="assets/optimizcion.png" alt="Crecimiento" class="process-icon">
             <div class="process-text">
                 <h3>03. Escalamiento Agresivo</h3>
                 <p>Lanzamos y refinamos campañas semanalmente, enfocándonos en maximizar tu ROI con decisiones basadas 100% en evidencia.</p>
@@ -498,28 +540,43 @@
 
         <div class="services-list">
             <div class="service-item">
-                <h3>Diseño Web de Conversión</h3>
-                <p>Interfaces ultra-rápidas diseñadas psicológicamente para convertir visitantes en clientes.</p>
+                <img src="assets/disenoweb.png" alt="Diseño Web" class="service-icon">
+                <div>
+                    <h3>Diseño Web de Conversión</h3>
+                    <p>Interfaces ultra-rápidas diseñadas psicológicamente para convertir visitantes en clientes.</p>
+                </div>
             </div>
 
             <div class="service-item">
-                <h3>Dashboards en Vivo</h3>
-                <p>Visualiza tu ROI en tiempo real con tableros interactivos.</p>
+                <img src="assets/dashboards.png" alt="Dashboards" class="service-icon">
+                <div>
+                    <h3>Dashboards en Vivo</h3>
+                    <p>Visualiza tu ROI en tiempo real con tableros interactivos.</p>
+                </div>
             </div>
 
             <div class="service-item">
-                <h3>Estrategia SEO & AEO</h3>
-                <p>Dominamos Google y los nuevos motores de respuesta de IA.</p>
+                <img src="assets/aeoseo.png" alt="SEO y AEO" class="service-icon">
+                <div>
+                    <h3>Estrategia SEO & AEO</h3>
+                    <p>Dominamos Google y los nuevos motores de respuesta de IA.</p>
+                </div>
             </div>
 
             <div class="service-item">
-                <h3>Automatización IA</h3>
-                <p>Sistemas inteligentes que califican leads y ahorran horas de trabajo manual.</p>
+                <img src="assets/automatizaciones.png" alt="Automatización IA" class="service-icon">
+                <div>
+                    <h3>Automatización IA</h3>
+                    <p>Sistemas inteligentes que califican leads y ahorran horas de trabajo manual.</p>
+                </div>
             </div>
 
             <div class="service-item">
-                <h3>Ads Performance</h3>
-                <p>Publicidad de precisión en Google y Meta para captar demanda activa hoy mismo.</p>
+                <img src="assets/PAIDMEDIA.png" alt="Publicidad" class="service-icon">
+                <div>
+                    <h3>Ads Performance</h3>
+                    <p>Publicidad de precisión en Google y Meta para captar demanda activa hoy mismo.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -588,112 +645,456 @@
             window.open(`https://wa.me/56937441215?text=${encodeURIComponent(text)}`, '_blank');
         });
 
-        /* === Background Terminal Animation === */
+        /* === Background Animation === */
         (function() {
             const canvas = document.getElementById('bg-canvas');
             const ctx = canvas.getContext('2d');
             let width, height;
-            let columns = [];
-            const fontSize = 14;
-            const lineHeight = 20;
+            const fontSize = 12;
 
             const colors = {
-                primary: 'rgba(253, 252, 252, 0.6)',
-                accent: 'rgba(0, 122, 255, 0.5)',
-                muted: 'rgba(154, 152, 152, 0.4)',
-                success: 'rgba(48, 209, 88, 0.5)',
-                warning: 'rgba(255, 159, 10, 0.5)'
+                primary: 'rgba(253, 252, 252, 0.5)',
+                accent: 'rgba(0, 122, 255, 0.4)',
+                muted: 'rgba(154, 152, 152, 0.3)',
+                success: 'rgba(48, 209, 88, 0.4)',
+                warning: 'rgba(255, 159, 10, 0.4)',
+                red: 'rgba(255, 59, 48, 0.4)'
             };
 
             const snippets = [
-                '> analyze --dataset traffic_q4.csv --model xgboost',
-                '> ROI: +347% | CAC: -52% | LTV: +128%',
-                '> pipeline run --automation leads --schedule "0 */2 * * *"',
-                '> predict --target conversions --horizon 30d --confidence 0.95',
-                '> alert: optimization cycle complete [12ms]',
-                '> model.fit(X_train, y_train) -> accuracy: 0.978',
-                '> scraper.start(url="competitors") -> 1.2k records',
-                '> webhook: new_lead {source: "google_ads", score: 92}',
-                '> dashboard.update(metric="revenue", value=+$48,200)',
-                '> nlp.process("sentiment") -> positive: 87% neutral: 11%',
-                '> auto_scale: budget +$2k | roas 4.2x maintained',
-                '> query: SELECT * FROM conversions WHERE roi > 2.0',
-                '> agent.deploy(name="bvyon_ai", model="gpt-4o")',
-                '> a/b_test: variant_b +23% vs control (p<0.01)',
-                '> sync: crm -> bigquery | 4,892 records updated',
-                '> funnel.stage: aware(12k) -> consider(3.4k) -> convert(890)',
-                '> anomaly_detected: spike in cart_abandon at 14:32 UTC',
-                '> cache.hit_ratio: 94.7% | latency: p99 42ms',
-                '> segment.create(name="high_value", criteria="ltv>500")',
-                '> retrain: model_v2.4 -> loss: 0.023 | saved to /models/',
-                '> api.rate_limit: 1.2k/5k req | reset in 2,381s',
-                '> kpi: ctr 4.8% | cpc $0.32 | conv_rate 6.1%',
-                '> cluster.analysis: 5 segments identified via k-means',
-                '> backup: snapshots/2026-04-28/ complete [3.2GB]',
-                '> chatbot.sessions: 342 active | avg_resolution: 2.4min'
+                '> ROI: +347% | CAC: -52%',
+                '> predict --target conversions --horizon 30d',
+                '> pipeline.run --automation leads',
+                '> model.fit -> accuracy: 0.978',
+                '> webhook: new_lead score: 92',
+                '> dashboard.update revenue +$48k',
+                '> nlp.sentiment -> positive 87%',
+                '> auto_scale: roas 4.2x',
+                '> funnel: aware->consider->convert',
+                '> segment: high_value ltv>500',
+                '> kpi: ctr 4.8% | conv 6.1%',
+                '> cluster: 5 segments via k-means',
+                '> chatbot: 342 sessions active',
+                '> api: 1.2k/5k req | reset 2.3ks',
+                '> CPC: $0.42 | CPM: $3.80',
+                '> ROAS: 5.2x | LTV: $1,247',
+                '> ga4.event: purchase x48',
+                '> meta.ads: ctr 2.3% | conv 4.1%',
+                '> gads: impressions 120k | clicks 4.8k',
+                '> email.open_rate: 34.2%',
+                '> sms.delivered: 98.7%',
+                '> cron: daily_report -> sent',
+                '> ab_test: variant_b +12.3%',
+                '> pixel: event Purchase x127',
+                '> zapier: 342 zaps active',
+                '> mq: queue_depth 23 | processed 1.2k',
+                '> cache.hit_ratio: 94.2%',
+                '> cdn.bandwidth: 48.2GB/mo',
+                '> seo: rank #1 keyword x12',
+                '> serp: featured_snippet x3',
+                '> llm.prompt: tokens 2.3k | cost $0.04',
+                '> vector.db: embeddings 48k',
+                '> rag.query: latency 120ms',
+                '> agent: task_complete x89',
+                '> workflow: trigger -> action',
+                '> sql: SELECT * FROM conversions',
+                '> js: addEventListener(click...)',
+                '> python: def optimize():',
+                '> git push origin main -> done',
+                '> docker: container_running x5'
             ];
 
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-                const cols = Math.floor(width / (fontSize * 0.6));
-                columns = [];
-                for (let i = 0; i < cols; i++) {
-                    if (Math.random() < 0.35) {
-                        columns.push({
-                            x: i * (fontSize * 0.6),
-                            y: Math.random() * -height,
-                            speed: 0.3 + Math.random() * 0.7,
-                            lines: generateLines(8 + Math.floor(Math.random() * 12)),
-                            color: randomColor(),
-                            blink: Math.random() < 0.3
-                        });
-                    }
-                }
-            }
+            const marketingTags = [
+                'SEO', 'AEO', 'PPC', 'ROAS', 'CTR', 'CPC', 'CPM',
+                'LTV', 'CAC', 'Churn', 'KPI', 'ROI', 'CRM', 'SaaS',
+                'B2B', 'B2C', 'UX', 'UI', 'API', 'Webhook', 'Pixel',
+                'Attribution', 'Funnel', 'Lead', 'Churn', 'Retention',
+                'AI', 'ML', 'NLP', 'LLM', 'GPT', 'RAG', 'Vector',
+                'Automation', 'Workflow', 'Zapier', 'Segment', 'GA4'
+            ];
 
-            function generateLines(count) {
-                const result = [];
-                for (let i = 0; i < count; i++) {
-                    result.push(snippets[Math.floor(Math.random() * snippets.length)]);
-                }
-                return result;
-            }
+            const kpiMetrics = [
+                { label: 'ROAS', value: '4.2x', color: 'success' },
+                { label: 'CTR', value: '3.8%', color: 'accent' },
+                { label: 'CVR', value: '6.1%', color: 'success' },
+                { label: 'CPC', value: '$0.42', color: 'warning' },
+                { label: 'LTV', value: '$1.2k', color: 'accent' },
+                { label: 'CAC', value: '$48', color: 'warning' },
+                { label: 'ROI', value: '+347%', color: 'success' },
+                { label: 'Bounce', value: '32%', color: 'muted' },
+                { label: 'Sessions', value: '48k', color: 'accent' },
+                { label: 'Conv', value: '1.2k', color: 'success' }
+            ];
+
+            const codeLines = [
+                '{ ... }',
+                '() => {}',
+                'if (x > 0) { ... }',
+                'for (let i = 0; i < n; i++)',
+                'return data.map(x => x * 2)',
+                'const [state, setState] = useState()',
+                'try { ... } catch(e) { ... }',
+                'async function fetchData() { ... }',
+                'import { ... } from module',
+                'export default class Campaign { ... }'
+            ];
+
+            let elements = [];
 
             function randomColor() {
                 const keys = Object.keys(colors);
                 return colors[keys[Math.floor(Math.random() * keys.length)]];
             }
 
+            function createTextElement() {
+                return {
+                    type: 'text',
+                    x: Math.random() * width,
+                    y: -20,
+                    speed: 0.2 + Math.random() * 0.4,
+                    text: snippets[Math.floor(Math.random() * snippets.length)],
+                    color: randomColor(),
+                    alpha: 0.3 + Math.random() * 0.4
+                };
+            }
+
+            function createBarChart() {
+                const barCount = 4 + Math.floor(Math.random() * 6);
+                const barWidth = 3;
+                const gap = 2;
+                const bars = [];
+                for (let i = 0; i < barCount; i++) {
+                    bars.push({
+                        height: 10 + Math.random() * 40,
+                        color: Math.random() < 0.5 ? colors.accent : colors.success
+                    });
+                }
+                return {
+                    type: 'bars',
+                    x: Math.random() * width,
+                    y: -60,
+                    speed: 0.15 + Math.random() * 0.25,
+                    bars: bars,
+                    barWidth: barWidth,
+                    gap: gap,
+                    width: barCount * (barWidth + gap),
+                    alpha: 0.2 + Math.random() * 0.3
+                };
+            }
+
+            function createNodes() {
+                const nodeCount = 3 + Math.floor(Math.random() * 4);
+                const nodes = [];
+                const cx = Math.random() * width;
+                const cy = -50;
+                for (let i = 0; i < nodeCount; i++) {
+                    const angle = (i / nodeCount) * Math.PI * 2;
+                    nodes.push({
+                        x: cx + Math.cos(angle) * 20,
+                        y: cy + Math.sin(angle) * 20,
+                        r: 2 + Math.random() * 2
+                    });
+                }
+                return {
+                    type: 'nodes',
+                    x: cx,
+                    y: cy,
+                    speed: 0.1 + Math.random() * 0.2,
+                    nodes: nodes,
+                    color: colors.accent,
+                    alpha: 0.2 + Math.random() * 0.3,
+                    phase: Math.random() * Math.PI * 2
+                };
+            }
+
+            function createLineGraph() {
+                const points = 6 + Math.floor(Math.random() * 6);
+                const data = [];
+                for (let i = 0; i < points; i++) {
+                    data.push(Math.random());
+                }
+                return {
+                    type: 'line',
+                    x: Math.random() * width,
+                    y: -40,
+                    speed: 0.12 + Math.random() * 0.2,
+                    data: data,
+                    width: points * 8,
+                    color: colors.success,
+                    alpha: 0.2 + Math.random() * 0.3
+                };
+            }
+
+            function createIcon() {
+                const icons = ['circle', 'square', 'diamond', 'triangle'];
+                return {
+                    type: 'icon',
+                    x: Math.random() * width,
+                    y: -30,
+                    speed: 0.08 + Math.random() * 0.15,
+                    shape: icons[Math.floor(Math.random() * icons.length)],
+                    size: 6 + Math.random() * 8,
+                    color: randomColor(),
+                    alpha: 0.15 + Math.random() * 0.25,
+                    rotation: Math.random() * Math.PI
+                };
+            }
+
+            function createKPIBox() {
+                const kpi = kpiMetrics[Math.floor(Math.random() * kpiMetrics.length)];
+                return {
+                    type: 'kpi',
+                    x: Math.random() * width,
+                    y: -30,
+                    speed: 0.1 + Math.random() * 0.2,
+                    label: kpi.label,
+                    value: kpi.value,
+                    color: colors[kpi.color],
+                    alpha: 0.2 + Math.random() * 0.3,
+                    width: 70,
+                    height: 28
+                };
+            }
+
+            function createTag() {
+                return {
+                    type: 'tag',
+                    x: Math.random() * width,
+                    y: -20,
+                    speed: 0.15 + Math.random() * 0.25,
+                    text: marketingTags[Math.floor(Math.random() * marketingTags.length)],
+                    color: randomColor(),
+                    alpha: 0.2 + Math.random() * 0.3,
+                    padding: 4
+                };
+            }
+
+            function createCodeLine() {
+                return {
+                    type: 'code',
+                    x: Math.random() * width,
+                    y: -20,
+                    speed: 0.2 + Math.random() * 0.3,
+                    text: codeLines[Math.floor(Math.random() * codeLines.length)],
+                    color: colors.muted,
+                    alpha: 0.15 + Math.random() * 0.25
+                };
+            }
+
+            function createDot() {
+                return {
+                    type: 'dot',
+                    x: Math.random() * width,
+                    y: -10,
+                    speed: 0.05 + Math.random() * 0.1,
+                    size: 1 + Math.random() * 1.5,
+                    color: randomColor(),
+                    alpha: 0.1 + Math.random() * 0.2
+                };
+            }
+
+            function createHLine() {
+                return {
+                    type: 'hline',
+                    x: Math.random() * width,
+                    y: -5,
+                    speed: 0.03 + Math.random() * 0.06,
+                    length: 30 + Math.random() * 60,
+                    color: randomColor(),
+                    alpha: 0.08 + Math.random() * 0.12,
+                    lineWidth: 0.5
+                };
+            }
+
+            function init() {
+                elements = [];
+                for (let i = 0; i < 300; i++) {
+                    const el = createNewElement();
+                    el.y = Math.random() * height;
+                    if (el.type === 'bars') el.y = Math.random() * height * 0.9;
+                    if (el.type === 'nodes') el.y = Math.random() * height * 0.9;
+                    if (el.type === 'hline') el.y = Math.random() * height;
+                    elements.push(el);
+                }
+            }
+
             function draw() {
                 ctx.clearRect(0, 0, width, height);
                 ctx.font = `${fontSize}px 'Berkeley Mono', 'IBM Plex Mono', monospace`;
 
-                columns.forEach(col => {
-                    col.y += col.speed;
-                    if (col.y > height + col.lines.length * lineHeight) {
-                        col.y = -col.lines.length * lineHeight;
-                        col.lines = generateLines(8 + Math.floor(Math.random() * 12));
-                        col.color = randomColor();
+                elements.forEach((el, idx) => {
+                    el.y += el.speed;
+
+                    if (el.y > height + 100) {
+                        elements[idx] = createNewElement();
+                        return;
                     }
 
-                    col.lines.forEach((line, i) => {
-                        const y = col.y + i * lineHeight;
-                        if (y > -lineHeight && y < height + lineHeight) {
-                            const alpha = i === 0 ? 1 : Math.max(0.1, 1 - (i / col.lines.length) * 0.8);
-                            ctx.fillStyle = col.color.replace(/[\d.]+\)$/, alpha + ')');
-                            ctx.fillText(line, col.x, y);
+                    ctx.globalAlpha = el.alpha;
 
-                            if (col.blink && i === 0) {
-                                const blinkAlpha = Math.sin(Date.now() / 500) * 0.5 + 0.5;
-                                ctx.fillStyle = `rgba(253, 252, 252, ${blinkAlpha * 0.8})`;
-                                ctx.fillText('█', col.x + ctx.measureText(line).width + 2, y);
+                    switch(el.type) {
+                        case 'text':
+                            ctx.fillStyle = el.color;
+                            ctx.fillText(el.text, el.x, el.y);
+                            break;
+
+                        case 'bars':
+                            el.bars.forEach((bar, i) => {
+                                ctx.fillStyle = bar.color;
+                                ctx.fillRect(
+                                    el.x + i * (el.barWidth + el.gap),
+                                    el.y + 50 - bar.height,
+                                    el.barWidth,
+                                    bar.height
+                                );
+                            });
+                            break;
+
+                        case 'nodes':
+                            const t = Date.now() / 2000 + el.phase;
+                            el.nodes.forEach((node, i) => {
+                                const nx = el.x + Math.cos(t + i) * 5;
+                                const ny = el.y + Math.sin(t + i) * 5;
+                                ctx.beginPath();
+                                ctx.arc(nx, ny, node.r, 0, Math.PI * 2);
+                                ctx.fillStyle = el.color;
+                                ctx.fill();
+                                el.nodes.forEach((other, j) => {
+                                    if (j > i) {
+                                        const ox = el.x + Math.cos(t + j) * 5;
+                                        const oy = el.y + Math.sin(t + j) * 5;
+                                        ctx.beginPath();
+                                        ctx.moveTo(nx, ny);
+                                        ctx.lineTo(ox, oy);
+                                        ctx.strokeStyle = el.color;
+                                        ctx.lineWidth = 0.5;
+                                        ctx.stroke();
+                                    }
+                                });
+                            });
+                            break;
+
+                        case 'line':
+                            ctx.beginPath();
+                            ctx.strokeStyle = el.color;
+                            ctx.lineWidth = 1;
+                            el.data.forEach((val, i) => {
+                                const px = el.x + i * (el.width / (el.data.length - 1));
+                                const py = el.y + 30 - val * 25;
+                                if (i === 0) ctx.moveTo(px, py);
+                                else ctx.lineTo(px, py);
+                            });
+                            ctx.stroke();
+                            break;
+
+                        case 'icon':
+                            ctx.save();
+                            ctx.translate(el.x, el.y);
+                            ctx.rotate(el.rotation);
+                            ctx.fillStyle = el.color;
+                            switch(el.shape) {
+                                case 'circle':
+                                    ctx.beginPath();
+                                    ctx.arc(0, 0, el.size / 2, 0, Math.PI * 2);
+                                    ctx.fill();
+                                    break;
+                                case 'square':
+                                    ctx.fillRect(-el.size/2, -el.size/2, el.size, el.size);
+                                    break;
+                                case 'diamond':
+                                    ctx.beginPath();
+                                    ctx.moveTo(0, -el.size/2);
+                                    ctx.lineTo(el.size/2, 0);
+                                    ctx.lineTo(0, el.size/2);
+                                    ctx.lineTo(-el.size/2, 0);
+                                    ctx.closePath();
+                                    ctx.fill();
+                                    break;
+                                case 'triangle':
+                                    ctx.beginPath();
+                                    ctx.moveTo(0, -el.size/2);
+                                    ctx.lineTo(el.size/2, el.size/2);
+                                    ctx.lineTo(-el.size/2, el.size/2);
+                                    ctx.closePath();
+                                    ctx.fill();
+                                    break;
                             }
-                        }
-                    });
+                            ctx.restore();
+                            break;
+
+                        case 'kpi':
+                            ctx.fillStyle = 'rgba(48, 44, 44, 0.3)';
+                            ctx.fillRect(el.x, el.y - el.height, el.width, el.height);
+                            ctx.strokeStyle = el.color;
+                            ctx.lineWidth = 0.5;
+                            ctx.strokeRect(el.x, el.y - el.height, el.width, el.height);
+                            ctx.fillStyle = el.color;
+                            ctx.font = `bold ${fontSize - 1}px 'Berkeley Mono', monospace`;
+                            ctx.fillText(el.label, el.x + 4, el.y - 14);
+                            ctx.font = `${fontSize - 2}px 'Berkeley Mono', monospace`;
+                            ctx.fillText(el.value, el.x + 4, el.y - 4);
+                            ctx.font = `${fontSize}px 'Berkeley Mono', monospace`;
+                            break;
+
+                        case 'tag':
+                            const textWidth = ctx.measureText(el.text).width;
+                            const pw = textWidth + el.padding * 2;
+                            const ph = fontSize + el.padding;
+                            ctx.fillStyle = 'rgba(48, 44, 44, 0.3)';
+                            ctx.fillRect(el.x, el.y - ph, pw, ph);
+                            ctx.strokeStyle = el.color;
+                            ctx.lineWidth = 0.5;
+                            ctx.strokeRect(el.x, el.y - ph, pw, ph);
+                            ctx.fillStyle = el.color;
+                            ctx.fillText(el.text, el.x + el.padding, el.y - el.padding / 2);
+                            break;
+
+                        case 'code':
+                            ctx.fillStyle = el.color;
+                            ctx.fillText(el.text, el.x, el.y);
+                            break;
+
+                        case 'dot':
+                            ctx.beginPath();
+                            ctx.arc(el.x, el.y, el.size, 0, Math.PI * 2);
+                            ctx.fillStyle = el.color;
+                            ctx.fill();
+                            break;
+
+                        case 'hline':
+                            ctx.strokeStyle = el.color;
+                            ctx.lineWidth = el.lineWidth;
+                            ctx.beginPath();
+                            ctx.moveTo(el.x, el.y);
+                            ctx.lineTo(el.x + el.length, el.y);
+                            ctx.stroke();
+                            break;
+                    }
+
+                    ctx.globalAlpha = 1;
                 });
 
                 requestAnimationFrame(draw);
+            }
+
+            function createNewElement() {
+                const r = Math.random();
+                if (r < 0.08) return createTextElement();
+                if (r < 0.14) return createBarChart();
+                if (r < 0.20) return createNodes();
+                if (r < 0.26) return createLineGraph();
+                if (r < 0.32) return createIcon();
+                if (r < 0.38) return createKPIBox();
+                if (r < 0.50) return createTag();
+                if (r < 0.62) return createCodeLine();
+                if (r < 0.74) return createHLine();
+                return createDot();
+            }
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                init();
             }
 
             window.addEventListener('resize', resize);
