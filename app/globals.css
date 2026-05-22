@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  /* TODO: Replace with final brand colors from MET-4 */
+  --brand-primary: #1a2744;
+  --brand-accent: #f59e0b;
+  --background: #ffffff;
+  --foreground: #1a2744;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+}
