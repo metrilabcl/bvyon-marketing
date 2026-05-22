@@ -257,12 +257,12 @@ export default function HomePage() {
       <section className="py-20 bg-[#FF6B2B]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-4xl font-black text-white mb-4"
+            className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
             style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
           >
             ¿Listo para crecer sin límites?
           </h2>
-          <p className="text-white/80 text-lg mb-8">
+          <p className="text-[#0D1B4B]/80 text-lg mb-8">
             La primera consulta es sin costo. Cuéntanos sobre tu empresa.
           </p>
           <Link

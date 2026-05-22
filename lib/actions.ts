@@ -8,6 +8,10 @@ export type LeadFormState = {
   error?: string;
 };
 
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 export async function submitLeadForm(
   prevState: LeadFormState,
   formData: FormData
@@ -37,18 +41,16 @@ export async function submitLeadForm(
     message,
   };
 
-  let persistError: string | null = null;
-
-  // 1. Persist to JSONL (non-fatal in production environments)
+  // 1. Persist to JSONL — non-fatal (serverless environments may have read-only fs)
   try {
     const leadsDir = path.join(process.cwd(), "data", "leads");
     await mkdir(leadsDir, { recursive: true });
     await writeFile(path.join(leadsDir, "leads.jsonl"), JSON.stringify(lead) + "\n", { flag: "a" });
   } catch {
-    persistError = "file_write_failed";
+    // Intentionally swallowed: file write is a backup, not the primary channel
   }
 
-  // 2. Outbound webhook — set CONTACT_WEBHOOK_URL in env to enable
+  // 2. Outbound webhook — set CONTACT_WEBHOOK_URL to enable
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
   if (webhookUrl) {
     try {
@@ -57,16 +59,38 @@ export async function submitLeadForm(
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(lead),
       });
-      if (!res.ok) persistError = `webhook_${res.status}`;
+      if (!res.ok) {
+        console.error("[contact-form] webhook error", res.status, await res.text().catch(() => ""));
+        return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a marketing@agencia360.cl" };
+      }
     } catch (err) {
-      persistError = `webhook_error: ${String(err)}`;
+      console.error("[contact-form] webhook fetch error", err);
+      return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a marketing@agencia360.cl" };
     }
   }
 
-  // 3. Email via Resend — set RESEND_API_KEY and CONTACT_EMAIL in env to enable
+  // 3. Email via Resend — set RESEND_API_KEY (and optionally CONTACT_EMAIL) to enable
   const resendKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL ?? "marketing@agencia360.cl";
   if (resendKey) {
+    const rows = [
+      ["Nombre", name],
+      ["Email", email],
+      ...(phone ? [["Teléfono", phone]] : []),
+      ...(company ? [["Empresa", company]] : []),
+      ...(service ? [["Servicio", service]] : []),
+      ["Mensaje", message],
+    ] as [string, string][];
+
+    const tableRows = rows
+      .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-weight:600;white-space:nowrap">${escapeHtml(k)}:</td><td style="padding:4px 0">${escapeHtml(v)}</td></tr>`)
+      .join("");
+
+    const html = `<!DOCTYPE html><html lang="es"><body style="font-family:sans-serif;color:#0D1B4B;max-width:600px;margin:0 auto;padding:24px">
+<h2 style="color:#FF6B2B;margin-top:0">Nuevo Lead — Agencia 360</h2>
+<table style="border-collapse:collapse">${tableRows}</table>
+</body></html>`;
+
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -78,29 +102,16 @@ export async function submitLeadForm(
           from: "Agencia 360 Website <noreply@agencia360.cl>",
           to: [contactEmail],
           reply_to: email,
-          subject: `Nuevo lead: ${name} (${company || "sin empresa"})`,
-          html: `<h2>Nuevo contacto desde agencia360.cl</h2>
-<table>
-<tr><td><strong>Nombre</strong></td><td>${name}</td></tr>
-<tr><td><strong>Email</strong></td><td>${email}</td></tr>
-<tr><td><strong>Teléfono</strong></td><td>${phone || "—"}</td></tr>
-<tr><td><strong>Empresa</strong></td><td>${company || "—"}</td></tr>
-<tr><td><strong>Servicio</strong></td><td>${service || "—"}</td></tr>
-<tr><td><strong>Mensaje</strong></td><td>${message}</td></tr>
-</table>`,
+          subject: `Nuevo lead: ${name}${company ? ` (${company})` : ""}`,
+          html,
         }),
       });
-      if (!res.ok) persistError = `resend_${res.status}`;
+      if (!res.ok) {
+        console.error("[contact-form] Resend error", res.status, await res.text().catch(() => ""));
+        return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a marketing@agencia360.cl" };
+      }
     } catch (err) {
-      persistError = `resend_error: ${String(err)}`;
-    }
-  }
-
-  // Return failure only when ALL persistence paths failed and none were configured
-  if (persistError && !webhookUrl && !resendKey) {
-    // File write failed, no fallbacks configured — surface the error in production
-    if (process.env.NODE_ENV === "production") {
-      console.error("[contact-form] All persistence failed:", persistError, lead);
+      console.error("[contact-form] Resend fetch error", err);
       return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a marketing@agencia360.cl" };
     }
   }
