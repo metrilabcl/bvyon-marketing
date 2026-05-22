@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* TODO: Replace with final brand colors from MET-4 */
-  --brand-primary: #1a2744;
-  --brand-accent: #f59e0b;
-  --background: #ffffff;
-  --foreground: #1a2744;
+  /* Brand colors from MET-4 v1.0 */
+  --color-primary: #0D1B4B;
+  --color-accent: #FF6B2B;
+  --color-white: #FFFFFF;
+  --color-dark: #0A0E1A;
+  --color-slate: #4A5568;
+  --color-light: #F7F9FC;
+  --color-primary-light: #E8EDF7;
+
+  --background: var(--color-white);
+  --foreground: var(--color-dark);
 }
 
 html {
@@ -15,5 +21,4 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, sans-serif;
 }

@@ -14,13 +14,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-[#E8EDF7] shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo — TODO: Replace with brand logo from MET-4 */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black tracking-tight text-[#1a2744]">
-              Agencia<span className="text-[#f59e0b]">360</span>
+          <Link href="/" className="flex items-center gap-1">
+            <span
+              className="text-2xl font-black tracking-tight text-[#0D1B4B]"
+              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            >
+              Agencia<span className="text-[#FF6B2B]">360</span>
             </span>
           </Link>
 
@@ -30,14 +32,14 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-[#1a2744] transition-colors"
+                className="text-sm font-medium text-[#4A5568] hover:text-[#0D1B4B] transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/contacto"
-              className="px-5 py-2 bg-[#f59e0b] text-white text-sm font-semibold rounded-lg hover:bg-[#d97706] transition-colors"
+              className="px-5 py-2.5 bg-[#FF6B2B] text-white text-sm font-semibold rounded-lg hover:bg-[#e85e22] transition-colors"
             >
               Cotizar
             </Link>
@@ -45,7 +47,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#1a2744] hover:bg-gray-100"
+            className="md:hidden p-2 rounded-lg text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
             onClick={() => setOpen(!open)}
             aria-label="Abrir menú"
           >
@@ -63,14 +65,14 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden py-4 border-t border-gray-100">
+          <div className="md:hidden py-4 border-t border-[#E8EDF7]">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-[#1a2744] hover:bg-gray-50"
+                  className="px-3 py-2 rounded-lg text-sm font-medium text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
                 >
                   {link.label}
                 </Link>
@@ -78,7 +80,7 @@ export default function Navbar() {
               <Link
                 href="/contacto"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-5 py-2.5 bg-[#f59e0b] text-white text-sm font-semibold rounded-lg text-center hover:bg-[#d97706]"
+                className="mt-2 px-5 py-3 bg-[#FF6B2B] text-white text-sm font-semibold rounded-lg text-center hover:bg-[#e85e22]"
               >
                 Cotizar
               </Link>
