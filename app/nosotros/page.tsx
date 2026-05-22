@@ -180,7 +180,7 @@ export default function NosotrosPage() {
           </p>
           <Link
             href="/contacto"
-            className="inline-block px-10 py-4 bg-[#FF6B2B] text-white font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
+            className="inline-block px-10 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
           >
             Contactar al equipo
           </Link>

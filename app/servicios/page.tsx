@@ -180,7 +180,7 @@ export default function ServiciosPage() {
                 }`}
               >
                 {pkg.highlight && (
-                  <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-white text-xs font-bold rounded-full mb-3">
+                  <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold rounded-full mb-3">
                     ⭐ Popular
                   </span>
                 )}
@@ -211,7 +211,7 @@ export default function ServiciosPage() {
                   href="/contacto"
                   className={`block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                     pkg.highlight
-                      ? "bg-[#FF6B2B] text-white hover:bg-[#e85e22]"
+                      ? "bg-[#FF6B2B] text-[#0D1B4B] hover:bg-[#e85e22]"
                       : "border border-[#0D1B4B] text-[#0D1B4B] hover:bg-[#0D1B4B] hover:text-white"
                   }`}
                 >
@@ -237,7 +237,7 @@ export default function ServiciosPage() {
           </p>
           <Link
             href="/contacto"
-            className="inline-block px-10 py-4 bg-[#FF6B2B] text-white font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
+            className="inline-block px-10 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
           >
             Hablar con un experto
           </Link>

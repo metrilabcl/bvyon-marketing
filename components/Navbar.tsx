@@ -39,7 +39,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contacto"
-              className="px-5 py-2.5 bg-[#FF6B2B] text-white text-sm font-semibold rounded-lg hover:bg-[#e85e22] transition-colors"
+              className="px-5 py-2.5 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg hover:bg-[#e85e22] transition-colors"
             >
               Cotizar
             </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
               <Link
                 href="/contacto"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-5 py-3 bg-[#FF6B2B] text-white text-sm font-semibold rounded-lg text-center hover:bg-[#e85e22]"
+                className="mt-2 px-5 py-3 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg text-center hover:bg-[#e85e22]"
               >
                 Cotizar
               </Link>

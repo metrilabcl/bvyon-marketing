@@ -52,7 +52,7 @@ export default function ContactoPage() {
                     { step: "4", title: "Ejecución y resultados", desc: "Trabajo semanal con dashboard en tiempo real y reuniones de resultados." },
                   ].map((item) => (
                     <li key={item.step} className="flex gap-4">
-                      <div className="w-8 h-8 rounded-full bg-[#FF6B2B] text-white text-sm font-bold flex items-center justify-center shrink-0"
+                      <div className="w-8 h-8 rounded-full bg-[#FF6B2B] text-[#0D1B4B] text-sm font-bold flex items-center justify-center shrink-0"
                         style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                       >
                         {item.step}

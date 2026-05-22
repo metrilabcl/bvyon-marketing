@@ -52,7 +52,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contacto"
-                className="px-8 py-4 bg-[#FF6B2B] text-white font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
+                className="px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
               >
                 Solicitar cotización
               </Link>
@@ -212,12 +212,12 @@ export default function HomePage() {
                 key={pkg.name}
                 className={`rounded-2xl p-6 border transition-all ${
                   pkg.highlight
-                    ? "bg-[#0D1B4B] border-[#0D1B4B] text-white shadow-xl scale-105"
+                    ? "bg-[#0D1B4B] border-[#0D1B4B] text-white shadow-xl lg:scale-105"
                     : "bg-white border-[#E8EDF7] hover:shadow-md"
                 }`}
               >
                 {pkg.highlight && (
-                  <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-white text-xs font-bold rounded-full mb-3">
+                  <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold rounded-full mb-3">
                     Popular
                   </span>
                 )}
@@ -238,7 +238,7 @@ export default function HomePage() {
                   href="/contacto"
                   className={`block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                     pkg.highlight
-                      ? "bg-[#FF6B2B] text-white hover:bg-[#e85e22]"
+                      ? "bg-[#FF6B2B] text-[#0D1B4B] hover:bg-[#e85e22]"
                       : "border border-[#0D1B4B] text-[#0D1B4B] hover:bg-[#0D1B4B] hover:text-white"
                   }`}
                 >
