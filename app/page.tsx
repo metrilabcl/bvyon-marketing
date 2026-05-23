@@ -32,41 +32,68 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero — full-bleed background image */}
-      <section
-        className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden"
-        style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-      >
-        {/* Dark gradient overlay: opaque left (text), transparent right (reveals screens) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060c1e]/97 via-[#060c1e]/80 to-[#060c1e]/30" />
+      {/* Hero — Profile layout with founder photo */}
+      <section className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden bg-[#060c1e]">
+        {/* Brand gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0D1B4B] via-[#091438] to-[#060c1e]" />
+        {/* Subtle ambient glow behind photo (right half) */}
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 hidden lg:block"
+          style={{ backgroundImage: "url('/banner.png')", backgroundSize: "cover", backgroundPosition: "center top", filter: "blur(48px)" }}
+        />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10 w-full">
-          <div className="max-w-2xl">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-6">
-              Marketing Digital · Norte de Chile
-            </span>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              Marketing sin límites para el{" "}
-              <span className="text-[#FF6B2B]">norte de Chile</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
-              Somos bvyon marketing, tu agencia de marketing digital en Antofagasta, Iquique, Arica y Calama. Combinamos estrategia de datos, creatividad local y ejecución impecable para conectar tu marca con las personas correctas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contacto"
-                className="px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left — text content */}
+            <div>
+              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-6">
+                Marketing Digital · Norte de Chile
+              </span>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
+                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                Solicitar cotización
-              </Link>
-              <Link
-                href="/servicios"
-                className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
-              >
-                Ver servicios
-              </Link>
+                Marketing sin límites para el{" "}
+                <span className="text-[#FF6B2B]">norte de Chile</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
+                Somos bvyon marketing, tu agencia de marketing digital en Antofagasta, Iquique, Arica y Calama. Combinamos estrategia de datos, creatividad local y ejecución impecable para conectar tu marca con las personas correctas.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contacto"
+                  className="px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
+                >
+                  Solicitar cotización
+                </Link>
+                <Link
+                  href="/servicios"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
+                >
+                  Ver servicios
+                </Link>
+              </div>
+            </div>
+            {/* Right — profile photo */}
+            <div className="hidden lg:flex justify-center lg:justify-end items-center">
+              <div className="relative">
+                {/* Outer glow ring */}
+                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-[#FF6B2B]/40 to-[#0D1B4B]/60 blur-md" />
+                {/* Portrait card */}
+                <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-2 border-[#FF6B2B]/50 shadow-2xl">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/banner.png"
+                    alt="Bastian Vega Yon — Co-fundador bvyon marketing"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                {/* Decorative accent dots */}
+                <div className="absolute -bottom-5 -left-5 w-16 h-16 rounded-full bg-[#FF6B2B]/25 border border-[#FF6B2B]/40" />
+                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-[#FF6B2B]/35 border border-[#FF6B2B]/60" />
+                {/* Name tag */}
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                  Bastian Vega Yon · Co-fundador
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -96,12 +123,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Banner — full-bleed background with team portrait */}
+      {/* Banner — full-bleed landscape background */}
       <section className="relative overflow-hidden" style={{ minHeight: "70vh" }}>
-        {/* Background: team photo covers the full section */}
+        {/* Background: landscape scene */}
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "url('/banner.png')", backgroundSize: "cover", backgroundPosition: "center top" }}
+          style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center top" }}
         />
         {/* Horizontal gradient: dark left (text legibility) → transparent right (person visible) */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/10" />
