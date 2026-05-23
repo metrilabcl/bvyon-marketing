@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "bvyon marketing | Marketing sin límites en el Norte de Chile",
@@ -33,48 +32,41 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="min-h-screen flex items-center bg-gradient-to-br from-[#0D1B4B] via-[#152260] to-[#0D1B4B] text-white pt-16 relative overflow-hidden">
+      {/* Hero — full-bleed background image */}
+      <section
+        className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden"
+        style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        {/* Dark gradient overlay: opaque left (text), transparent right (reveals screens) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060c1e]/97 via-[#060c1e]/80 to-[#060c1e]/30" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-6">
-                Marketing Digital · Norte de Chile
-              </span>
-              <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
-                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+          <div className="max-w-2xl">
+            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-6">
+              Marketing Digital · Norte de Chile
+            </span>
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
+              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            >
+              Marketing sin límites para el{" "}
+              <span className="text-[#FF6B2B]">norte de Chile</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
+              Somos bvyon marketing, tu agencia de marketing digital en Antofagasta, Iquique, Arica y Calama. Combinamos estrategia de datos, creatividad local y ejecución impecable para conectar tu marca con las personas correctas.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/contacto"
+                className="px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
               >
-                Marketing sin límites para el{" "}
-                <span className="text-[#FF6B2B]">norte de Chile</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
-                Somos bvyon marketing, tu agencia de marketing digital en Antofagasta, Iquique, Arica y Calama. Combinamos estrategia de datos, creatividad local y ejecución impecable para conectar tu marca con las personas correctas.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contacto"
-                  className="px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
-                >
-                  Solicitar cotización
-                </Link>
-                <Link
-                  href="/servicios"
-                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
-                >
-                  Ver servicios
-                </Link>
-              </div>
-            </div>
-            <div className="hidden lg:block relative">
-              <Image
-                src="/hero.png"
-                alt="bvyon marketing — marketing digital en el norte de Chile"
-                width={1983}
-                height={793}
-                className="rounded-2xl shadow-2xl w-full h-auto object-cover"
-                priority
-              />
+                Solicitar cotización
+              </Link>
+              <Link
+                href="/servicios"
+                className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
+              >
+                Ver servicios
+              </Link>
             </div>
           </div>
         </div>
@@ -104,16 +96,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Banner */}
-      <section className="py-12 bg-[#F7F9FC]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Image
-            src="/banner.png"
-            alt="bvyon marketing — banner"
-            width={1254}
-            height={1254}
-            className="rounded-2xl shadow-lg w-full h-auto object-cover"
-          />
+      {/* Banner — full-bleed background with team portrait */}
+      <section className="relative overflow-hidden" style={{ minHeight: "70vh" }}>
+        {/* Background: team photo covers the full section */}
+        <div
+          className="absolute inset-0"
+          style={{ backgroundImage: "url('/banner.png')", backgroundSize: "cover", backgroundPosition: "center top" }}
+        />
+        {/* Horizontal gradient: dark left (text legibility) → transparent right (person visible) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/10" />
+        {/* Bottom fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#F7F9FC] to-transparent" />
+
+        <div
+          className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center"
+          style={{ minHeight: "70vh" }}
+        >
+          <div className="max-w-lg text-white py-20">
+            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-white/10 text-white/70 rounded-full mb-6">
+              Quiénes somos
+            </span>
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6"
+              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            >
+              El equipo detrás de tu{" "}
+              <span className="text-[#FF6B2B]">estrategia</span>
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+              Somos un equipo apasionado por el marketing digital, con raíces en el norte de Chile y visión estratégica. Cada campaña está diseñada para generar resultados reales.
+            </p>
+            <Link
+              href="/nosotros"
+              className="inline-block px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-lg"
+            >
+              Conocer al equipo
+            </Link>
+          </div>
         </div>
       </section>
 
