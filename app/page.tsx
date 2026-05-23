@@ -7,10 +7,54 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { icon: "⚡", title: "Automatizaciones en la Nube", desc: "Sistemas 24/7 que trabajan mientras tú duermes: flujos automatizados, CRM, notificaciones y seguimiento de leads sin intervención manual." },
-  { icon: "📊", title: "Análisis Estratégico Completo", desc: "Radiografía total de tu negocio digital: ADS, orgánico, web, competencia y comportamiento de clientes. Decisiones respaldadas en datos reales." },
-  { icon: "✨", title: "Contenido y Visuales con IA", desc: "Creatividades, copy y visuales de alto impacto generados con inteligencia artificial, alineados a tu marca y optimizados para conversión." },
-  { icon: "🌐", title: "Diseño Web Full Conversion", desc: "Sitios web y landing pages diseñados para convertir visitantes en clientes: UX estratégico, velocidad, y cada elemento pensado para el objetivo." },
+  {
+    icon: "⚡",
+    color: "from-[#0D1B4B] to-[#152260]",
+    badge: "24/7",
+    title: "Automatizaciones en la Nube",
+    desc: "Sistemas que trabajan mientras duermes: flujos automatizados, CRM, notificaciones y seguimiento de leads sin intervención manual.",
+    examples: [
+      { label: "Lead → CRM automático", detail: "Cada formulario del sitio dispara un registro en tu CRM y envía un WhatsApp al instante." },
+      { label: "Seguimiento sin esfuerzo", detail: "Si un lead no responde en 24 hrs, el sistema envía un recordatorio por email o WhatsApp sin que hagas nada." },
+      { label: "Reportes automáticos", detail: "Cada lunes recibes un resumen de métricas de la semana en tu correo, generado sin intervención manual." },
+    ],
+  },
+  {
+    icon: "📊",
+    color: "from-[#1a3a6b] to-[#0D1B4B]",
+    badge: "Datos reales",
+    title: "Análisis Estratégico Completo",
+    desc: "Radiografía total de tu negocio digital: ADS, orgánico, web, competencia y comportamiento de clientes.",
+    examples: [
+      { label: "Auditoría de ADS", detail: "Revisamos tus campañas activas e identificamos qué está quemando presupuesto sin convertir." },
+      { label: "Benchmark de competencia", detail: "Mapeamos qué están haciendo tus competidores en redes, SEO y pauta para encontrar tus ventanas de oportunidad." },
+      { label: "Roadmap de 90 días", detail: "Entregamos un plan accionable con KPIs claros: qué hacer primero, por qué y cuánto invertir." },
+    ],
+  },
+  {
+    icon: "✨",
+    color: "from-[#2d1a4b] to-[#0D1B4B]",
+    badge: "IA generativa",
+    title: "Contenido y Visuales con IA",
+    desc: "Creatividades, copy y visuales de alto impacto generados con inteligencia artificial, alineados a tu marca.",
+    examples: [
+      { label: "Pack mensual de contenido", detail: "30 piezas listas para publicar: imágenes, carruseles y copy para Instagram, TikTok y LinkedIn." },
+      { label: "Ads creativos A/B", detail: "Generamos 5 variaciones visuales del mismo anuncio para testear cuál convierte mejor." },
+      { label: "Video con IA en minutos", detail: "Avatares, voice-over y subtítulos generados con IA para campañas de video sin producción costosa." },
+    ],
+  },
+  {
+    icon: "🌐",
+    color: "from-[#0D1B4B] to-[#1a2f5e]",
+    badge: "Full conversion",
+    title: "Diseño Web Full Conversion",
+    desc: "Sitios web y landing pages diseñados para convertir visitantes en clientes: UX estratégico y velocidad.",
+    examples: [
+      { label: "Landing de alta conversión", detail: "Una página enfocada en un solo objetivo: capturar leads o cerrar ventas, con formulario y chat integrado." },
+      { label: "Sitio corporativo con CRM", detail: "Web institucional conectada a GA4, Meta Pixel y tu CRM para rastrear cada visitante y lead." },
+      { label: "Optimización de velocidad", detail: "Mejoramos Core Web Vitals para que Google te posicione mejor y los usuarios no abandonen antes de cargar." },
+    ],
+  },
 ];
 
 const stats = [
@@ -172,23 +216,46 @@ export default function HomePage() {
               Mis Servicios
             </h2>
             <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
-              Tres pilares para hacer crecer tu negocio digital con tecnología, datos y creatividad.
+              Cuatro especialidades para hacer crecer tu negocio digital. Con ejemplos reales de lo que hago.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {services.map((s) => (
               <div
                 key={s.title}
-                className="bg-white rounded-2xl p-6 border border-[#E8EDF7] hover:shadow-lg hover:border-[#FF6B2B]/30 transition-all group"
+                className="bg-white rounded-2xl overflow-hidden border border-[#E8EDF7] hover:shadow-xl hover:border-[#FF6B2B]/30 transition-all group"
               >
-                <div className="text-3xl mb-4">{s.icon}</div>
-                <h3
-                  className="text-lg font-bold text-[#0D1B4B] mb-2 group-hover:text-[#FF6B2B] transition-colors"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  {s.title}
-                </h3>
-                <p className="text-[#4A5568] text-sm leading-relaxed">{s.desc}</p>
+                {/* Visual header */}
+                <div className={`bg-gradient-to-br ${s.color} px-6 pt-7 pb-6 flex items-start gap-4`}>
+                  <div className="text-4xl">{s.icon}</div>
+                  <div className="flex-1">
+                    <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
+                      {s.badge}
+                    </span>
+                    <h3
+                      className="text-lg font-bold text-white leading-snug group-hover:text-[#FF6B2B] transition-colors"
+                      style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+                    >
+                      {s.title}
+                    </h3>
+                  </div>
+                </div>
+                {/* Body */}
+                <div className="px-6 py-5">
+                  <p className="text-[#4A5568] text-sm leading-relaxed mb-5">{s.desc}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#FF6B2B] mb-3">Ejemplos prácticos</p>
+                  <div className="space-y-3">
+                    {s.examples.map((ex) => (
+                      <div key={ex.label} className="flex gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2B] shrink-0 mt-2" />
+                        <div>
+                          <span className="text-sm font-semibold text-[#0D1B4B]">{ex.label}:</span>{" "}
+                          <span className="text-sm text-[#4A5568]">{ex.detail}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
