@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Nosotros · Equipo Agencia 360",
+  title: "Nosotros · Equipo bvyon marketing",
   description:
-    "Conoce al equipo detrás de Agencia 360. Fundada por Bastian Vega Yon y Gianpiero Latini en Antofagasta. La agencia de marketing digital líder en el norte de Chile.",
-  alternates: { canonical: "https://agencia360.cl/nosotros" },
+    "Conoce al equipo detrás de bvyon marketing. Fundada por Bastian Vega Yon y Gianpiero Latini en Antofagasta. La agencia de marketing digital en el norte de Chile.",
+  alternates: { canonical: "https://bvyon-marketing.cl/nosotros" },
 };
 
 const team = [

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Servicios de Marketing Digital",
   description:
     "Gestión de redes sociales, publicidad digital, SEO, branding, diseño web, email marketing y consultoría estratégica para empresas del norte de Chile. Paquetes desde $290.000 CLP/mes.",
-  alternates: { canonical: "https://agencia360.cl/servicios" },
+  alternates: { canonical: "https://bvyon-marketing.cl/servicios" },
 };
 
 const services = [

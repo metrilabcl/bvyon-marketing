@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://agencia360.cl/sitemap.xml",
+    sitemap: "https://bvyon-marketing.cl/sitemap.xml",
   };
 }

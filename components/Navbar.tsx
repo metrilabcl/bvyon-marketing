@@ -22,7 +22,7 @@ export default function Navbar() {
               className="text-2xl font-black tracking-tight text-[#0D1B4B]"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              Agencia<span className="text-[#FF6B2B]">360</span>
+              bvyon<span className="text-[#FF6B2B]"> marketing</span>
             </span>
           </Link>
 

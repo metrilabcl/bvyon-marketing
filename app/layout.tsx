@@ -17,13 +17,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://agencia360.cl"),
+  metadataBase: new URL("https://bvyon-marketing.cl"),
   title: {
-    default: "Agencia 360 | Marketing Digital en el Norte de Chile",
-    template: "%s | Agencia 360",
+    default: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    template: "%s | bvyon marketing",
   },
   description:
-    "La mejor agencia de marketing 360 en el norte de Chile. Potenciamos tu marca con estrategias digitales integrales: SEO, redes sociales, publicidad digital y más. Presencia en Antofagasta, Iquique, Arica y Calama.",
+    "La mejor agencia de marketing digital en el norte de Chile. Potenciamos tu marca con estrategias digitales integrales: SEO, redes sociales, publicidad digital y más. Presencia en Antofagasta, Iquique, Arica y Calama.",
   keywords: [
     "agencia de marketing",
     "marketing digital",
@@ -35,22 +35,22 @@ export const metadata: Metadata = {
     "SEO",
     "publicidad digital",
     "redes sociales",
-    "agencia 360",
+    "bvyon marketing",
     "marketing sin límites",
   ],
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "Agencia 360",
-    title: "Agencia 360 | Marketing Digital en el Norte de Chile",
+    siteName: "bvyon marketing",
+    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
     description:
-      "Marketing sin límites. La agencia 360 líder en el norte de Chile — donde los datos impulsan cada decisión.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Agencia 360" }],
+      "Marketing sin límites. bvyon marketing en el norte de Chile — donde los datos impulsan cada decisión.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "bvyon marketing" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agencia 360 | Marketing Digital en el Norte de Chile",
-    description: "Marketing sin límites. La agencia 360 líder en el norte de Chile.",
+    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    description: "Marketing sin límites. bvyon marketing en el norte de Chile.",
   },
   robots: {
     index: true,

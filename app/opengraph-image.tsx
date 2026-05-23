@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Agencia 360 — Marketing sin límites";
+export const alt = "bvyon marketing — Marketing sin límites";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,10 +24,10 @@ export default async function Image() {
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: 32 }}>
           <span style={{ fontSize: 48, fontWeight: 900, color: "#FFFFFF", letterSpacing: "-1px" }}>
-            Agencia
+            bvyon
           </span>
           <span style={{ fontSize: 48, fontWeight: 900, color: "#FF6B2B", letterSpacing: "-1px" }}>
-            360
+            {" "}marketing
           </span>
         </div>
 
@@ -46,7 +46,7 @@ export default async function Image() {
         </div>
 
         <div style={{ fontSize: 28, color: "#CBD5E0", maxWidth: 700, lineHeight: 1.5 }}>
-          La agencia 360 líder en el norte de Chile
+          bvyon marketing — agencia digital en el norte de Chile
         </div>
 
         {/* Cities */}
