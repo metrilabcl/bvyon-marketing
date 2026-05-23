@@ -2,32 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Nosotros · Equipo bvyon marketing",
+  title: "Sobre mí · Bastian Vega Yon — bvyon",
   description:
-    "Conoce al equipo detrás de bvyon marketing. Fundada por Bastian Vega Yon y Gianpiero Latini en Antofagasta. La agencia de marketing digital en el norte de Chile.",
+    "Bastian Vega Yon, especialista freelance en automatizaciones en la nube, análisis estratégico digital y contenido con IA. Basado en Antofagasta, norte de Chile.",
   alternates: { canonical: "https://bvyon-marketing.cl/nosotros" },
 };
 
-const team = [
-  {
-    name: "Bastian Vega Yon",
-    role: "Co-fundador · Paid Media Specialist",
-    bio: "Especialista en publicidad digital con enfoque en performance. Experto en Meta Ads, Google Ads y estrategias de ROAS para el mercado del norte de Chile.",
-    initials: "BV",
-  },
-  {
-    name: "Gianpiero Latini",
-    role: "Co-fundador · Marketing Specialist",
-    bio: "Estratega de marketing con visión integral. Especializado en conectar marcas locales con sus audiencias a través de estrategias digitales basadas en datos.",
-    initials: "GL",
-  },
-];
-
 const values = [
-  { icon: "🎯", title: "Orientados a resultados", desc: "Cada estrategia tiene KPIs claros. Tu crecimiento es nuestro éxito — leads, conversiones y ROI, no vanity metrics." },
-  { icon: "📊", title: "Datos en cada decisión", desc: "Somos técnicamente rigurosos. Cada peso invertido tiene atribución clara y reportes que cualquiera puede entender." },
-  { icon: "🤝", title: "Raíces locales", desc: "Nacimos en Antofagasta. Conocemos el mercado del norte, sus consumidores y sus dinámicas mejor que nadie." },
-  { icon: "🚀", title: "Ambición de ser los mejores", desc: "No nos conformamos con 'suficientemente bueno'. Queremos ser la referencia de marketing digital en la región." },
+  { icon: "🎯", title: "Orientado a resultados", desc: "Cada estrategia tiene KPIs claros. Tu crecimiento es mi éxito — leads, conversiones y ROI, no vanity metrics." },
+  { icon: "📊", title: "Datos en cada decisión", desc: "Soy técnicamente riguroso. Cada peso invertido tiene atribución clara y reportes que cualquiera puede entender." },
+  { icon: "🤝", title: "Raíces locales", desc: "Nacido en Antofagasta. Conozco el mercado del norte, sus consumidores y sus dinámicas mejor que nadie." },
+  { icon: "🚀", title: "Sin intermediarios", desc: "Trabajas directamente conmigo — sin cuentas ejecutivas, sin burocracia. Más velocidad, más foco, mejores resultados." },
 ];
 
 const regions = ["Antofagasta", "Iquique", "Arica", "Calama"];
@@ -40,23 +25,23 @@ export default function NosotrosPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-4">
-              Quiénes somos
+              Quién soy
             </span>
             <h1
               className="text-4xl sm:text-5xl font-black mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              Nosotros
+              Sobre mí
             </h1>
             <p className="text-gray-300 text-lg">
-              La agencia de marketing 360 donde los datos impulsan cada decisión.
-              Fundada en Antofagasta, construida para el norte de Chile.
+              Especialista freelance en marketing digital donde los datos impulsan cada decisión.
+              Basado en Antofagasta, trabajando para todo el norte de Chile.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
+      {/* Profile */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -65,13 +50,14 @@ export default function NosotrosPage() {
                 className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-6"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                Nuestra Misión
+                Bastian Vega Yon
               </h2>
+              <p className="text-[#FF6B2B] font-semibold mb-4">Especialista Freelance · Marketing Digital</p>
               <p className="text-[#4A5568] text-lg leading-relaxed mb-6">
-                Ser la mejor agencia de marketing 360 en la zona norte del país. Creemos que cada empresa del norte de Chile merece acceder a estrategias de marketing de clase mundial, sin importar su tamaño.
+                Me especializo en tres pilares que mueven negocios digitales hoy: automatizaciones en la nube que trabajan 24/7, análisis estratégico completo basado en datos reales, y creación de contenido visual con inteligencia artificial.
               </p>
               <p className="text-[#4A5568] leading-relaxed mb-6">
-                Combinamos estrategia de datos, creatividad local y ejecución impecable. No somos generalistas: cada especialidad de nuestro equipo está orientada a generar resultados medibles para tu negocio.
+                Creo que cada empresa del norte de Chile merece acceder a estrategias de marketing de clase mundial, sin importar su tamaño. Trabajo directamente contigo — sin capas, sin intermediarios, con foco total en tu resultado.
               </p>
               <div className="flex flex-wrap gap-2">
                 {regions.map((city) => (
@@ -82,20 +68,20 @@ export default function NosotrosPage() {
               </div>
             </div>
             <div className="bg-gradient-to-br from-[#0D1B4B] to-[#152260] rounded-3xl p-10 text-white text-center">
-              <div
-                className="text-7xl font-black mb-2 text-[#FF6B2B]"
+              <div className="w-24 h-24 rounded-full bg-[#FF6B2B] flex items-center justify-center text-white text-3xl font-black mx-auto mb-6"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                360°
+                BV
               </div>
               <p
-                className="text-xl font-bold mb-3"
+                className="text-xl font-bold mb-1"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                Marketing sin límites
+                Bastian Vega Yon
               </p>
-              <p className="text-gray-300 text-sm">
-                El único socio de marketing full-circle en el norte de Chile — donde los datos impulsan cada decisión.
+              <p className="text-[#FF6B2B] text-sm font-medium mb-4">Especialista Freelance</p>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Automatizaciones · Análisis Estratégico · Contenido con IA · Diseño Web
               </p>
             </div>
           </div>
@@ -110,7 +96,7 @@ export default function NosotrosPage() {
               className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              Nuestros Valores
+              Mi forma de trabajar
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -130,42 +116,6 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* Founders */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              Los Fundadores
-            </h2>
-            <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
-              Dos especialistas unidos por la misión de hacer crecer los negocios del norte de Chile.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {team.map((member) => (
-              <div key={member.name} className="text-center bg-[#F7F9FC] rounded-2xl p-8">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#0D1B4B] to-[#152260] flex items-center justify-center text-white text-xl font-bold mx-auto mb-4"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  {member.initials}
-                </div>
-                <h3
-                  className="font-bold text-[#0D1B4B] text-lg"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  {member.name}
-                </h3>
-                <p className="text-[#FF6B2B] text-sm font-medium mb-3">{member.role}</p>
-                <p className="text-[#4A5568] text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-20 bg-[#0D1B4B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -176,13 +126,13 @@ export default function NosotrosPage() {
             Trabajemos juntos
           </h2>
           <p className="text-gray-300 text-lg mb-8">
-            Cuéntanos sobre tu empresa y te ayudamos a crecer sin límites.
+            Cuéntame sobre tu negocio y te ayudo a crecer sin límites.
           </p>
           <Link
             href="/contacto"
             className="inline-block px-10 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
           >
-            Contactar al equipo
+            Contactarme
           </Link>
         </div>
       </section>

@@ -4,17 +4,38 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Servicios de Marketing Digital",
   description:
-    "Gestión de redes sociales, publicidad digital, SEO, branding, diseño web, email marketing y consultoría estratégica para empresas del norte de Chile. Paquetes desde $290.000 CLP/mes.",
+    "Automatizaciones en la nube 24/7, análisis estratégico completo, contenido con IA, diseño web, publicidad digital y SEO para empresas del norte de Chile. Paquetes desde $290.000 CLP/mes.",
   alternates: { canonical: "https://bvyon-marketing.cl/servicios" },
 };
 
 const services = [
   {
-    id: "redes-sociales",
-    icon: "📱",
-    title: "Gestión de Redes Sociales",
-    desc: "Administración completa de Instagram, Facebook, TikTok y LinkedIn: estrategia, calendario editorial, diseño, publicación y community management.",
-    features: ["Calendario editorial mensual", "Diseño de publicaciones, stories y reels", "Community management Lun–Sáb", "Estrategia de crecimiento orgánico", "Reporte mensual de métricas"],
+    id: "automatizaciones",
+    icon: "⚡",
+    title: "Automatizaciones en la Nube 24/7",
+    desc: "Sistemas que trabajan mientras duermes: flujos automatizados, CRM, notificaciones y seguimiento de leads sin intervención manual. Tu negocio siempre activo.",
+    features: ["Flujos de automatización con n8n / Make / Zapier", "Integración CRM (HubSpot, Pipedrive, Notion)", "Notificaciones y seguimiento automático de leads", "Reportes automáticos y alertas de negocio", "Chatbots y respuestas automáticas 24/7"],
+  },
+  {
+    id: "analisis-estrategico",
+    icon: "📊",
+    title: "Análisis Estratégico Completo",
+    desc: "Radiografía total de tu negocio digital: ADS, orgánico, web, competencia y comportamiento de clientes. Cada decisión respaldada en datos reales, no suposiciones.",
+    features: ["Auditoría completa de ADS (Meta, Google, TikTok)", "Análisis de tráfico orgánico y SEO", "Benchmarking de competidores", "Análisis de comportamiento de clientes", "Roadmap estratégico 90 días con KPIs"],
+  },
+  {
+    id: "contenido-ia",
+    icon: "✨",
+    title: "Contenido y Visuales con IA",
+    desc: "Creatividades, copy y visuales de alto impacto generados con inteligencia artificial, alineados a tu marca y optimizados para conversión en cada plataforma.",
+    features: ["Copy para ads, redes y landing pages", "Visuales y creatividades con IA (imagen + video)", "Calendarios editoriales y estrategia de contenido", "Reels, stories y piezas para TikTok / Instagram", "Prompts y sistemas de generación de contenido replicable"],
+  },
+  {
+    id: "diseno-web",
+    icon: "🌐",
+    title: "Diseño Web Full Conversion",
+    desc: "Sitios web y landing pages modernos, rápidos y optimizados para conversión, con integración de analytics y CRM.",
+    features: ["Diseño UI/UX responsive (mobile-first)", "Optimización Core Web Vitals (LCP, CLS, FID)", "Integración GA4, Meta Pixel y CRM", "Formularios de captura de leads", "E-commerce hasta 50 productos"],
   },
   {
     id: "publicidad-digital",
@@ -24,11 +45,11 @@ const services = [
     features: ["Google Ads (Search, Display, Shopping)", "Meta Ads & TikTok Ads", "Retargeting y audiencias personalizadas", "A/B testing semanal", "Reporte de inversión, CPC, CPM y ROAS"],
   },
   {
-    id: "contenido",
-    icon: "🎬",
-    title: "Creación de Contenido",
-    desc: "Producción de contenido de alta calidad: fotografía, video y redacción para todos los formatos digitales.",
-    features: ["Sesiones fotográficas en locación", "Videos cortos para Reels / TikTok (hasta 60 seg)", "Redacción de blog posts y artículos SEO", "Guiones para videos corporativos", "Diseño gráfico para campañas"],
+    id: "seo",
+    icon: "🔍",
+    title: "SEO y Posicionamiento Web",
+    desc: "Optimización técnica y de contenido para que tus clientes te encuentren en Google antes que a la competencia.",
+    features: ["Auditoría técnica SEO completa", "Investigación de keywords regionales y sectoriales", "Optimización on-page (meta tags, headings, contenido)", "Link building local y en directorios", "Reporte mensual de posiciones y tráfico orgánico"],
   },
   {
     id: "branding",
@@ -38,31 +59,10 @@ const services = [
     features: ["Diseño o rediseño de logotipo (3 propuestas)", "Manual de identidad visual completo", "Plantillas para redes y presentaciones", "Guía de tono de voz y estilo editorial", "Animaciones e identidad en movimiento"],
   },
   {
-    id: "seo",
-    icon: "🔍",
-    title: "SEO y Posicionamiento Web",
-    desc: "Optimización técnica y de contenido para que tus clientes te encuentren en Google antes que a la competencia.",
-    features: ["Auditoría técnica SEO completa", "Investigación de keywords regionales y sectoriales", "Optimización on-page (meta tags, headings, contenido)", "Link building local y en directorios", "Reporte mensual de posiciones y tráfico orgánico"],
-  },
-  {
-    id: "diseno-web",
-    icon: "🌐",
-    title: "Diseño y Desarrollo Web",
-    desc: "Sitios web y landing pages modernos, rápidos y optimizados para conversión, con integración de analytics y CRM.",
-    features: ["Diseño UI/UX responsive (mobile-first)", "Optimización Core Web Vitals (LCP, CLS, FID)", "Integración GA4, Meta Pixel y CRM", "Formularios de captura de leads", "E-commerce hasta 50 productos"],
-  },
-  {
-    id: "email",
-    icon: "✉️",
-    title: "Email Marketing y Automatización",
-    desc: "Flujos de email marketing automatizados que nutren tus leads y retienen clientes en el tiempo.",
-    features: ["Diseño de plantillas responsivas", "Flujos de automatización (bienvenida, carrito, reactivación)", "Segmentación de audiencias", "A/B testing de asuntos y contenido", "Reporte de apertura, clics y conversiones"],
-  },
-  {
     id: "consultoria",
-    icon: "📊",
-    title: "Consultoría y Estrategia de Marketing",
-    desc: "Dirección estratégica para empresas que necesitan orientación sin delegar la ejecución completa.",
+    icon: "🧭",
+    title: "Consultoría y Estrategia",
+    desc: "Orientación estratégica para empresas que necesitan dirección sin delegar la ejecución completa.",
     features: ["Consultoría puntual (sesión de 2 hrs)", "Sprint de estrategia mensual (4 sesiones)", "Auditoría de marketing 360 + roadmap 90 días", "Definición de KPIs y mapa de objetivos", "Revisión de campañas activas"],
   },
 ];
@@ -119,7 +119,7 @@ export default function ServiciosPage() {
               Servicios
             </h1>
             <p className="text-gray-300 text-lg">
-              Soluciones de marketing digital completas para cada etapa del crecimiento de tu empresa en el norte de Chile.
+              Automatizaciones, estrategia basada en datos y contenido con IA — los tres pilares que mueven tu negocio digital en el norte de Chile.
             </p>
           </div>
         </div>
@@ -233,13 +233,13 @@ export default function ServiciosPage() {
             ¿No sabes qué necesitas?
           </h2>
           <p className="text-[#4A5568] text-lg mb-8">
-            Conversemos y te recomendamos la mejor solución para tu negocio. Primera consulta sin costo.
+            Conversemos y te recomiendo la mejor solución para tu negocio. Primera consulta sin costo.
           </p>
           <Link
             href="/contacto"
             className="inline-block px-10 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
           >
-            Hablar con un experto
+            Hablar conmigo
           </Link>
         </div>
       </section>

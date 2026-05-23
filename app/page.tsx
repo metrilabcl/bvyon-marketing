@@ -169,10 +169,10 @@ export default function HomePage() {
               className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              Nuestros Servicios
+              Mis Servicios
             </h2>
             <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
-              Todo lo que tu empresa necesita para crecer en el mundo digital, bajo un mismo techo.
+              Tres pilares para hacer crecer tu negocio digital con tecnología, datos y creatividad.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -332,13 +332,13 @@ export default function HomePage() {
             ¿Listo para crecer sin límites?
           </h2>
           <p className="text-[#0D1B4B]/80 text-lg mb-8">
-            La primera consulta es sin costo. Cuéntanos sobre tu empresa.
+            La primera consulta es sin costo. Cuéntame sobre tu negocio.
           </p>
           <Link
             href="/contacto"
             className="inline-block px-10 py-4 bg-[#0D1B4B] text-white font-bold text-lg rounded-xl hover:bg-[#0a1540] transition-colors"
           >
-            Contáctanos ahora
+            Contáctame ahora
           </Link>
         </div>
       </section>

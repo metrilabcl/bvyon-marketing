@@ -1,14 +1,12 @@
 import Link from "next/link";
 
 const services = [
-  "Gestión de Redes Sociales",
-  "Publicidad Digital",
-  "Creación de Contenido",
-  "Branding e Identidad Visual",
-  "SEO y Posicionamiento",
-  "Diseño y Desarrollo Web",
-  "Email Marketing",
-  "Consultoría Estratégica",
+  "Automatizaciones en la Nube 24/7",
+  "Análisis Estratégico Completo",
+  "Contenido y Visuales con IA",
+  "Diseño Web Full Conversion",
+  "Publicidad Digital (Paid Media)",
+  "SEO y Posicionamiento Web",
 ];
 
 const links = [
@@ -37,7 +35,7 @@ export default function Footer() {
               Marketing sin límites.
             </p>
             <p className="text-gray-400 text-xs leading-relaxed">
-              La agencia de marketing digital en el norte de Chile.
+              Especialista freelance en marketing digital.
               Antofagasta · Iquique · Arica · Calama
             </p>
             <div className="flex gap-3 mt-5">
@@ -75,7 +73,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Empresa</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Navegación</h3>
             <ul className="space-y-2">
               {links.map((l) => (
                 <li key={l.href}>
