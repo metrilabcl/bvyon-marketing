@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "bvyon marketing | Marketing sin límites en el Norte de Chile",
+  title: "bvyon | Automatizaciones, Estrategia Digital, Contenido con IA y Diseño Web",
   alternates: { canonical: "https://bvyon-marketing.cl" },
 };
 
 const services = [
-  { icon: "📱", title: "Redes Sociales", desc: "Gestión profesional de Instagram, Facebook, TikTok y LinkedIn para construir comunidad y engagement real." },
-  { icon: "📣", title: "Publicidad Digital", desc: "Campañas de alto impacto en Meta Ads, Google Ads y TikTok Ads con ROAS claro y optimización continua." },
-  { icon: "🎬", title: "Creación de Contenido", desc: "Fotografía, video y redacción de alto nivel para todos los formatos digitales." },
-  { icon: "🎨", title: "Branding", desc: "Construcción y evolución de identidad de marca: logo, paleta, tipografía y manual de marca." },
-  { icon: "🔍", title: "SEO", desc: "Posicionamiento orgánico con investigación de palabras clave regionales y optimización técnica." },
-  { icon: "🌐", title: "Diseño Web", desc: "Sitios web y landing pages modernos, rápidos y optimizados para conversión." },
+  { icon: "⚡", title: "Automatizaciones en la Nube", desc: "Sistemas 24/7 que trabajan mientras tú duermes: flujos automatizados, CRM, notificaciones y seguimiento de leads sin intervención manual." },
+  { icon: "📊", title: "Análisis Estratégico Completo", desc: "Radiografía total de tu negocio digital: ADS, orgánico, web, competencia y comportamiento de clientes. Decisiones respaldadas en datos reales." },
+  { icon: "✨", title: "Contenido y Visuales con IA", desc: "Creatividades, copy y visuales de alto impacto generados con inteligencia artificial, alineados a tu marca y optimizados para conversión." },
+  { icon: "🌐", title: "Diseño Web Full Conversion", desc: "Sitios web y landing pages diseñados para convertir visitantes en clientes: UX estratégico, velocidad, y cada elemento pensado para el objetivo." },
 ];
 
 const stats = [
@@ -23,10 +21,10 @@ const stats = [
 ];
 
 const whyUs = [
-  { title: "Raíces en el norte", desc: "Entendemos el mercado del norte de Chile como nadie más: la cultura, el consumidor y la competencia local." },
-  { title: "Datos en cada decisión", desc: "Cada estrategia está respaldada por métricas reales. Leads, conversiones y ROI — no vanity metrics." },
-  { title: "Cobertura 360°", desc: "Estrategia, contenido, pauta, web y branding bajo un mismo techo, sin coordinaciones externas." },
-  { title: "Transparencia total", desc: "Reportes claros con atribución de cada peso invertido. Siempre sabes dónde va tu inversión." },
+  { title: "Siempre encendido", desc: "Las automatizaciones en la nube trabajan las 24 horas, los 7 días. Tu negocio genera resultados incluso fuera del horario laboral." },
+  { title: "Datos en cada decisión", desc: "Cada estrategia está respaldada por métricas reales: ADS, orgánico, web, competencia y clientes. Sin suposiciones, sin vanity metrics." },
+  { title: "IA al servicio de tu marca", desc: "Contenido generado con inteligencia artificial de vanguardia, revisado y ajustado para que suene humano y convierta de verdad." },
+  { title: "Sitios que venden", desc: "No solo diseño bonito — cada página está construida para guiar al visitante hacia la acción que importa: cotizar, comprar o contactar." },
 ];
 
 export default function HomePage() {
@@ -45,17 +43,17 @@ export default function HomePage() {
             {/* Left — text content */}
             <div>
               <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-6">
-                Marketing Digital · Norte de Chile
+                Marketing Digital · Chile
               </span>
               <h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                Marketing sin límites para el{" "}
-                <span className="text-[#FF6B2B]">norte de Chile</span>
+                Marketing sin{" "}
+                <span className="text-[#FF6B2B]">límites</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
-                Somos bvyon marketing, tu agencia de marketing digital en Antofagasta, Iquique, Arica y Calama. Combinamos estrategia de datos, creatividad local y ejecución impecable para conectar tu marca con las personas correctas.
+                Soy Bastian Vega Yon, especialista en automatizaciones en la nube, análisis estratégico digital, contenido con IA y diseño web orientado a conversión. Resultados reales, sin intermediarios.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -82,7 +80,7 @@ export default function HomePage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/banner.png"
-                    alt="Bastian Vega Yon — Co-fundador bvyon marketing"
+                    alt="Bastian Vega Yon — Especialista en marketing digital"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
@@ -91,7 +89,7 @@ export default function HomePage() {
                 <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-[#FF6B2B]/35 border border-[#FF6B2B]/60" />
                 {/* Name tag */}
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-                  Bastian Vega Yon · Co-fundador
+                  Bastian Vega Yon · bvyon
                 </div>
               </div>
             </div>
@@ -141,23 +139,23 @@ export default function HomePage() {
         >
           <div className="max-w-lg text-white py-20">
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-white/10 text-white/70 rounded-full mb-6">
-              Quiénes somos
+              Quién soy
             </span>
             <h2
               className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              El equipo detrás de tu{" "}
+              La persona detrás de tu{" "}
               <span className="text-[#FF6B2B]">estrategia</span>
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              Somos un equipo apasionado por el marketing digital, con raíces en el norte de Chile y visión estratégica. Cada campaña está diseñada para generar resultados reales.
+              Soy un especialista freelance en marketing digital con enfoque en automatización, análisis de datos y resultados medibles. Trabajo directamente contigo — sin capas, sin intermediarios, sin burocracia.
             </p>
             <Link
               href="/nosotros"
               className="inline-block px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-lg"
             >
-              Conocer al equipo
+              Conocer más
             </Link>
           </div>
         </div>
@@ -177,7 +175,7 @@ export default function HomePage() {
               Todo lo que tu empresa necesita para crecer en el mundo digital, bajo un mismo techo.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {services.map((s) => (
               <div
                 key={s.title}
@@ -214,7 +212,7 @@ export default function HomePage() {
                 className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-6"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                El único socio de marketing full-circle en el norte
+                Tu socio de marketing digital sin límites
               </h2>
               <div className="space-y-5">
                 {whyUs.map((item) => (
@@ -246,12 +244,11 @@ export default function HomePage() {
                 Marketing Integral
               </h3>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Cubrimos todos los ángulos de tu presencia digital — estrategia, contenido, pauta, web y branding — para que nada quede al azar.
+                Automatizaciones, estrategia, contenido con IA y diseño web — los cuatro ángulos que mueven negocios digitales hoy. Todo bajo una sola mano, con foco total en tu resultado.
               </p>
-              <div className="text-sm text-gray-400 mb-2">Cobertura regional:</div>
               <div className="flex flex-wrap gap-2">
-                {["Antofagasta", "Iquique", "Arica", "Calama"].map((city) => (
-                  <span key={city} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">{city}</span>
+                {["Automatizaciones 24/7", "Análisis estratégico", "Contenido con IA", "Web que convierte"].map((tag) => (
+                  <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">{tag}</span>
                 ))}
               </div>
             </div>
