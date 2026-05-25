@@ -157,7 +157,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#091438] to-[#060c1e]" />
         {/* Subtle ambient glow behind photo (right half) */}
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 hidden lg:block"
-          style={{ backgroundImage: "url('/banner.png')", backgroundSize: "cover", backgroundPosition: "center top", filter: "blur(48px)" }}
+          style={{ backgroundImage: "url('/banner.webp')", backgroundSize: "cover", backgroundPosition: "center top", filter: "blur(48px)" }}
         />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -197,7 +197,7 @@ export default function HomePage() {
                 {/* Portrait card */}
                 <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border border-primary shadow-2xl">
                   <Image
-                    src="/banner.png"
+                    src="/banner.webp"
                     alt="Bastian Vega Yon — Especialista en marketing digital"
                     fill
                     priority
@@ -244,7 +244,7 @@ export default function HomePage() {
         {/* Background: landscape scene */}
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "url('/hero.png')", backgroundSize: "cover", backgroundPosition: "center top" }}
+          style={{ backgroundImage: "url('/hero.webp')", backgroundSize: "cover", backgroundPosition: "center top" }}
         />
         {/* Horizontal gradient: dark left (text legibility) → transparent right (person visible) */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/10" />
