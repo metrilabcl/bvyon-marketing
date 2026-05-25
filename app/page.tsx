@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -121,11 +122,13 @@ export default function HomePage() {
                 <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-[#FF6B2B]/40 to-[#0D1B4B]/60 blur-md" />
                 {/* Portrait card */}
                 <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-2 border-[#FF6B2B]/50 shadow-2xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src="/banner.png"
                     alt="Bastian Vega Yon — Especialista en marketing digital"
-                    className="w-full h-full object-cover object-top"
+                    fill
+                    priority
+                    className="object-cover object-top"
+                    sizes="(max-width: 1280px) 320px, 384px"
                   />
                 </div>
                 {/* Decorative accent dots */}
