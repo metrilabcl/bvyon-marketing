@@ -4,18 +4,26 @@ import { getAllPosts, CATEGORIES, CATEGORY_LABELS } from "@/lib/blog";
 import BlogIndexCard from "@/components/blog/BlogIndexCard";
 
 export const metadata: Metadata = {
-  title: "Blog — Marketing Digital | bvyon marketing",
+  title: { absolute: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing" },
   description:
-    "Artículos, guías y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia para negocios en el norte de Chile.",
+    "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia para empresas del norte de Chile.",
   alternates: {
     canonical: "https://bvyon-marketing.cl/blog",
     types: { "application/rss+xml": "https://bvyon-marketing.cl/blog/rss.xml" },
   },
   openGraph: {
-    title: "Blog — Marketing Digital | bvyon marketing",
+    title: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing",
     description:
       "Guías, tendencias y casos de éxito de marketing digital para el norte de Chile.",
     url: "https://bvyon-marketing.cl/blog",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing",
+    description: "Guías, tendencias y casos de éxito de marketing digital para el norte de Chile.",
+    images: ["/og-image.png"],
   },
 };
 

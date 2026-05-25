@@ -4,8 +4,21 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Servicios de Marketing Digital",
   description:
-    "Automatizaciones en la nube 24/7, análisis estratégico completo, contenido con IA, diseño web, publicidad digital y SEO para empresas del norte de Chile. Paquetes desde $290.000 CLP/mes.",
+    "Automatizaciones 24/7, SEO, contenido con IA, diseño web y publicidad digital para el norte de Chile. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
   alternates: { canonical: "https://bvyon-marketing.cl/servicios" },
+  openGraph: {
+    title: "Servicios de Marketing Digital | bvyon marketing",
+    description:
+      "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas del norte de Chile.",
+    url: "https://bvyon-marketing.cl/servicios",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios de Marketing Digital | bvyon marketing",
+    description:
+      "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas del norte de Chile.",
+  },
 };
 
 const services = [
@@ -119,7 +132,7 @@ export default function ServiciosPage() {
               Servicios
             </h1>
             <p className="text-gray-300 text-lg">
-              Automatizaciones, estrategia basada en datos y contenido con IA — los tres pilares que mueven tu negocio digital en el norte de Chile.
+              Automatizaciones, análisis estratégico, contenido con IA y diseño web — los cuatro pilares que mueven tu negocio digital en el norte de Chile.
             </p>
           </div>
         </div>

@@ -28,7 +28,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -50,7 +50,9 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 rounded-lg text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
             onClick={() => setOpen(!open)}
-            aria-label="Abrir menú"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             {open ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,8 +68,8 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden py-4 border-t border-[#E8EDF7]">
-            <nav className="flex flex-col gap-1">
+          <div id="mobile-menu" className="md:hidden py-4 border-t border-[#E8EDF7]">
+            <nav aria-label="Navegación móvil" className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

@@ -3,8 +3,69 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "bvyon | Automatizaciones, Estrategia Digital, Contenido con IA y Diseño Web",
+  title: {
+    absolute: "bvyon marketing | Marketing Digital en el Norte de Chile",
+  },
+  description:
+    "Especialista freelance en marketing digital en el norte de Chile. Automatizaciones 24/7, SEO, contenido con IA y diseño web para empresas de Antofagasta, Iquique y Calama.",
   alternates: { canonical: "https://bvyon-marketing.cl" },
+  openGraph: {
+    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para el norte de Chile.",
+    url: "https://bvyon-marketing.cl",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para el norte de Chile.",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": "https://bvyon-marketing.cl/#business",
+  name: "bvyon marketing",
+  description:
+    "Especialista freelance en marketing digital: automatizaciones en la nube, SEO, publicidad digital y contenido con IA. Norte de Chile.",
+  url: "https://bvyon-marketing.cl",
+  telephone: "+56937441215",
+  email: "metrilabcl@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Antofagasta",
+    addressRegion: "Región de Antofagasta",
+    addressCountry: "CL",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -23.6509,
+    longitude: -70.3975,
+  },
+  areaServed: [
+    { "@type": "City", name: "Antofagasta" },
+    { "@type": "City", name: "Iquique" },
+    { "@type": "City", name: "Arica" },
+    { "@type": "City", name: "Calama" },
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Bastian Vega Yon",
+    url: "https://bvyon-marketing.cl/nosotros",
+    jobTitle: "Especialista Freelance en Marketing Digital",
+  },
+  priceRange: "CLP $290.000–$4.500.000",
+  openingHours: "Mo-Fr 09:00-18:00",
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://bvyon-marketing.cl/#website",
+  name: "bvyon marketing",
+  url: "https://bvyon-marketing.cl",
+  publisher: { "@id": "https://bvyon-marketing.cl/#business" },
 };
 
 const services = [
@@ -75,6 +136,14 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       {/* Hero — Profile layout with founder photo */}
       <section className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden bg-[#060c1e]">
         {/* Brand gradient base */}
@@ -143,7 +212,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 leading-none">
-          <svg className="relative block w-full" style={{height: "60px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <svg aria-hidden="true" className="relative block w-full" style={{height: "60px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
             <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z" fill="white" />
           </svg>
         </div>
@@ -345,7 +414,7 @@ export default function HomePage() {
               { name: "Emprendedor", price: "$290.000", period: "CLP / mes", desc: "Para PyMEs que inician su presencia digital." },
               { name: "Crecimiento", price: "$750.000", period: "CLP / mes", desc: "Empresas establecidas que quieren escalar.", highlight: true },
               { name: "Expansión", price: "$1.800.000", period: "CLP / mes", desc: "Marcas con presencia multi-ciudad." },
-              { name: "Corporativo", price: "A cotizar", period: "", desc: "Sector minero y grandes empresas." },
+              { name: "Corporativo", price: "Desde $4.500.000", period: "CLP / mes", desc: "Sector minero y grandes empresas." },
             ].map((pkg) => (
               <div
                 key={pkg.name}

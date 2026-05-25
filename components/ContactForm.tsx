@@ -26,8 +26,12 @@ export default function ContactForm() {
 
   if (state.success) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-        <div className="text-4xl mb-4">✅</div>
+      <div
+        role="status"
+        aria-live="polite"
+        className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center"
+      >
+        <div className="text-4xl mb-4" aria-hidden="true">✅</div>
         <h3
           className="text-xl font-bold text-green-800 mb-2"
           style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
@@ -35,16 +39,20 @@ export default function ContactForm() {
           ¡Mensaje recibido!
         </h3>
         <p className="text-green-700 text-sm">
-          Gracias por contactarnos. Nuestro equipo te responderá en menos de 24 horas hábiles.
+          Gracias por escribirme. Te responderé personalmente en menos de 24 horas hábiles.
         </p>
       </div>
     );
   }
 
   return (
-    <form action={formAction} className="space-y-5">
+    <form action={formAction} className="space-y-5" noValidate>
       {state.error && (
-        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
+        <div
+          role="alert"
+          aria-live="assertive"
+          className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700"
+        >
           {state.error}
         </div>
       )}

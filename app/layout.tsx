@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | bvyon marketing",
   },
   description:
-    "La mejor agencia de marketing digital en el norte de Chile. Potenciamos tu marca con estrategias digitales integrales: SEO, redes sociales, publicidad digital y más. Presencia en Antofagasta, Iquique, Arica y Calama.",
+    "Especialista freelance en marketing digital en el norte de Chile. Automatizaciones, SEO y publicidad digital para empresas de Antofagasta, Iquique y Calama.",
   keywords: [
     "agencia de marketing",
     "marketing digital",
@@ -45,12 +45,12 @@ export const metadata: Metadata = {
     title: "bvyon marketing | Marketing Digital en el Norte de Chile",
     description:
       "Marketing sin límites. bvyon marketing en el norte de Chile — donde los datos impulsan cada decisión.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "bvyon marketing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "bvyon marketing | Marketing Digital en el Norte de Chile",
     description: "Marketing sin límites. bvyon marketing en el norte de Chile.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -76,8 +76,14 @@ export default function RootLayout({
           fontFamily: "var(--font-body, Inter, system-ui, sans-serif)",
         }}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#FF6B2B] focus:text-[#0D1B4B] focus:font-bold focus:rounded-lg focus:shadow-lg"
+        >
+          Saltar al contenido principal
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
