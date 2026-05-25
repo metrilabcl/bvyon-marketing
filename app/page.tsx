@@ -37,16 +37,9 @@ const localBusinessJsonLd = {
   email: "metrilabcl@gmail.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Antofagasta",
-    addressRegion: "Antofagasta",
     addressCountry: "CL",
   },
-  areaServed: [
-    { "@type": "City", name: "Antofagasta" },
-    { "@type": "City", name: "Iquique" },
-    { "@type": "City", name: "Calama" },
-    { "@type": "City", name: "Arica" },
-  ],
+  areaServed: { "@type": "Country", name: "Chile" },
   serviceType: "Marketing Digital",
   founder: {
     "@type": "Person",
