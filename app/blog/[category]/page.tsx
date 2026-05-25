@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   CATEGORIES,
   CATEGORY_LABELS,
-  getAllPosts,
   getPostsByCategory,
   type Category,
 } from "@/lib/blog";
@@ -39,7 +38,6 @@ export default async function CategoryPage({ params }: Props) {
 
   const cat = category as Category;
   const posts = getPostsByCategory(cat);
-  const allPosts = getAllPosts();
   const label = CATEGORY_LABELS[cat];
 
   return (

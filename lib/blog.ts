@@ -87,8 +87,8 @@ export function getAllPosts(): PostMeta[] {
     for (const file of files) {
       const slug = file.replace(/\.mdx$/, "");
       const filePath = path.join(dir, file);
-      const { slug: _s, category: _c, content: _content, ...meta } = parsePost(filePath, category as Category, slug);
-      posts.push({ slug, category: category as Category, ...meta });
+      const { readingTime, frontmatter } = parsePost(filePath, category as Category, slug);
+      posts.push({ slug, category: category as Category, readingTime, frontmatter });
     }
   }
 
