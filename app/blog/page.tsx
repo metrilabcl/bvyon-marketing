@@ -6,7 +6,7 @@ import BlogIndexCard from "@/components/blog/BlogIndexCard";
 export const metadata: Metadata = {
   title: { absolute: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing" },
   description:
-    "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia para empresas del norte de Chile.",
+    "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia para empresas del norte de Chile. Por Bastian Vega Yon.",
   alternates: {
     canonical: "https://bvyon-marketing.cl/blog",
     types: { "application/rss+xml": "https://bvyon-marketing.cl/blog/rss.xml" },

@@ -2,10 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sobre mí · Bastian Vega Yon — bvyon",
+  title: "Sobre mí · Bastian Vega Yon",
   description:
-    "Bastian Vega Yon, especialista freelance en automatizaciones en la nube, análisis estratégico digital y contenido con IA. Basado en Antofagasta, norte de Chile.",
+    "Bastian Vega Yon, especialista freelance en marketing digital en Antofagasta. Automatizaciones, SEO y contenido con IA para el norte de Chile. Sin intermediarios.",
   alternates: { canonical: "https://bvyon-marketing.cl/nosotros" },
+  openGraph: {
+    title: "Sobre mí · Bastian Vega Yon | bvyon marketing",
+    description:
+      "Especialista freelance en marketing digital basado en Antofagasta. Automatizaciones, SEO y contenido con IA para el norte de Chile.",
+    url: "https://bvyon-marketing.cl/nosotros",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre mí · Bastian Vega Yon | bvyon marketing",
+    description:
+      "Especialista freelance en marketing digital basado en Antofagasta. Norte de Chile.",
+    images: ["/og-image.png"],
+  },
 };
 
 const values = [
@@ -62,7 +76,7 @@ export default function NosotrosPage() {
               <div className="flex flex-wrap gap-2">
                 {regions.map((city) => (
                   <span key={city} className="px-3 py-1.5 bg-[#E8EDF7] text-[#0D1B4B] text-sm font-medium rounded-full">
-                    📍 {city}
+                    <span aria-hidden="true">📍</span> {city}
                   </span>
                 ))}
               </div>
@@ -102,7 +116,7 @@ export default function NosotrosPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v) => (
               <div key={v.title} className="bg-white rounded-2xl p-6 border border-[#E8EDF7]">
-                <div className="text-3xl mb-3">{v.icon}</div>
+                <div className="text-3xl mb-3" aria-hidden="true">{v.icon}</div>
                 <h3
                   className="text-lg font-bold text-[#0D1B4B] mb-2"
                   style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}

@@ -4,8 +4,20 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contacto · Solicita tu Cotización",
   description:
-    "Contáctanos para una cotización personalizada. bvyon marketing — agencia de marketing digital en Antofagasta, Iquique, Arica y Calama. Primera consulta sin costo.",
+    "Solicita tu cotización de marketing digital. Especialista freelance en Antofagasta. Primera consulta sin costo. Respuesta en menos de 48 horas.",
   alternates: { canonical: "https://bvyon-marketing.cl/contacto" },
+  openGraph: {
+    title: "Contacto · Solicita tu Cotización | bvyon marketing",
+    description: "Primera consulta sin costo. Cotización de marketing digital para el norte de Chile.",
+    url: "https://bvyon-marketing.cl/contacto",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto · Solicita tu Cotización | bvyon marketing",
+    description: "Primera consulta sin costo. Cotización de marketing digital para el norte de Chile.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function ContactoPage() {

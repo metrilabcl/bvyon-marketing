@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Servicios de Marketing Digital",
   description:
-    "Automatizaciones 24/7, SEO, contenido con IA, diseño web y publicidad digital para el norte de Chile. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
+    "Automatizaciones 24/7, SEO, contenido con IA y diseño web para empresas del norte de Chile. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
   alternates: { canonical: "https://bvyon-marketing.cl/servicios" },
   openGraph: {
     title: "Servicios de Marketing Digital | bvyon marketing",

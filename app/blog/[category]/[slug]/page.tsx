@@ -71,24 +71,33 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  const postUrl = `https://bvyon-marketing.cl/blog/${category}/${slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
     headline: post.frontmatter.title,
     description: post.frontmatter.excerpt,
     datePublished: post.frontmatter.date,
+    dateModified: post.frontmatter.date,
     author: {
       "@type": "Person",
+      "@id": "https://bvyon-marketing.cl/nosotros#author",
       name: "Bastian Vega Yon",
       url: "https://bvyon-marketing.cl/nosotros",
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://bvyon-marketing.cl/#business",
       name: "bvyon marketing",
       url: "https://bvyon-marketing.cl",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://bvyon-marketing.cl/og-image.png",
+      },
     },
     image: `https://bvyon-marketing.cl${post.frontmatter.coverImage}`,
-    url: `https://bvyon-marketing.cl/blog/${category}/${slug}`,
+    url: postUrl,
   };
 
   return (

@@ -22,12 +22,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!CATEGORIES.includes(category as Category)) return {};
   const label = CATEGORY_LABELS[category as Category];
   return {
-    title: `${label} — Blog | bvyon marketing`,
-    description: `Artículos sobre ${label.toLowerCase()} en marketing digital para el norte de Chile.`,
+    title: `${label} — Blog`,
+    description: `Artículos y guías sobre ${label.toLowerCase()} en marketing digital para empresas del norte de Chile. Consejos prácticos y casos reales.`,
     alternates: { canonical: `https://bvyon-marketing.cl/blog/${category}` },
     openGraph: {
       title: `${label} — Blog | bvyon marketing`,
+      description: `Artículos sobre ${label.toLowerCase()} en marketing digital para el norte de Chile.`,
       url: `https://bvyon-marketing.cl/blog/${category}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: `${label} — Blog | bvyon marketing`,
+      description: `Artículos sobre ${label.toLowerCase()} en marketing digital para el norte de Chile.`,
     },
   };
 }

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     absolute: "bvyon marketing | Marketing Digital en el Norte de Chile",
   },
   description:
-    "Especialista freelance en marketing digital en el norte de Chile. Automatizaciones 24/7, SEO, contenido con IA y diseño web para empresas de Antofagasta, Iquique y Calama.",
+    "Especialista freelance en marketing digital en el norte de Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas de Antofagasta e Iquique.",
   alternates: { canonical: "https://bvyon-marketing.cl" },
   openGraph: {
     title: "bvyon marketing | Marketing Digital en el Norte de Chile",
@@ -299,7 +299,7 @@ export default function HomePage() {
               >
                 {/* Visual header */}
                 <div className={`bg-gradient-to-br ${s.color} px-6 pt-7 pb-6 flex items-start gap-4`}>
-                  <div className="text-4xl">{s.icon}</div>
+                  <div className="text-4xl" aria-hidden="true">{s.icon}</div>
                   <div className="flex-1">
                     <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
                       {s.badge}
