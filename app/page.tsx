@@ -178,7 +178,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/servicios"
-                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
+                  className="px-8 py-4 border-2 border-white/60 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
                 >
                   Ver servicios
                 </Link>

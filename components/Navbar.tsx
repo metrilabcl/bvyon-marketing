@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-[#E8EDF7] shadow-sm">
@@ -29,15 +31,23 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-[#4A5568] hover:text-[#0D1B4B] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-[#0D1B4B] font-semibold underline underline-offset-4 decoration-[#FF6B2B] decoration-2"
+                      : "text-[#4A5568] hover:text-[#0D1B4B]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contacto"
               className="px-5 py-2.5 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg hover:bg-[#e85e22] transition-colors"
@@ -70,16 +80,24 @@ export default function Navbar() {
         {open && (
           <div id="mobile-menu" className="md:hidden py-4 border-t border-[#E8EDF7]">
             <nav aria-label="Navegación móvil" className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-[#0D1B4B] font-semibold bg-[#F7F9FC] border-l-2 border-[#FF6B2B]"
+                        : "text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/contacto"
                 onClick={() => setOpen(false)}
