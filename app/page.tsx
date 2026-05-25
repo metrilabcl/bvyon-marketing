@@ -128,7 +128,7 @@ const services: HomeService[] = [
 
 const stats = [
   { value: "5+", label: "Años especialista en marketing digital" },
-  { value: "50+", label: "Empresas crecieron con nuestra estrategia" },
+  { value: "50+", label: "Empresas crecieron con mi estrategia" },
   { value: "Minería + Retail", label: "Sectores focalizados" },
   { value: "30 min", label: "Diagnóstico gratis sin costo" },
 ];

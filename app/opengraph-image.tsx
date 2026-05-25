@@ -46,7 +46,7 @@ export default async function Image() {
         </div>
 
         <div style={{ fontSize: 28, color: "#CBD5E0", maxWidth: 700, lineHeight: 1.5 }}>
-          bvyon marketing — especialistas en minería y retail B2B
+          bvyon marketing — especialista freelance en marketing digital
         </div>
 
         <div style={{ display: "flex", gap: 12, marginTop: 40 }}>

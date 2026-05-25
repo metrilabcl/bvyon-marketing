@@ -133,7 +133,7 @@ export default function ServiciosPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-4">
-              Lo que hacemos
+              Lo que hago
             </span>
             <h1
               className="text-4xl sm:text-5xl font-black mb-4"

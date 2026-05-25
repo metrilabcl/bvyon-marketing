@@ -34,10 +34,10 @@ export default function ContactoPage() {
               className="text-4xl sm:text-5xl font-black mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              Contáctanos
+              Contáctame
             </h1>
             <p className="text-gray-300 text-lg">
-              La primera consulta es sin costo. Cuéntanos sobre tu empresa y te ayudamos a crecer sin límites.
+              La primera consulta es sin costo. Cuéntame sobre tu empresa y te ayudo a crecer sin límites.
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function ContactoPage() {
                   className="text-2xl font-black text-primary mb-5"
                   style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                 >
-                  ¿Cómo trabajamos?
+                  ¿Cómo trabajo?
                 </h2>
                 <ol className="space-y-5">
                   {[
