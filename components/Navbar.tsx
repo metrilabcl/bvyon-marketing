@@ -7,7 +7,7 @@ const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
   { href: "/blog", label: "Blog" },
-  { href: "/nosotros", label: "Nosotros" },
+  { href: "/nosotros", label: "Sobre mí" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -42,7 +42,7 @@ export default function Navbar() {
               href="/contacto"
               className="px-5 py-2.5 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg hover:bg-[#e85e22] transition-colors"
             >
-              Cotizar
+              Diagnóstico gratis
             </Link>
           </nav>
 
@@ -85,7 +85,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2 px-5 py-3 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg text-center hover:bg-[#e85e22]"
               >
-                Cotizar
+                Diagnóstico gratis
               </Link>
             </nav>
           </div>

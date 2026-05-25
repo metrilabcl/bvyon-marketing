@@ -120,10 +120,10 @@ const services = [
 ];
 
 const stats = [
-  { value: "50+", label: "Clientes satisfechos" },
-  { value: "200+", label: "Campañas ejecutadas" },
-  { value: "5x", label: "ROI promedio" },
-  { value: "98%", label: "Satisfacción" },
+  { value: "5+", label: "Años especialista en marketing digital" },
+  { value: "4", label: "Ciudades del norte de Chile" },
+  { value: "Minería + Retail", label: "Sectores focalizados" },
+  { value: "30 min", label: "Diagnóstico gratis sin costo" },
 ];
 
 const whyUs = [
