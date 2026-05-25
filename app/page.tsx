@@ -194,10 +194,8 @@ export default function HomePage() {
             {/* Right — profile photo */}
             <div className="hidden lg:flex justify-center lg:justify-end items-center">
               <div className="relative">
-                {/* Outer glow ring */}
-                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/40 to-primary/60 blur-md" />
                 {/* Portrait card */}
-                <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-2 border-accent/50 shadow-2xl">
+                <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border border-primary shadow-2xl">
                   <Image
                     src="/banner.png"
                     alt="Bastian Vega Yon — Especialista en marketing digital"
@@ -207,9 +205,6 @@ export default function HomePage() {
                     sizes="(max-width: 1280px) 320px, 384px"
                   />
                 </div>
-                {/* Decorative accent dots */}
-                <div className="absolute -bottom-5 -left-5 w-16 h-16 rounded-full bg-accent/25 border border-accent/40" />
-                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-accent/35 border border-accent/60" />
                 {/* Name tag */}
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-accent text-primary text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                   Bastian Vega Yon · bvyon

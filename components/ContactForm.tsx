@@ -47,6 +47,8 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-5" noValidate>
+      {/* honeypot — hidden from real users, bots fill it */}
+      <input type="text" name="website" tabIndex={-1} aria-hidden="true" autoComplete="off" className="hidden" />
       {state.error && (
         <div
           role="alert"

@@ -16,6 +16,9 @@ export async function submitLeadForm(
   prevState: LeadFormState,
   formData: FormData
 ): Promise<LeadFormState> {
+  const honeypot = String(formData.get("website") ?? "");
+  if (honeypot) return { success: true }; // bot trap — silently discard
+
   const name = String(formData.get("name") ?? "").trim();
   const email = String(formData.get("email") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();

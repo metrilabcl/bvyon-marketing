@@ -22,6 +22,23 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://bvyon-marketing.cl/nosotros#person",
+  name: "Bastian Vega Yon",
+  jobTitle: "Especialista en Marketing Digital",
+  description: "Especialista freelance en marketing digital B2B. Automatizaciones, SEO y contenido con IA.",
+  url: "https://bvyon-marketing.cl",
+  worksFor: {
+    "@type": "Organization",
+    "@id": "https://bvyon-marketing.cl/#business",
+    name: "bvyon marketing",
+  },
+  knowsAbout: ["Marketing Digital", "SEO", "Marketing B2B", "Publicidad Digital", "Content Marketing"],
+  sameAs: [] as string[],
+};
+
 const values = [
   { icon: "🎯", title: "Orientado a resultados", desc: "Cada estrategia tiene KPIs claros. Tu crecimiento es mi éxito — leads, conversiones y ROI, no vanity metrics." },
   { icon: "📊", title: "Datos en cada decisión", desc: "Soy técnicamente riguroso. Cada peso invertido tiene atribución clara y reportes que cualquiera puede entender." },
@@ -32,6 +49,10 @@ const values = [
 export default function NosotrosPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-primary text-white pt-28 pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

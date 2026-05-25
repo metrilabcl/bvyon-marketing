@@ -5,10 +5,10 @@
 After every `git commit`, you MUST immediately run:
 
 ```bash
-git push -u origin master
+git push -u origin main
 ```
 
-**Why this matters:** The site deploys via Vercel on push to GitHub. Committing without pushing leaves changes invisible to the deployment pipeline. Every task is incomplete until code is on `origin/master`.
+**Why this matters:** The site deploys via Vercel on push to GitHub. Committing without pushing leaves changes invisible to the deployment pipeline. Every task is incomplete until code is on `origin/main`.
 
 If push fails, report the error in the Paperclip issue comment and set status to `blocked`.
 
