@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Zap, BarChart3, Sparkles, Globe, Check } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: {
@@ -68,9 +70,18 @@ const websiteJsonLd = {
   publisher: { "@id": "https://bvyon-marketing.cl/#business" },
 };
 
-const services = [
+interface HomeService {
+  Icon: LucideIcon;
+  color: string;
+  badge: string;
+  title: string;
+  desc: string;
+  examples: { label: string; detail: string }[];
+}
+
+const services: HomeService[] = [
   {
-    icon: "⚡",
+    Icon: Zap,
     color: "from-primary to-[#152260]",
     badge: "24/7",
     title: "Automatizaciones en la Nube",
@@ -82,7 +93,7 @@ const services = [
     ],
   },
   {
-    icon: "📊",
+    Icon: BarChart3,
     color: "from-[#1a3a6b] to-primary",
     badge: "Datos reales",
     title: "Análisis Estratégico Completo",
@@ -94,7 +105,7 @@ const services = [
     ],
   },
   {
-    icon: "✨",
+    Icon: Sparkles,
     color: "from-[#2d1a4b] to-primary",
     badge: "IA generativa",
     title: "Contenido y Visuales con IA",
@@ -106,7 +117,7 @@ const services = [
     ],
   },
   {
-    icon: "🌐",
+    Icon: Globe,
     color: "from-primary to-[#1a2f5e]",
     badge: "Full conversion",
     title: "Diseño Web Full Conversion",
@@ -299,7 +310,7 @@ export default function HomePage() {
               >
                 {/* Visual header */}
                 <div className={`bg-gradient-to-br ${s.color} px-6 pt-7 pb-6 flex items-start gap-4`}>
-                  <div className="text-4xl" aria-hidden="true">{s.icon}</div>
+                  <s.Icon className="w-8 h-8 text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
                   <div className="flex-1">
                     <span className="inline-block px-2 py-0.5 bg-accent text-primary text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
                       {s.badge}
@@ -357,9 +368,7 @@ export default function HomePage() {
                 {whyUs.map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <div className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
+                      <Check className="w-3.5 h-3.5 text-accent" strokeWidth={3} aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-bold text-primary">{item.title}</h4>
