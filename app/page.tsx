@@ -303,7 +303,7 @@ export default function HomePage() {
                 <div className={`bg-gradient-to-br ${s.color} px-6 pt-7 pb-6 flex items-start gap-4`}>
                   <s.Icon className="w-8 h-8 text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
                   <div className="flex-1">
-                    <span className="inline-block px-2 py-0.5 bg-accent text-primary text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
+                    <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold uppercase tracking-wider rounded-full mb-2">
                       {s.badge}
                     </span>
                     <h3
@@ -317,7 +317,7 @@ export default function HomePage() {
                 {/* Body */}
                 <div className="px-6 py-5">
                   <p className="text-slate text-sm leading-relaxed mb-5">{s.desc}</p>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-3">Ejemplos prácticos</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#0D1B4B] mb-3">Ejemplos prácticos</p>
                   <div className="space-y-3">
                     {s.examples.map((ex) => (
                       <div key={ex.label} className="flex gap-3">
