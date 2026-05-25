@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Zap, BarChart3, Sparkles, Globe, Check } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SITE_URL } from "@/lib/site-url";
+import { getAllPosts, CATEGORY_LABELS } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: {
@@ -135,6 +136,7 @@ const whyUs = [
 ];
 
 export default function HomePage() {
+  const recentPosts = getAllPosts().slice(0, 3);
   return (
     <>
       <script
@@ -452,6 +454,77 @@ export default function HomePage() {
           <p className="text-center text-xs text-slate mt-6">
             * Presupuesto de pauta no incluido. Contrato mínimo 3 meses.
           </p>
+        </div>
+      </section>
+
+      {/* Últimas noticias */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2
+              className="text-3xl sm:text-4xl font-black text-primary mb-4"
+              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            >
+              Últimas noticias
+            </h2>
+            <p className="text-slate text-lg max-w-xl mx-auto">
+              Guías, casos y análisis del marketing digital chileno.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {recentPosts.map((post) => {
+              const href = `/blog/${post.category}/${post.slug}`;
+              return (
+                <article
+                  key={`${post.category}/${post.slug}`}
+                  className="bg-light rounded-2xl border border-primary-light overflow-hidden hover:shadow-lg hover:border-accent/30 transition-all group"
+                >
+                  <Link href={href} className="block relative h-48 bg-primary/5" aria-label={post.frontmatter.title} tabIndex={-1} aria-hidden="true">
+                    <Image
+                      src={post.frontmatter.coverImage}
+                      alt=""
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </Link>
+                  <div className="p-5">
+                    <div className="mb-3">
+                      <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold uppercase tracking-wider rounded-full">
+                        {CATEGORY_LABELS[post.category]}
+                      </span>
+                    </div>
+                    <Link href={href}>
+                      <h3
+                        className="text-lg font-bold text-primary mb-2 leading-snug group-hover:text-accent transition-colors line-clamp-2"
+                        style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+                      >
+                        {post.frontmatter.title}
+                      </h3>
+                    </Link>
+                    <p className="text-slate text-sm leading-relaxed mb-3 line-clamp-2">
+                      {post.frontmatter.excerpt}
+                    </p>
+                    <time className="text-xs text-slate/70" dateTime={post.frontmatter.date}>
+                      {new Date(post.frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/blog"
+              className="inline-block px-8 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-[#0a1540] transition-colors"
+            >
+              Ver todas las publicaciones
+            </Link>
+          </div>
         </div>
       </section>
 
