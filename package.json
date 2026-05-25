@@ -10,6 +10,7 @@
     "blog:new": "node scripts/blog-new.mjs"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "feed": "^5.2.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.16.0",
