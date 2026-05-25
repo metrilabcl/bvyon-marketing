@@ -71,7 +71,7 @@ const websiteJsonLd = {
 const services = [
   {
     icon: "⚡",
-    color: "from-[#0D1B4B] to-[#152260]",
+    color: "from-primary to-[#152260]",
     badge: "24/7",
     title: "Automatizaciones en la Nube",
     desc: "Sistemas que trabajan mientras duermes: flujos automatizados, CRM, notificaciones y seguimiento de leads sin intervención manual.",
@@ -83,7 +83,7 @@ const services = [
   },
   {
     icon: "📊",
-    color: "from-[#1a3a6b] to-[#0D1B4B]",
+    color: "from-[#1a3a6b] to-primary",
     badge: "Datos reales",
     title: "Análisis Estratégico Completo",
     desc: "Radiografía total de tu negocio digital: ADS, orgánico, web, competencia y comportamiento de clientes.",
@@ -95,7 +95,7 @@ const services = [
   },
   {
     icon: "✨",
-    color: "from-[#2d1a4b] to-[#0D1B4B]",
+    color: "from-[#2d1a4b] to-primary",
     badge: "IA generativa",
     title: "Contenido y Visuales con IA",
     desc: "Creatividades, copy y visuales de alto impacto generados con inteligencia artificial, alineados a tu marca.",
@@ -107,7 +107,7 @@ const services = [
   },
   {
     icon: "🌐",
-    color: "from-[#0D1B4B] to-[#1a2f5e]",
+    color: "from-primary to-[#1a2f5e]",
     badge: "Full conversion",
     title: "Diseño Web Full Conversion",
     desc: "Sitios web y landing pages diseñados para convertir visitantes en clientes: UX estratégico y velocidad.",
@@ -147,7 +147,7 @@ export default function HomePage() {
       {/* Hero — Profile layout with founder photo */}
       <section className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden bg-[#060c1e]">
         {/* Brand gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0D1B4B] via-[#091438] to-[#060c1e]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#091438] to-[#060c1e]" />
         {/* Subtle ambient glow behind photo (right half) */}
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 hidden lg:block"
           style={{ backgroundImage: "url('/banner.png')", backgroundSize: "cover", backgroundPosition: "center top", filter: "blur(48px)" }}
@@ -156,7 +156,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — text content */}
             <div>
-              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-6">
+              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-6">
                 Marketing Digital · Chile
               </span>
               <h1
@@ -164,7 +164,7 @@ export default function HomePage() {
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
                 Marketing sin{" "}
-                <span className="text-[#FF6B2B]">límites</span>
+                <span className="text-accent">límites</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
                 Soy Bastian Vega Yon, especialista en automatizaciones en la nube, análisis estratégico digital, contenido con IA y diseño web orientado a conversión. Resultados reales, sin intermediarios.
@@ -172,7 +172,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contacto"
-                  className="px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-center text-lg"
+                  className="px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-colors text-center text-lg"
                 >
                   Solicitar cotización
                 </Link>
@@ -188,9 +188,9 @@ export default function HomePage() {
             <div className="hidden lg:flex justify-center lg:justify-end items-center">
               <div className="relative">
                 {/* Outer glow ring */}
-                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-[#FF6B2B]/40 to-[#0D1B4B]/60 blur-md" />
+                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/40 to-primary/60 blur-md" />
                 {/* Portrait card */}
-                <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-2 border-[#FF6B2B]/50 shadow-2xl">
+                <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-2 border-accent/50 shadow-2xl">
                   <Image
                     src="/banner.png"
                     alt="Bastian Vega Yon — Especialista en marketing digital"
@@ -201,10 +201,10 @@ export default function HomePage() {
                   />
                 </div>
                 {/* Decorative accent dots */}
-                <div className="absolute -bottom-5 -left-5 w-16 h-16 rounded-full bg-[#FF6B2B]/25 border border-[#FF6B2B]/40" />
-                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-[#FF6B2B]/35 border border-[#FF6B2B]/60" />
+                <div className="absolute -bottom-5 -left-5 w-16 h-16 rounded-full bg-accent/25 border border-accent/40" />
+                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-accent/35 border border-accent/60" />
                 {/* Name tag */}
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-accent text-primary text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                   Bastian Vega Yon · bvyon
                 </div>
               </div>
@@ -225,12 +225,12 @@ export default function HomePage() {
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <div
-                  className="text-4xl font-black text-[#0D1B4B] mb-1"
+                  className="text-4xl font-black text-primary mb-1"
                   style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                 >
                   {s.value}
                 </div>
-                <div className="text-sm text-[#4A5568]">{s.label}</div>
+                <div className="text-sm text-slate">{s.label}</div>
               </div>
             ))}
           </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
         {/* Horizontal gradient: dark left (text legibility) → transparent right (person visible) */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/10" />
         {/* Bottom fade into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#F7F9FC] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-light to-transparent" />
 
         <div
           className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center"
@@ -262,14 +262,14 @@ export default function HomePage() {
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
               La persona detrás de tu{" "}
-              <span className="text-[#FF6B2B]">estrategia</span>
+              <span className="text-accent">estrategia</span>
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
               Soy un especialista freelance en marketing digital con enfoque en automatización, análisis de datos y resultados medibles. Trabajo directamente contigo — sin capas, sin intermediarios, sin burocracia.
             </p>
             <Link
               href="/nosotros"
-              className="inline-block px-8 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors text-lg"
+              className="inline-block px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-colors text-lg"
             >
               Conocer más
             </Link>
@@ -278,16 +278,16 @@ export default function HomePage() {
       </section>
 
       {/* Services overview */}
-      <section className="py-20 bg-[#F7F9FC]">
+      <section className="py-20 bg-light">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
+              className="text-3xl sm:text-4xl font-black text-primary mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
               Mis Servicios
             </h2>
-            <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
+            <p className="text-slate text-lg max-w-xl mx-auto">
               Mis servicios para hacer crecer tu negocio digital. Con ejemplos reales de lo que hago.
             </p>
           </div>
@@ -295,17 +295,17 @@ export default function HomePage() {
             {services.map((s) => (
               <div
                 key={s.title}
-                className="bg-white rounded-2xl overflow-hidden border border-[#E8EDF7] hover:shadow-xl hover:border-[#FF6B2B]/30 transition-all group"
+                className="bg-white rounded-2xl overflow-hidden border border-primary-light hover:shadow-xl hover:border-accent/30 transition-all group"
               >
                 {/* Visual header */}
                 <div className={`bg-gradient-to-br ${s.color} px-6 pt-7 pb-6 flex items-start gap-4`}>
                   <div className="text-4xl" aria-hidden="true">{s.icon}</div>
                   <div className="flex-1">
-                    <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
+                    <span className="inline-block px-2 py-0.5 bg-accent text-primary text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
                       {s.badge}
                     </span>
                     <h3
-                      className="text-lg font-bold text-white leading-snug group-hover:text-[#FF6B2B] transition-colors"
+                      className="text-lg font-bold text-white leading-snug group-hover:text-accent transition-colors"
                       style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                     >
                       {s.title}
@@ -314,15 +314,15 @@ export default function HomePage() {
                 </div>
                 {/* Body */}
                 <div className="px-6 py-5">
-                  <p className="text-[#4A5568] text-sm leading-relaxed mb-5">{s.desc}</p>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#FF6B2B] mb-3">Ejemplos prácticos</p>
+                  <p className="text-slate text-sm leading-relaxed mb-5">{s.desc}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-3">Ejemplos prácticos</p>
                   <div className="space-y-3">
                     {s.examples.map((ex) => (
                       <div key={ex.label} className="flex gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2B] shrink-0 mt-2" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
                         <div>
-                          <span className="text-sm font-semibold text-[#0D1B4B]">{ex.label}:</span>{" "}
-                          <span className="text-sm text-[#4A5568]">{ex.detail}</span>
+                          <span className="text-sm font-semibold text-primary">{ex.label}:</span>{" "}
+                          <span className="text-sm text-slate">{ex.detail}</span>
                         </div>
                       </div>
                     ))}
@@ -334,7 +334,7 @@ export default function HomePage() {
           <div className="text-center mt-10">
             <Link
               href="/servicios"
-              className="inline-block px-8 py-3.5 bg-[#0D1B4B] text-white font-semibold rounded-xl hover:bg-[#0a1540] transition-colors"
+              className="inline-block px-8 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-[#0a1540] transition-colors"
             >
               Ver todos los servicios y tarifas
             </Link>
@@ -348,7 +348,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <h2
-                className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-6"
+                className="text-3xl sm:text-4xl font-black text-primary mb-6"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
                 Tu socio de marketing digital sin límites
@@ -356,22 +356,22 @@ export default function HomePage() {
               <div className="space-y-5">
                 {whyUs.map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-[#FF6B2B]/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-[#FF6B2B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#0D1B4B]">{item.title}</h4>
-                      <p className="text-[#4A5568] text-sm">{item.desc}</p>
+                      <h4 className="font-bold text-primary">{item.title}</h4>
+                      <p className="text-slate text-sm">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-[#0D1B4B] to-[#152260] rounded-3xl p-8 text-white">
+            <div className="bg-gradient-to-br from-primary to-[#152260] rounded-3xl p-8 text-white">
               <div
-                className="text-5xl font-black mb-2 text-[#FF6B2B]"
+                className="text-5xl font-black mb-2 text-accent"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
                 360°
@@ -396,16 +396,16 @@ export default function HomePage() {
       </section>
 
       {/* Pricing teaser */}
-      <section className="py-20 bg-[#F7F9FC]">
+      <section className="py-20 bg-light">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
+              className="text-3xl sm:text-4xl font-black text-primary mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
               Paquetes para cada etapa
             </h2>
-            <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
+            <p className="text-slate text-lg max-w-xl mx-auto">
               Desde emprendimientos hasta grandes empresas del sector minero.
             </p>
           </div>
@@ -420,34 +420,34 @@ export default function HomePage() {
                 key={pkg.name}
                 className={`rounded-2xl p-6 border transition-all ${
                   pkg.highlight
-                    ? "bg-[#0D1B4B] border-[#0D1B4B] text-white shadow-xl lg:scale-105"
-                    : "bg-white border-[#E8EDF7] hover:shadow-md"
+                    ? "bg-primary border-primary text-white shadow-xl lg:scale-105"
+                    : "bg-white border-primary-light hover:shadow-md"
                 }`}
               >
                 {pkg.highlight && (
-                  <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold rounded-full mb-3">
+                  <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-3">
                     Popular
                   </span>
                 )}
                 <h3
-                  className={`text-lg font-bold mb-2 ${pkg.highlight ? "text-white" : "text-[#0D1B4B]"}`}
+                  className={`text-lg font-bold mb-2 ${pkg.highlight ? "text-white" : "text-primary"}`}
                   style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                 >
                   {pkg.name}
                 </h3>
-                <div className={`text-2xl font-black mb-0.5 ${pkg.highlight ? "text-[#FF6B2B]" : "text-[#0D1B4B]"}`}>
+                <div className={`text-2xl font-black mb-0.5 ${pkg.highlight ? "text-accent" : "text-primary"}`}>
                   {pkg.price}
                 </div>
                 {pkg.period && (
-                  <div className={`text-xs mb-3 ${pkg.highlight ? "text-gray-400" : "text-[#4A5568]"}`}>{pkg.period}</div>
+                  <div className={`text-xs mb-3 ${pkg.highlight ? "text-gray-400" : "text-slate"}`}>{pkg.period}</div>
                 )}
-                <p className={`text-sm leading-relaxed mb-4 ${pkg.highlight ? "text-gray-300" : "text-[#4A5568]"}`}>{pkg.desc}</p>
+                <p className={`text-sm leading-relaxed mb-4 ${pkg.highlight ? "text-gray-300" : "text-slate"}`}>{pkg.desc}</p>
                 <Link
                   href="/contacto"
                   className={`block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                     pkg.highlight
-                      ? "bg-[#FF6B2B] text-[#0D1B4B] hover:bg-[#e85e22]"
-                      : "border border-[#0D1B4B] text-[#0D1B4B] hover:bg-[#0D1B4B] hover:text-white"
+                      ? "bg-accent text-primary hover:bg-accent-hover"
+                      : "border border-primary text-primary hover:bg-primary hover:text-white"
                   }`}
                 >
                   Solicitar
@@ -455,27 +455,27 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-[#4A5568] mt-6">
+          <p className="text-center text-xs text-slate mt-6">
             * Presupuesto de pauta no incluido. Contrato mínimo 3 meses.
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#FF6B2B]">
+      <section className="py-20 bg-accent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
+            className="text-3xl sm:text-4xl font-black text-primary mb-4"
             style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
           >
             ¿Listo para crecer sin límites?
           </h2>
-          <p className="text-[#0D1B4B]/80 text-lg mb-8">
+          <p className="text-primary/80 text-lg mb-8">
             La primera consulta es sin costo. Cuéntame sobre tu negocio.
           </p>
           <Link
             href="/contacto"
-            className="inline-block px-10 py-4 bg-[#0D1B4B] text-white font-bold text-lg rounded-xl hover:bg-[#0a1540] transition-colors"
+            className="inline-block px-10 py-4 bg-primary text-white font-bold text-lg rounded-xl hover:bg-[#0a1540] transition-colors"
           >
             Contáctame ahora
           </Link>

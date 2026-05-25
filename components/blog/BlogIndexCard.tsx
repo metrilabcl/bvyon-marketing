@@ -12,8 +12,8 @@ export default function BlogIndexCard({ post }: Props) {
   const href = `/blog/${category}/${slug}`;
 
   return (
-    <article className="bg-white rounded-2xl border border-[#E8EDF7] overflow-hidden hover:shadow-lg hover:border-[#FF6B2B]/30 transition-all group">
-      <Link href={href} className="block relative h-48 bg-[#0D1B4B]/5">
+    <article className="bg-white rounded-2xl border border-primary-light overflow-hidden hover:shadow-lg hover:border-accent/30 transition-all group">
+      <Link href={href} className="block relative h-48 bg-primary/5">
         <Image
           src={frontmatter.coverImage}
           alt={frontmatter.title}
@@ -25,19 +25,19 @@ export default function BlogIndexCard({ post }: Props) {
       <div className="p-5">
         <div className="flex items-center gap-2 mb-3">
           <CategoryPill category={category} asLink />
-          <span className="text-xs text-[#4A5568]">{readingTime}</span>
+          <span className="text-xs text-slate">{readingTime}</span>
         </div>
         <Link href={href}>
           <h2
-            className="text-lg font-bold text-[#0D1B4B] mb-2 leading-snug group-hover:text-[#FF6B2B] transition-colors line-clamp-2"
+            className="text-lg font-bold text-primary mb-2 leading-snug group-hover:text-accent transition-colors line-clamp-2"
             style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
           >
             {frontmatter.title}
           </h2>
         </Link>
-        <p className="text-[#4A5568] text-sm leading-relaxed mb-4 line-clamp-3">{frontmatter.excerpt}</p>
+        <p className="text-slate text-sm leading-relaxed mb-4 line-clamp-3">{frontmatter.excerpt}</p>
         <div className="flex items-center justify-between">
-          <time className="text-xs text-[#4A5568]" dateTime={frontmatter.date}>
+          <time className="text-xs text-slate" dateTime={frontmatter.date}>
             {new Date(frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", {
               year: "numeric",
               month: "long",
@@ -46,7 +46,7 @@ export default function BlogIndexCard({ post }: Props) {
           </time>
           <Link
             href={href}
-            className="text-xs font-semibold text-[#FF6B2B] hover:underline"
+            className="text-xs font-semibold text-accent hover:underline"
           >
             Leer más →
           </Link>

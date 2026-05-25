@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CTABlock() {
   return (
-    <aside className="my-10 rounded-2xl bg-gradient-to-br from-[#0D1B4B] to-[#152260] text-white p-8 text-center">
+    <aside className="my-10 rounded-2xl bg-gradient-to-br from-primary to-[#152260] text-white p-8 text-center">
       <h3
         className="text-xl font-bold mb-2"
         style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
@@ -14,7 +14,7 @@ export default function CTABlock() {
       </p>
       <Link
         href="/contacto"
-        className="inline-block px-7 py-3 bg-[#FF6B2B] text-[#0D1B4B] font-bold rounded-xl hover:bg-[#e85e22] transition-colors"
+        className="inline-block px-7 py-3 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-colors"
       >
         Contáctame ahora
       </Link>

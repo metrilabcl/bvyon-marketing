@@ -32,16 +32,16 @@ export default function BlogPage() {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-br from-[#0D1B4B] to-[#152260] text-white">
+      <section className="pt-28 pb-12 bg-gradient-to-br from-primary to-[#152260] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-4">
             Blog
           </span>
           <h1
             className="text-4xl sm:text-5xl font-black mb-4"
             style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
           >
-            Marketing sin <span className="text-[#FF6B2B]">límites</span>
+            Marketing sin <span className="text-accent">límites</span>
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mb-8">
             Guías prácticas, tendencias, herramientas y casos de éxito de marketing digital para el norte de Chile.
@@ -50,7 +50,7 @@ export default function BlogPage() {
           <div className="flex flex-wrap gap-2">
             <Link
               href="/blog"
-              className="px-4 py-1.5 rounded-full text-sm font-semibold bg-[#FF6B2B] text-[#0D1B4B]"
+              className="px-4 py-1.5 rounded-full text-sm font-semibold bg-accent text-primary"
             >
               Todos
             </Link>
@@ -67,10 +67,10 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#F7F9FC]">
+      <section className="py-16 bg-light">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length === 0 ? (
-            <p className="text-center text-[#4A5568]">No hay posts publicados aún.</p>
+            <p className="text-center text-slate">No hay posts publicados aún.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (

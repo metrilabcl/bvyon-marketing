@@ -17,15 +17,15 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-[#E8EDF7] shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-primary-light shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-1">
             <span
-              className="text-2xl font-black tracking-tight text-[#0D1B4B]"
+              className="text-2xl font-black tracking-tight text-primary"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              bvyon<span className="text-[#FF6B2B]"> marketing</span>
+              bvyon<span className="text-accent"> marketing</span>
             </span>
           </Link>
 
@@ -40,8 +40,8 @@ export default function Navbar() {
                   aria-current={isActive ? "page" : undefined}
                   className={`text-sm font-medium transition-colors ${
                     isActive
-                      ? "text-[#0D1B4B] font-semibold underline underline-offset-4 decoration-[#FF6B2B] decoration-2"
-                      : "text-[#4A5568] hover:text-[#0D1B4B]"
+                      ? "text-primary font-semibold underline underline-offset-4 decoration-accent decoration-2"
+                      : "text-slate hover:text-primary"
                   }`}
                 >
                   {link.label}
@@ -50,7 +50,7 @@ export default function Navbar() {
             })}
             <Link
               href="/contacto"
-              className="px-5 py-2.5 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg hover:bg-[#e85e22] transition-colors"
+              className="px-5 py-2.5 bg-accent text-primary text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors"
             >
               Diagnóstico gratis
             </Link>
@@ -58,7 +58,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
+            className="md:hidden p-2 rounded-lg text-slate hover:text-primary hover:bg-light"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
@@ -78,7 +78,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-[#E8EDF7]">
+          <div id="mobile-menu" className="md:hidden py-4 border-t border-primary-light">
             <nav aria-label="Navegación móvil" className="flex flex-col gap-1">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -90,8 +90,8 @@ export default function Navbar() {
                     aria-current={isActive ? "page" : undefined}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                       isActive
-                        ? "text-[#0D1B4B] font-semibold bg-[#F7F9FC] border-l-2 border-[#FF6B2B]"
-                        : "text-[#4A5568] hover:text-[#0D1B4B] hover:bg-[#F7F9FC]"
+                        ? "text-primary font-semibold bg-light border-l-2 border-accent"
+                        : "text-slate hover:text-primary hover:bg-light"
                     }`}
                   >
                     {link.label}
@@ -101,7 +101,7 @@ export default function Navbar() {
               <Link
                 href="/contacto"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-5 py-3 bg-[#FF6B2B] text-[#0D1B4B] text-sm font-semibold rounded-lg text-center hover:bg-[#e85e22]"
+                className="mt-2 px-5 py-3 bg-accent text-primary text-sm font-semibold rounded-lg text-center hover:bg-accent-hover"
               >
                 Diagnóstico gratis
               </Link>

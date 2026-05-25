@@ -119,10 +119,10 @@ export default function ServiciosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0D1B4B] text-white pt-28 pb-16">
+      <section className="bg-primary text-white pt-28 pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-[#FF6B2B]/20 text-[#FF6B2B] rounded-full mb-4">
+            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-4">
               Lo que hacemos
             </span>
             <h1
@@ -143,19 +143,19 @@ export default function ServiciosPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((s) => (
-              <div key={s.id} id={s.id} className="rounded-2xl border border-[#E8EDF7] p-8 hover:shadow-lg hover:border-[#FF6B2B]/30 transition-all">
+              <div key={s.id} id={s.id} className="rounded-2xl border border-primary-light p-8 hover:shadow-lg hover:border-accent/30 transition-all">
                 <div className="text-4xl mb-4">{s.icon}</div>
                 <h2
-                  className="text-xl font-bold text-[#0D1B4B] mb-3"
+                  className="text-xl font-bold text-primary mb-3"
                   style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                 >
                   {s.title}
                 </h2>
-                <p className="text-[#4A5568] text-sm leading-relaxed mb-5">{s.desc}</p>
+                <p className="text-slate text-sm leading-relaxed mb-5">{s.desc}</p>
                 <ul className="space-y-2">
                   {s.features.map((f) => (
-                    <li key={f} className="flex gap-2 text-sm text-[#4A5568]">
-                      <svg className="w-4 h-4 text-[#FF6B2B] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <li key={f} className="flex gap-2 text-sm text-slate">
+                      <svg className="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                       {f}
@@ -169,16 +169,16 @@ export default function ServiciosPage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 bg-[#F7F9FC]">
+      <section className="py-20 bg-light">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2
-              className="text-3xl sm:text-4xl font-black text-[#0D1B4B] mb-4"
+              className="text-3xl sm:text-4xl font-black text-primary mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
               Paquetes y Tarifas
             </h2>
-            <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
+            <p className="text-slate text-lg max-w-xl mx-auto">
               Precios en CLP. Contrato mínimo 3 meses. El presupuesto de pauta va directo a las plataformas.
             </p>
           </div>
@@ -188,32 +188,32 @@ export default function ServiciosPage() {
                 key={pkg.name}
                 className={`rounded-2xl p-6 border transition-all ${
                   pkg.highlight
-                    ? "bg-[#0D1B4B] border-[#0D1B4B] text-white shadow-xl ring-2 ring-[#FF6B2B]/40"
-                    : "bg-white border-[#E8EDF7] hover:shadow-md"
+                    ? "bg-primary border-primary text-white shadow-xl ring-2 ring-accent/40"
+                    : "bg-white border-primary-light hover:shadow-md"
                 }`}
               >
                 {pkg.highlight && (
-                  <span className="inline-block px-2 py-0.5 bg-[#FF6B2B] text-[#0D1B4B] text-xs font-bold rounded-full mb-3">
+                  <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-3">
                     ⭐ Popular
                   </span>
                 )}
                 <h3
-                  className={`text-lg font-bold mb-2 ${pkg.highlight ? "text-white" : "text-[#0D1B4B]"}`}
+                  className={`text-lg font-bold mb-2 ${pkg.highlight ? "text-white" : "text-primary"}`}
                   style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
                 >
                   {pkg.name}
                 </h3>
-                <div className={`text-xl font-black mb-0.5 ${pkg.highlight ? "text-[#FF6B2B]" : "text-[#0D1B4B]"}`}>
+                <div className={`text-xl font-black mb-0.5 ${pkg.highlight ? "text-accent" : "text-primary"}`}>
                   {pkg.price}
                 </div>
                 {pkg.period && (
-                  <div className={`text-xs mb-3 ${pkg.highlight ? "text-gray-400" : "text-[#4A5568]"}`}>{pkg.period}</div>
+                  <div className={`text-xs mb-3 ${pkg.highlight ? "text-gray-400" : "text-slate"}`}>{pkg.period}</div>
                 )}
-                <p className={`text-sm leading-relaxed mb-4 ${pkg.highlight ? "text-gray-300" : "text-[#4A5568]"}`}>{pkg.desc}</p>
+                <p className={`text-sm leading-relaxed mb-4 ${pkg.highlight ? "text-gray-300" : "text-slate"}`}>{pkg.desc}</p>
                 <ul className={`space-y-1.5 mb-6 ${pkg.highlight ? "" : ""}`}>
                   {pkg.features.map((f) => (
-                    <li key={f} className={`flex gap-1.5 text-xs ${pkg.highlight ? "text-gray-300" : "text-[#4A5568]"}`}>
-                      <svg className="w-3.5 h-3.5 text-[#FF6B2B] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <li key={f} className={`flex gap-1.5 text-xs ${pkg.highlight ? "text-gray-300" : "text-slate"}`}>
+                      <svg className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                       {f}
@@ -224,8 +224,8 @@ export default function ServiciosPage() {
                   href="/contacto"
                   className={`block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                     pkg.highlight
-                      ? "bg-[#FF6B2B] text-[#0D1B4B] hover:bg-[#e85e22]"
-                      : "border border-[#0D1B4B] text-[#0D1B4B] hover:bg-[#0D1B4B] hover:text-white"
+                      ? "bg-accent text-primary hover:bg-accent-hover"
+                      : "border border-primary text-primary hover:bg-primary hover:text-white"
                   }`}
                 >
                   Solicitar
@@ -240,17 +240,17 @@ export default function ServiciosPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl font-black text-[#0D1B4B] mb-4"
+            className="text-3xl font-black text-primary mb-4"
             style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
           >
             ¿No sabes qué necesitas?
           </h2>
-          <p className="text-[#4A5568] text-lg mb-8">
+          <p className="text-slate text-lg mb-8">
             Conversemos y te recomiendo la mejor solución para tu negocio. Primera consulta sin costo.
           </p>
           <Link
             href="/contacto"
-            className="inline-block px-10 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
+            className="inline-block px-10 py-4 bg-accent text-primary font-bold text-lg rounded-xl hover:bg-accent-hover transition-colors"
           >
             Solicitar cotización
           </Link>

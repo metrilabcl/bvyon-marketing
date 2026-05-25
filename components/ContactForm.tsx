@@ -59,57 +59,57 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-[#0D1B4B] mb-1.5">
+          <label htmlFor="name" className="block text-sm font-medium text-primary mb-1.5">
             Nombre <span className="text-red-500">*</span>
           </label>
           <input
             id="name" name="name" type="text" required autoComplete="name"
             placeholder="Tu nombre completo"
-            className="w-full px-4 py-3 border border-[#E8EDF7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B2B] focus:border-[#FF6B2B] transition-colors"
+            className="w-full px-4 py-3 border border-primary-light rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-[#0D1B4B] mb-1.5">
+          <label htmlFor="email" className="block text-sm font-medium text-primary mb-1.5">
             Email <span className="text-red-500">*</span>
           </label>
           <input
             id="email" name="email" type="email" required autoComplete="email"
             placeholder="tu@empresa.cl"
-            className="w-full px-4 py-3 border border-[#E8EDF7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B2B] focus:border-[#FF6B2B] transition-colors"
+            className="w-full px-4 py-3 border border-primary-light rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-[#0D1B4B] mb-1.5">
+          <label htmlFor="phone" className="block text-sm font-medium text-primary mb-1.5">
             Teléfono
           </label>
           <input
             id="phone" name="phone" type="tel" autoComplete="tel"
             placeholder="+56 9 XXXX XXXX"
-            className="w-full px-4 py-3 border border-[#E8EDF7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B2B] focus:border-[#FF6B2B] transition-colors"
+            className="w-full px-4 py-3 border border-primary-light rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-[#0D1B4B] mb-1.5">
+          <label htmlFor="company" className="block text-sm font-medium text-primary mb-1.5">
             Empresa
           </label>
           <input
             id="company" name="company" type="text" autoComplete="organization"
             placeholder="Nombre de tu empresa"
-            className="w-full px-4 py-3 border border-[#E8EDF7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B2B] focus:border-[#FF6B2B] transition-colors"
+            className="w-full px-4 py-3 border border-primary-light rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="service" className="block text-sm font-medium text-[#0D1B4B] mb-1.5">
+        <label htmlFor="service" className="block text-sm font-medium text-primary mb-1.5">
           ¿En qué servicio estás interesado?
         </label>
         <select
           id="service" name="service"
-          className="w-full px-4 py-3 border border-[#E8EDF7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B2B] focus:border-[#FF6B2B] transition-colors bg-white"
+          className="w-full px-4 py-3 border border-primary-light rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors bg-white"
         >
           <option value="">Selecciona un servicio o paquete</option>
           {serviceOptions.map((o) => <option key={o} value={o}>{o}</option>)}
@@ -117,27 +117,27 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[#0D1B4B] mb-1.5">
+        <label htmlFor="message" className="block text-sm font-medium text-primary mb-1.5">
           Mensaje <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message" name="message" required rows={4}
           placeholder="Cuéntanos sobre tu empresa y lo que necesitas lograr..."
-          className="w-full px-4 py-3 border border-[#E8EDF7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B2B] focus:border-[#FF6B2B] transition-colors resize-y"
+          className="w-full px-4 py-3 border border-primary-light rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors resize-y"
         />
       </div>
 
       <button
         type="submit"
         disabled={pending}
-        className="w-full py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-base rounded-xl hover:bg-[#e85e22] disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+        className="w-full py-4 bg-accent text-primary font-bold text-base rounded-xl hover:bg-accent-hover disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
       >
         {pending ? "Enviando..." : "Enviar mensaje"}
       </button>
 
-      <p className="text-xs text-[#4A5568] text-center">
+      <p className="text-xs text-slate text-center">
         Al enviar este formulario aceptas nuestra{" "}
-        <a href="/privacidad" className="underline hover:text-[#0D1B4B]">política de privacidad</a>.
+        <a href="/privacidad" className="underline hover:text-primary">política de privacidad</a>.
       </p>
     </form>
   );

@@ -110,20 +110,20 @@ export default async function PostPage({ params }: Props) {
       <div className="pt-24 pb-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="mb-8 flex items-center gap-2 text-sm text-[#4A5568]">
-            <Link href="/blog" className="hover:text-[#0D1B4B]">Blog</Link>
+          <nav className="mb-8 flex items-center gap-2 text-sm text-slate">
+            <Link href="/blog" className="hover:text-primary">Blog</Link>
             <span>/</span>
-            <Link href={`/blog/${category}`} className="hover:text-[#0D1B4B] capitalize">
+            <Link href={`/blog/${category}`} className="hover:text-primary capitalize">
               {category}
             </Link>
             <span>/</span>
-            <span className="text-[#0D1B4B] font-medium truncate max-w-xs">{post.frontmatter.title}</span>
+            <span className="text-primary font-medium truncate max-w-xs">{post.frontmatter.title}</span>
           </nav>
 
           <BlogPostHeader post={post} />
 
           {/* MDX content */}
-          <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-[#0D1B4B] prose-a:text-[#FF6B2B] prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-code:text-[#FF6B2B] prose-code:bg-[#FF6B2B]/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none">
+          <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none">
             <MDXRemote
               source={post.content}
               components={mdxComponents}
@@ -142,10 +142,10 @@ export default async function PostPage({ params }: Props) {
           <CTABlock />
 
           {/* Back link */}
-          <div className="mt-8 pt-8 border-t border-[#E8EDF7]">
+          <div className="mt-8 pt-8 border-t border-primary-light">
             <Link
               href="/blog"
-              className="text-sm font-semibold text-[#4A5568] hover:text-[#0D1B4B] transition-colors"
+              className="text-sm font-semibold text-slate hover:text-primary transition-colors"
             >
               ← Volver al blog
             </Link>

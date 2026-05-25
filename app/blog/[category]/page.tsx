@@ -49,7 +49,7 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-br from-[#0D1B4B] to-[#152260] text-white">
+      <section className="pt-28 pb-12 bg-gradient-to-br from-primary to-[#152260] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/blog" className="text-sm text-gray-400 hover:text-white mb-4 inline-block">
             ← Blog
@@ -77,7 +77,7 @@ export default async function CategoryPage({ params }: Props) {
                 href={`/blog/${c}`}
                 className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
                   c === cat
-                    ? "bg-[#FF6B2B] text-[#0D1B4B]"
+                    ? "bg-accent text-primary"
                     : "bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
@@ -88,12 +88,12 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-16 bg-[#F7F9FC]">
+      <section className="py-16 bg-light">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-[#4A5568] mb-4">No hay posts en esta categoría aún.</p>
-              <Link href="/blog" className="text-[#FF6B2B] hover:underline font-semibold">
+              <p className="text-slate mb-4">No hay posts en esta categoría aún.</p>
+              <Link href="/blog" className="text-accent hover:underline font-semibold">
                 Ver todos los posts
               </Link>
             </div>

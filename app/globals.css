@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  /* Brand colors from MET-4 v1.0 */
+@theme {
   --color-primary: #0D1B4B;
+  --color-primary-light: #E8EDF7;
   --color-accent: #FF6B2B;
-  --color-white: #FFFFFF;
-  --color-dark: #0A0E1A;
+  --color-accent-hover: #e85e22;
   --color-slate: #4A5568;
   --color-light: #F7F9FC;
-  --color-primary-light: #E8EDF7;
+  --color-dark: #0A0E1A;
+  --color-white: #FFFFFF;
+}
 
+:root {
   --background: var(--color-white);
   --foreground: var(--color-dark);
 }

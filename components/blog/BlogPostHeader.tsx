@@ -13,18 +13,18 @@ export default function BlogPostHeader({ post }: Props) {
     <header className="mb-10">
       <div className="flex items-center gap-2 mb-4">
         <CategoryPill category={category} asLink />
-        <span className="text-sm text-[#4A5568]">{readingTime}</span>
+        <span className="text-sm text-slate">{readingTime}</span>
       </div>
       <h1
-        className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0D1B4B] leading-tight mb-4"
+        className="text-3xl sm:text-4xl lg:text-5xl font-black text-primary leading-tight mb-4"
         style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
       >
         {frontmatter.title}
       </h1>
-      <p className="text-lg text-[#4A5568] leading-relaxed mb-6">{frontmatter.excerpt}</p>
-      <div className="flex items-center gap-4 text-sm text-[#4A5568] pb-6 border-b border-[#E8EDF7]">
+      <p className="text-lg text-slate leading-relaxed mb-6">{frontmatter.excerpt}</p>
+      <div className="flex items-center gap-4 text-sm text-slate pb-6 border-b border-primary-light">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-[#FF6B2B] flex items-center justify-center text-white text-xs font-bold">
+          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold">
             BV
           </div>
           <span>Bastian Vega Yon</span>
