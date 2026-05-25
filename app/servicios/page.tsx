@@ -4,22 +4,22 @@ import { Zap, BarChart3, Sparkles, Globe, Megaphone, Search, Palette, Compass, C
 import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Servicios de Marketing Digital",
+  title: "Servicios de Marketing Digital — Chile",
   description:
-    "Automatizaciones 24/7, SEO, contenido con IA y diseño web para empresas B2B. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
+    "Automatizaciones 24/7, SEO, contenido con IA y diseño web para empresas B2B en Chile. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
   alternates: { canonical: "https://bvyon-marketing.cl/servicios" },
   openGraph: {
-    title: "Servicios de Marketing Digital | bvyon marketing",
+    title: "Servicios de Marketing Digital — Chile | bvyon marketing",
     description:
-      "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas de sectores minero y retail.",
+      "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas del sector minero y retail de Chile.",
     url: "https://bvyon-marketing.cl/servicios",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Servicios de Marketing Digital | bvyon marketing",
+    title: "Servicios de Marketing Digital — Chile | bvyon marketing",
     description:
-      "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas B2B.",
+      "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas B2B en Chile.",
   },
 };
 
@@ -139,7 +139,7 @@ export default function ServiciosPage() {
               className="text-4xl sm:text-5xl font-black mb-4"
               style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
             >
-              Servicios
+              Servicios de Marketing Digital — Chile
             </h1>
             <p className="text-gray-300 text-lg">
               Automatizaciones, análisis estratégico, contenido con IA, diseño web, publicidad digital, branding y más — todo lo que necesita tu negocio digital.

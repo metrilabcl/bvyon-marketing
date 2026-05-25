@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import {
   CATEGORIES,
+  CATEGORY_LABELS,
   getAllPostSlugs,
   getPost,
   type Category,
@@ -89,11 +90,15 @@ export default async function PostPage({ params }: Props) {
     description: post.frontmatter.excerpt,
     datePublished: post.frontmatter.date,
     dateModified: post.frontmatter.date,
+    inLanguage: "es-CL",
+    articleSection: CATEGORY_LABELS[category as Category],
     author: {
       "@type": "Person",
       "@id": "https://bvyon-marketing.cl/nosotros#author",
       name: "Bastian Vega Yon",
       url: "https://bvyon-marketing.cl/nosotros",
+      jobTitle: "Especialista Freelance en Marketing Digital",
+      sameAs: ["https://bvyon-marketing.cl/nosotros"],
     },
     publisher: {
       "@type": "Organization",
@@ -109,11 +114,26 @@ export default async function PostPage({ params }: Props) {
     url: postUrl,
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://bvyon-marketing.cl" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://bvyon-marketing.cl/blog" },
+      { "@type": "ListItem", position: 3, name: CATEGORY_LABELS[category as Category], item: `https://bvyon-marketing.cl/blog/${category}` },
+      { "@type": "ListItem", position: 4, name: post.frontmatter.title, item: postUrl },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <div className="pt-24 pb-20 bg-white">

@@ -36,6 +36,7 @@ const FrontmatterSchema = z.object({
   targetCity: z.string().optional(),
   /** Internal geo-targeting for SEO (schema.org, keyword meta). Never rendered in UI. */
   targetRegion: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 });
 
 export type Frontmatter = z.infer<typeof FrontmatterSchema>;

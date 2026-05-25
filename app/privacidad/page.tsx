@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
 
         <div className="prose prose-slate max-w-none space-y-6 text-slate leading-relaxed">
           <p>
-            En <strong className="text-primary">bvyon marketing</strong> (RUT individual de Bastian Vega Yon, Antofagasta, Chile) nos comprometemos a proteger la privacidad de quienes visitan nuestro sitio web y se ponen en contacto con nosotros.
+            En <strong className="text-primary">bvyon marketing</strong> (bvyon.cl — Bastian Vega Yon, Chile) nos comprometemos a proteger la privacidad de quienes visitan nuestro sitio web y se ponen en contacto con nosotros.
           </p>
 
           <h2 className="text-xl font-bold text-primary mt-8">1. Datos que recopilamos</h2>

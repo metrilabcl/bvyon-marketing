@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import CategoryPill from "./CategoryPill";
 import type { Post } from "@/lib/blog";
@@ -22,7 +23,7 @@ export default function BlogPostHeader({ post }: Props) {
         {frontmatter.title}
       </h1>
       <p className="text-lg text-slate leading-relaxed mb-6">{frontmatter.excerpt}</p>
-      <div className="flex items-center gap-4 text-sm text-slate pb-6 border-b border-primary-light">
+      <div className="flex flex-wrap items-center gap-4 text-sm text-slate pb-6 border-b border-primary-light">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold">
             BV
@@ -36,6 +37,19 @@ export default function BlogPostHeader({ post }: Props) {
             day: "numeric",
           })}
         </time>
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {frontmatter.tags.map((tag) => (
+              <Link
+                key={tag}
+                href={`/blog?tag=${encodeURIComponent(tag)}`}
+                className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+              >
+                #{tag}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
       <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden mt-6">
         <Image

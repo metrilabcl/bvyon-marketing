@@ -27,8 +27,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts();
+interface Props {
+  searchParams: Promise<{ tag?: string }>;
+}
+
+export default async function BlogPage({ searchParams }: Props) {
+  const { tag } = await searchParams;
+  const allPosts = getAllPosts();
+  const posts = tag
+    ? allPosts.filter((p) => p.frontmatter.tags?.includes(tag))
+    : allPosts;
+
+  const allTags = [...new Set(allPosts.flatMap((p) => p.frontmatter.tags ?? []))].sort();
 
   return (
     <>
@@ -41,7 +51,8 @@ export default function BlogPage() {
             className="text-4xl sm:text-5xl font-black mb-4"
             style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
           >
-            Marketing sin <span className="text-accent">límites</span>
+            Blog: Marketing Digital para Empresas de{" "}
+            <span className="text-accent">Chile</span>
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mb-8">
             Guías prácticas, tendencias, herramientas y casos de éxito de marketing digital para empresas B2B.
@@ -64,13 +75,45 @@ export default function BlogPage() {
               </Link>
             ))}
           </div>
+          {/* Tag filter */}
+          {allTags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {allTags.map((t) => (
+                <Link
+                  key={t}
+                  href={tag === t ? "/blog" : `/blog?tag=${encodeURIComponent(t)}`}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                    tag === t
+                      ? "bg-accent text-primary"
+                      : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                >
+                  #{t}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       <section className="py-16 bg-light">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {tag && (
+            <div className="flex items-center gap-2 mb-6">
+              <span className="text-sm text-slate">Filtrando por tag:</span>
+              <span className="text-sm font-semibold text-accent">#{tag}</span>
+              <Link href="/blog" className="text-xs text-slate hover:text-accent underline ml-1">
+                Limpiar filtro
+              </Link>
+            </div>
+          )}
           {posts.length === 0 ? (
-            <p className="text-center text-slate">No hay posts publicados aún.</p>
+            <div className="text-center py-16">
+              <p className="text-slate mb-4">No hay posts con el tag <strong>#{tag}</strong>.</p>
+              <Link href="/blog" className="text-accent hover:underline font-semibold">
+                Ver todos los posts
+              </Link>
+            </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (

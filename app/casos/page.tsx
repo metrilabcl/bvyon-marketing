@@ -58,7 +58,7 @@ export default function CasesPage() {
               Empresa contratista: +85% en leads calificados
             </h2>
             <p className="text-lg text-slate mb-8 leading-relaxed max-w-2xl">
-              Una empresa de servicios al sector minero en el norte de Chile operaba con poca visibilidad online. Sin estrategia de SEO ni publicidad digital, dependían casi exclusivamente de referencias personales — lo que limitaba su escalabilidad.
+              Una empresa de servicios al sector minero regional operaba con poca visibilidad online. Sin estrategia de SEO ni publicidad digital, dependían casi exclusivamente de referencias personales — lo que limitaba su escalabilidad.
             </p>
           </div>
 

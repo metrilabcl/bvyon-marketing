@@ -54,19 +54,26 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Iquique category removed — redirect specific post then catch remaining paths
       {
         source: "/blog/iquique/marketing-digital-iquique-guia-2026",
         destination: "/blog/guias/marketing-digital-local-guia-2026",
         permanent: true,
       },
       {
-        source: "/blog/iquique",
+        source: "/blog/iquique/:path*",
         destination: "/blog",
         permanent: true,
       },
+      // Mining-specific slug retired per board directive (no sector targeting)
       {
         source: "/blog/casos/empresa-minera-antofagasta-seo",
-        destination: "/blog/casos/empresa-minera-seo",
+        destination: "/blog/casos/caso-seo-trafico-organico-b2b",
+        permanent: true,
+      },
+      {
+        source: "/blog/casos/empresa-minera-seo",
+        destination: "/blog/casos/caso-seo-trafico-organico-b2b",
         permanent: true,
       },
     ];

@@ -47,7 +47,7 @@ export default function TerminosPage() {
 
           <h2 className="text-xl font-bold text-primary mt-8">5. Ley aplicable</h2>
           <p>
-            Estos términos se rigen por la legislación vigente en la República de Chile. Cualquier disputa será sometida a los tribunales de la ciudad de Antofagasta.
+            Estos términos se rigen por la legislación vigente en la República de Chile. Cualquier disputa será sometida a los tribunales competentes de la República de Chile.
           </p>
 
           <h2 className="text-xl font-bold text-primary mt-8">6. Contacto</h2>

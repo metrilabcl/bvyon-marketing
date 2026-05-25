@@ -3,6 +3,8 @@ import Image from "next/image";
 import CategoryPill from "./CategoryPill";
 import type { PostMeta } from "@/lib/blog";
 
+const AUTHOR = "Bastian Vega Yon";
+
 interface Props {
   post: PostMeta;
 }
@@ -35,15 +37,32 @@ export default function BlogIndexCard({ post }: Props) {
             {frontmatter.title}
           </h2>
         </Link>
-        <p className="text-slate text-sm leading-relaxed mb-4 line-clamp-3">{frontmatter.excerpt}</p>
+        <p className="text-slate text-sm leading-relaxed mb-3 line-clamp-3">{frontmatter.excerpt}</p>
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {frontmatter.tags.map((tag) => (
+              <Link
+                key={tag}
+                href={`/blog?tag=${encodeURIComponent(tag)}`}
+                className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                #{tag}
+              </Link>
+            ))}
+          </div>
+        )}
         <div className="flex items-center justify-between">
-          <time className="text-xs text-slate" dateTime={frontmatter.date}>
-            {new Date(frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-xs text-slate font-medium">{AUTHOR}</span>
+            <time className="text-xs text-slate/70" dateTime={frontmatter.date}>
+              {new Date(frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </div>
           <Link
             href={href}
             className="text-xs font-semibold text-accent hover:underline"

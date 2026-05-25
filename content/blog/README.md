@@ -19,7 +19,23 @@
 | `tendencias`  | Tendencias          |
 | `casos`       | Casos de Éxito      |
 | `herramientas`| Herramientas        |
-| `iquique`     | Iquique             |
+
+## ⚠️ Regla editorial: Ciudades prohibidas en copy renderizado
+
+**No incluir nombres de ciudades en el contenido visible al usuario** (títulos, párrafos, callouts, metadatos públicos).
+
+Ciudades prohibidas en copy público: Iquique, Antofagasta, Calama, Arica, "Norte de Chile".
+
+**Para geo-targeting interno:** usar el campo `targetCity` en frontmatter — nunca se renderiza en la UI, solo lo usan sistemas internos y SEO.
+
+```yaml
+targetCity: "iquique"    # interno — no aparece en la página
+targetRegion: "norte"    # opcional — interno
+```
+
+Sustituciones recomendadas:
+- Ciudad específica → "tu ciudad", "empresas regionales", "PyMEs del sector"
+- "Norte de Chile" → "sector minero y retail", "empresas B2B", "Chile"
 
 ## Frontmatter obligatorio
 
@@ -33,6 +49,8 @@ coverImage: /images/blog/mi-post.jpg
 seo:
   title: "Título SEO de hasta 60 caracteres"
   description: "Descripción SEO de hasta 160 caracteres para el snippet en Google."
+# Opcional — solo metadatos internos, nunca renderizados:
+# targetCity: "antofagasta"
 ---
 ```
 

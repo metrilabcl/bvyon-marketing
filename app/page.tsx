@@ -6,21 +6,21 @@ import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "bvyon marketing | Marketing Digital",
+    absolute: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
   },
   description:
-    "Especialista freelance en marketing digital. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B del sector minero y retail.",
+    "Especialista freelance en marketing digital en Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B del sector minero y retail.",
   alternates: { canonical: "https://bvyon-marketing.cl" },
   openGraph: {
-    title: "bvyon marketing | Marketing Digital",
-    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para empresas de sectores minero y retail.",
+    title: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
+    description: "Automatizaciones, SEO y publicidad digital para empresas del sector minero y retail de Chile.",
     url: "https://bvyon-marketing.cl",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "bvyon marketing | Marketing Digital",
-    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para empresas B2B.",
+    title: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
+    description: "Automatizaciones, SEO y publicidad digital para empresas B2B de Chile.",
   },
 };
 
@@ -36,8 +36,17 @@ const localBusinessJsonLd = {
   email: "metrilabcl@gmail.com",
   address: {
     "@type": "PostalAddress",
+    addressLocality: "Antofagasta",
+    addressRegion: "Antofagasta",
     addressCountry: "CL",
   },
+  areaServed: [
+    { "@type": "City", name: "Antofagasta" },
+    { "@type": "City", name: "Iquique" },
+    { "@type": "City", name: "Calama" },
+    { "@type": "City", name: "Arica" },
+  ],
+  serviceType: "Marketing Digital",
   founder: {
     "@type": "Person",
     name: "Bastian Vega Yon",
@@ -161,8 +170,8 @@ export default function HomePage() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
                 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
               >
-                Marketing sin{" "}
-                <span className="text-accent">límites</span>
+                Marketing Digital en{" "}
+                <span className="text-accent">Chile</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
                 Soy Bastian Vega Yon, especialista en automatizaciones en la nube, análisis estratégico digital, contenido con IA y diseño web orientado a conversión. Resultados reales, sin intermediarios.
