@@ -55,9 +55,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function ProseTable({ children, ...props }: React.ComponentPropsWithoutRef<"table">) {
+  return (
+    <div className="overflow-x-auto my-6 rounded-xl border border-primary-light">
+      <table {...props}>{children}</table>
+    </div>
+  );
+}
+
 const mdxComponents = {
   Callout,
   YouTubeEmbed,
+  table: ProseTable,
 };
 
 export default async function PostPage({ params }: Props) {
@@ -123,7 +132,7 @@ export default async function PostPage({ params }: Props) {
           <BlogPostHeader post={post} />
 
           {/* MDX content */}
-          <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none">
+          <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-th:bg-primary prose-th:text-white prose-td:border-primary-light prose-th:border-primary/30">
             <MDXRemote
               source={post.content}
               components={mdxComponents}

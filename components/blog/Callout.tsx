@@ -1,3 +1,5 @@
+import { Info, AlertTriangle, Lightbulb } from "lucide-react";
+
 interface Props {
   type?: "info" | "warning" | "tip";
   children: React.ReactNode;
@@ -10,16 +12,17 @@ const styles = {
 };
 
 const icons = {
-  info: "ℹ️",
-  warning: "⚠️",
-  tip: "💡",
+  info: Info,
+  warning: AlertTriangle,
+  tip: Lightbulb,
 };
 
 export default function Callout({ type = "info", children }: Props) {
+  const Icon = icons[type];
   return (
-    <aside className={`my-6 border-l-4 rounded-r-xl px-5 py-4 ${styles[type]}`}>
-      <span className="mr-2">{icons[type]}</span>
-      {children}
+    <aside className={`my-6 border-l-4 rounded-r-xl px-5 py-4 flex gap-3 items-start ${styles[type]}`}>
+      <Icon className="w-5 h-5 mt-0.5 shrink-0" aria-hidden="true" />
+      <div>{children}</div>
     </aside>
   );
 }
