@@ -46,14 +46,13 @@ export default async function Image() {
         </div>
 
         <div style={{ fontSize: 28, color: "#CBD5E0", maxWidth: 700, lineHeight: 1.5 }}>
-          bvyon marketing — agencia digital en el norte de Chile
+          bvyon marketing — especialistas en minería y retail B2B
         </div>
 
-        {/* Cities */}
         <div style={{ display: "flex", gap: 12, marginTop: 40 }}>
-          {["Antofagasta", "Iquique", "Arica", "Calama"].map((city) => (
+          {["Automatizaciones", "SEO", "Publicidad Digital", "Contenido con IA"].map((tag) => (
             <div
-              key={city}
+              key={tag}
               style={{
                 padding: "8px 16px",
                 background: "rgba(255,107,43,0.2)",
@@ -64,7 +63,7 @@ export default async function Image() {
                 fontWeight: 600,
               }}
             >
-              {city}
+              {tag}
             </div>
           ))}
         </div>

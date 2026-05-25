@@ -11,7 +11,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = path.join(__dirname, "..", "content", "blog");
 
-const CATEGORIES = ["guias", "tendencias", "casos", "herramientas", "iquique"];
+const CATEGORIES = ["guias", "tendencias", "casos", "herramientas"];
 
 function toKebabCase(str) {
   return str
@@ -73,6 +73,9 @@ coverImage: /images/blog/${slug}.jpg
 seo:
   title: "${args.title.slice(0, 60)}"
   description: "Descripción SEO de hasta 160 caracteres para el snippet en Google."
+# Metadatos internos de geo-targeting — NUNCA renderizar en UI.
+# targetCity: ""   # ej: "antofagasta"
+# targetRegion: "" # ej: "antofagasta"
 ---
 
 Escribe tu contenido aquí. El build validará el frontmatter antes de publicar.

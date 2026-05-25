@@ -52,6 +52,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog/iquique/marketing-digital-iquique-guia-2026",
+        destination: "/blog/guias/marketing-digital-local-guia-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/iquique",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/casos/empresa-minera-antofagasta-seo",
+        destination: "/blog/casos/empresa-minera-seo",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -6,7 +6,6 @@ const colors: Record<Category, string> = {
   tendencias: "bg-purple-100 text-purple-800",
   casos: "bg-green-100 text-green-800",
   herramientas: "bg-orange-100 text-orange-800",
-  iquique: "bg-teal-100 text-teal-800",
 };
 
 interface Props {
