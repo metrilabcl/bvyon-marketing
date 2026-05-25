@@ -4,25 +4,25 @@ import { getAllPosts, CATEGORIES, CATEGORY_LABELS } from "@/lib/blog";
 import BlogIndexCard from "@/components/blog/BlogIndexCard";
 
 export const metadata: Metadata = {
-  title: { absolute: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing" },
+  title: { absolute: "Blog | Marketing Digital — bvyon marketing" },
   description:
-    "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia para empresas del norte de Chile. Por Bastian Vega Yon.",
+    "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia. Por Bastian Vega Yon.",
   alternates: {
     canonical: "https://bvyon-marketing.cl/blog",
     types: { "application/rss+xml": "https://bvyon-marketing.cl/blog/rss.xml" },
   },
   openGraph: {
-    title: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing",
+    title: "Blog | Marketing Digital — bvyon marketing",
     description:
-      "Guías, tendencias y casos de éxito de marketing digital para el norte de Chile.",
+      "Guías, tendencias y casos de éxito de marketing digital.",
     url: "https://bvyon-marketing.cl/blog",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Marketing Digital para el Norte de Chile — bvyon marketing",
-    description: "Guías, tendencias y casos de éxito de marketing digital para el norte de Chile.",
+    title: "Blog | Marketing Digital — bvyon marketing",
+    description: "Guías, tendencias y casos de éxito de marketing digital.",
     images: ["/og-image.png"],
   },
 };
@@ -44,7 +44,7 @@ export default function BlogPage() {
             Marketing sin <span className="text-accent">límites</span>
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mb-8">
-            Guías prácticas, tendencias, herramientas y casos de éxito de marketing digital para el norte de Chile.
+            Guías prácticas, tendencias, herramientas y casos de éxito de marketing digital para empresas B2B.
           </p>
           {/* Category filter */}
           <div className="flex flex-wrap gap-2">

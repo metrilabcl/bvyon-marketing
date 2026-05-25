@@ -6,7 +6,7 @@ import { z } from "zod";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/blog");
 
-export const CATEGORIES = ["guias", "tendencias", "casos", "herramientas", "iquique"] as const;
+export const CATEGORIES = ["guias", "tendencias", "casos", "herramientas"] as const;
 export type Category = (typeof CATEGORIES)[number];
 
 export const CATEGORY_LABELS: Record<Category, string> = {
@@ -14,7 +14,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   tendencias: "Tendencias",
   casos: "Casos de Éxito",
   herramientas: "Herramientas",
-  iquique: "Iquique",
 };
 
 const FrontmatterSchema = z.object({
@@ -33,6 +32,10 @@ const FrontmatterSchema = z.object({
     title: z.string().max(60),
     description: z.string().max(160),
   }),
+  /** Internal geo-targeting for SEO (schema.org, keyword meta). Never rendered in UI. */
+  targetCity: z.string().optional(),
+  /** Internal geo-targeting for SEO (schema.org, keyword meta). Never rendered in UI. */
+  targetRegion: z.string().optional(),
 });
 
 export type Frontmatter = z.infer<typeof FrontmatterSchema>;

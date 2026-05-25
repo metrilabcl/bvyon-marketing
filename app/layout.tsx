@@ -19,19 +19,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bvyon-marketing.cl"),
   title: {
-    default: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    default: "bvyon marketing | Marketing Digital",
     template: "%s | bvyon marketing",
   },
   description:
-    "Especialista freelance en marketing digital en el norte de Chile. Automatizaciones, SEO y publicidad digital para empresas de Antofagasta, Iquique y Calama.",
+    "Especialista freelance en marketing digital. Automatizaciones, SEO y publicidad digital para empresas B2B.",
   keywords: [
     "agencia de marketing",
     "marketing digital",
-    "norte de Chile",
-    "Antofagasta",
-    "Iquique",
-    "Arica",
-    "Calama",
+    "minería",
+    "retail",
     "SEO",
     "publicidad digital",
     "redes sociales",
@@ -42,14 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CL",
     siteName: "bvyon marketing",
-    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    title: "bvyon marketing | Marketing Digital",
     description:
-      "Marketing sin límites. bvyon marketing en el norte de Chile — donde los datos impulsan cada decisión.",
+      "Marketing sin límites. Donde los datos impulsan cada decisión.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
-    description: "Marketing sin límites. bvyon marketing en el norte de Chile.",
+    title: "bvyon marketing | Marketing Digital",
+    description: "Marketing sin límites.",
     images: ["/og-image.png"],
   },
   robots: {

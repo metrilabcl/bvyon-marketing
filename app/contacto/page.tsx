@@ -4,18 +4,18 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contacto · Solicita tu Cotización",
   description:
-    "Solicita tu cotización de marketing digital. Especialista freelance en Antofagasta. Primera consulta sin costo. Respuesta en menos de 48 horas.",
+    "Solicita tu cotización de marketing digital. Especialista freelance. Primera consulta sin costo. Respuesta en menos de 48 horas.",
   alternates: { canonical: "https://bvyon-marketing.cl/contacto" },
   openGraph: {
     title: "Contacto · Solicita tu Cotización | bvyon marketing",
-    description: "Primera consulta sin costo. Cotización de marketing digital para el norte de Chile.",
+    description: "Primera consulta sin costo. Cotización de marketing digital.",
     url: "https://bvyon-marketing.cl/contacto",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Contacto · Solicita tu Cotización | bvyon marketing",
-    description: "Primera consulta sin costo. Cotización de marketing digital para el norte de Chile.",
+    description: "Primera consulta sin costo. Cotización de marketing digital.",
     images: ["/og-image.png"],
   },
 };
@@ -107,7 +107,7 @@ export default function ContactoPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    Antofagasta · Iquique · Arica · Calama
+                    Chile
                   </li>
                   <li className="flex gap-3 items-center">
                     <svg aria-hidden="true" className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

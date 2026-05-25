@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Casos de Éxito | bvyon marketing",
   description:
-    "Casos reales de empresas mineras y retail que crecieron con estrategia digital. Automatizaciones, SEO y publicidad que convierte.",
+    "Casos reales de empresas que crecieron con estrategia digital. Automatizaciones, SEO y publicidad que convierte.",
   alternates: { canonical: "https://bvyon-marketing.cl/casos" },
   openGraph: {
     title: "Casos de Éxito | bvyon marketing",
-    description: "Casos reales de empresas del norte de Chile que escalaron sus resultados digitales.",
+    description: "Casos reales de empresas que escalaron sus resultados digitales.",
     url: "https://bvyon-marketing.cl/casos",
     type: "website",
   },
@@ -33,7 +33,7 @@ export default function CasesPage() {
               <span className="text-accent">estrategia digital</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl">
-              Casos reales de minería, retail y servicios en el norte de Chile que escalaron sus resultados con automatizaciones, SEO y publicidad digital enfocada en conversión.
+              Casos reales de empresas del sector minero y retail que escalaron sus resultados con automatizaciones, SEO y publicidad digital enfocada en conversión.
             </p>
           </div>
         </div>
@@ -73,7 +73,7 @@ export default function CasesPage() {
             <ul className="space-y-3 text-slate">
               <li className="flex gap-3">
                 <span className="text-accent font-bold">•</span>
-                <span>Posicionamiento digital nulo: no aparecían en búsquedas de empresas mineras buscando contratistas en Antofagasta.</span>
+                <span>Posicionamiento digital nulo: no aparecían en búsquedas de empresas mineras buscando contratistas de sus servicios.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent font-bold">•</span>
@@ -101,7 +101,7 @@ export default function CasesPage() {
             <div className="grid gap-6">
               <div>
                 <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">SEO</span>
-                <p className="text-slate"><strong>Posicionamiento orgánico en Google.</strong> Optimizamos su sitio para palabras clave como "contratista minería Antofagasta", "servicios construcción norte Chile". En 5 meses: primeras posiciones en búsquedas locales.</p>
+                <p className="text-slate"><strong>Posicionamiento orgánico en Google.</strong> Optimizamos su sitio para palabras clave como "contratista minería", "servicios especializados industria". En 5 meses: primeras posiciones en búsquedas específicas del sector.</p>
               </div>
               <div>
                 <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Automatización + CRM</span>

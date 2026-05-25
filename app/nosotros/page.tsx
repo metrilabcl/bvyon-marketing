@@ -4,12 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Sobre mí · Bastian Vega Yon",
   description:
-    "Bastian Vega Yon, especialista freelance en marketing digital en Antofagasta. Automatizaciones, SEO y contenido con IA para el norte de Chile. Sin intermediarios.",
+    "Bastian Vega Yon, especialista freelance en marketing digital. Automatizaciones, SEO y contenido con IA. Sin intermediarios.",
   alternates: { canonical: "https://bvyon-marketing.cl/nosotros" },
   openGraph: {
     title: "Sobre mí · Bastian Vega Yon | bvyon marketing",
     description:
-      "Especialista freelance en marketing digital basado en Antofagasta. Automatizaciones, SEO y contenido con IA para el norte de Chile.",
+      "Especialista freelance en marketing digital. Automatizaciones, SEO y contenido con IA.",
     url: "https://bvyon-marketing.cl/nosotros",
     type: "profile",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sobre mí · Bastian Vega Yon | bvyon marketing",
     description:
-      "Especialista freelance en marketing digital basado en Antofagasta. Norte de Chile.",
+      "Especialista freelance en marketing digital con 5+ años de experiencia en marketing digital.",
     images: ["/og-image.png"],
   },
 };
@@ -25,11 +25,9 @@ export const metadata: Metadata = {
 const values = [
   { icon: "🎯", title: "Orientado a resultados", desc: "Cada estrategia tiene KPIs claros. Tu crecimiento es mi éxito — leads, conversiones y ROI, no vanity metrics." },
   { icon: "📊", title: "Datos en cada decisión", desc: "Soy técnicamente riguroso. Cada peso invertido tiene atribución clara y reportes que cualquiera puede entender." },
-  { icon: "🤝", title: "Raíces locales", desc: "Nacido en Antofagasta. Conozco el mercado del norte, sus consumidores y sus dinámicas mejor que nadie." },
+  { icon: "🤝", title: "Experiencia en minería y retail", desc: "Especializado en empresas B2B del sector minero y retail. Conozco las dinámicas, los clientes y los ciclos de venta." },
   { icon: "🚀", title: "Sin intermediarios", desc: "Trabajas directamente conmigo — sin cuentas ejecutivas, sin burocracia. Más velocidad, más foco, mejores resultados." },
 ];
-
-const regions = ["Antofagasta", "Iquique", "Arica", "Calama"];
 
 export default function NosotrosPage() {
   return (
@@ -49,7 +47,7 @@ export default function NosotrosPage() {
             </h1>
             <p className="text-gray-300 text-lg">
               Especialista freelance en marketing digital donde los datos impulsan cada decisión.
-              Basado en Antofagasta, trabajando para todo el norte de Chile.
+              Especializado en empresas B2B de sectores minero y retail.
             </p>
           </div>
         </div>
@@ -71,15 +69,8 @@ export default function NosotrosPage() {
                 Me especializo en tres pilares que mueven negocios digitales hoy: automatizaciones en la nube que trabajan 24/7, análisis estratégico completo basado en datos reales, y creación de contenido visual con inteligencia artificial.
               </p>
               <p className="text-slate leading-relaxed mb-6">
-                Creo que cada empresa del norte de Chile merece acceder a estrategias de marketing de clase mundial, sin importar su tamaño. Trabajo directamente contigo — sin capas, sin intermediarios, con foco total en tu resultado.
+                Creo que cada empresa merece acceder a estrategias de marketing de clase mundial, sin importar su tamaño. Trabajo directamente contigo — sin capas, sin intermediarios, con foco total en tu resultado.
               </p>
-              <div className="flex flex-wrap gap-2">
-                {regions.map((city) => (
-                  <span key={city} className="px-3 py-1.5 bg-primary-light text-primary text-sm font-medium rounded-full">
-                    <span aria-hidden="true">📍</span> {city}
-                  </span>
-                ))}
-              </div>
             </div>
             <div className="bg-gradient-to-br from-primary to-[#152260] rounded-3xl p-10 text-white text-center">
               <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center text-white text-3xl font-black mx-auto mb-6"

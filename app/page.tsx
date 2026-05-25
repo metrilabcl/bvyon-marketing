@@ -6,21 +6,21 @@ import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "bvyon marketing | Marketing Digital en el Norte de Chile",
+    absolute: "bvyon marketing | Marketing Digital",
   },
   description:
-    "Especialista freelance en marketing digital en el norte de Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas de Antofagasta e Iquique.",
+    "Especialista freelance en marketing digital. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B del sector minero y retail.",
   alternates: { canonical: "https://bvyon-marketing.cl" },
   openGraph: {
-    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
-    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para el norte de Chile.",
+    title: "bvyon marketing | Marketing Digital",
+    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para empresas de sectores minero y retail.",
     url: "https://bvyon-marketing.cl",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "bvyon marketing | Marketing Digital en el Norte de Chile",
-    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para el norte de Chile.",
+    title: "bvyon marketing | Marketing Digital",
+    description: "Marketing sin límites. Automatizaciones, SEO y publicidad digital para empresas B2B.",
   },
 };
 
@@ -30,27 +30,14 @@ const localBusinessJsonLd = {
   "@id": "https://bvyon-marketing.cl/#business",
   name: "bvyon marketing",
   description:
-    "Especialista freelance en marketing digital: automatizaciones en la nube, SEO, publicidad digital y contenido con IA. Norte de Chile.",
+    "Especialista freelance en marketing digital: automatizaciones en la nube, SEO, publicidad digital y contenido con IA.",
   url: "https://bvyon-marketing.cl",
   telephone: "+56937441215",
   email: "metrilabcl@gmail.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Antofagasta",
-    addressRegion: "Región de Antofagasta",
     addressCountry: "CL",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: -23.6509,
-    longitude: -70.3975,
-  },
-  areaServed: [
-    { "@type": "City", name: "Antofagasta" },
-    { "@type": "City", name: "Iquique" },
-    { "@type": "City", name: "Arica" },
-    { "@type": "City", name: "Calama" },
-  ],
   founder: {
     "@type": "Person",
     name: "Bastian Vega Yon",
@@ -132,7 +119,7 @@ const services: HomeService[] = [
 
 const stats = [
   { value: "5+", label: "Años especialista en marketing digital" },
-  { value: "4", label: "Ciudades del norte de Chile" },
+  { value: "50+", label: "Empresas crecieron con nuestra estrategia" },
   { value: "Minería + Retail", label: "Sectores focalizados" },
   { value: "30 min", label: "Diagnóstico gratis sin costo" },
 ];
