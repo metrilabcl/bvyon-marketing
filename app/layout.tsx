@@ -3,6 +3,7 @@ import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/site-url";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bvyon-marketing.cl"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "bvyon marketing | Marketing Digital",
     template: "%s | bvyon marketing",
@@ -47,7 +48,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "bvyon marketing | Marketing Digital",
     description: "Marketing sin límites.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,

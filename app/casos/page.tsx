@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Casos de Éxito | bvyon marketing",
   description:
     "Casos reales de empresas que crecieron con estrategia digital. Automatizaciones, SEO y publicidad que convierte.",
-  alternates: { canonical: "https://bvyon-marketing.cl/casos" },
+  alternates: { canonical: "/casos" },
   openGraph: {
     title: "Casos de Éxito | bvyon marketing",
     description: "Casos reales de empresas que escalaron sus resultados digitales.",
-    url: "https://bvyon-marketing.cl/casos",
+    url: "/casos",
     type: "website",
   },
 };

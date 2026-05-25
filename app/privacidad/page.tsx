@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Política de Privacidad",
   description: "Cómo trato los datos personales que recibo a través de bvyon-marketing.cl: qué recopilo, para qué, por cuánto tiempo y qué derechos tienes.",
-  alternates: { canonical: "https://bvyon-marketing.cl/privacidad" },
+  alternates: { canonical: "/privacidad" },
   robots: { index: false, follow: false },
 };
 

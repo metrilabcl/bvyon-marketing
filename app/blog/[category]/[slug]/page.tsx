@@ -16,6 +16,7 @@ import BlogPostHeader from "@/components/blog/BlogPostHeader";
 import CTABlock from "@/components/blog/CTABlock";
 import Callout from "@/components/blog/Callout";
 import YouTubeEmbed from "@/components/blog/YouTubeEmbed";
+import { SITE_URL } from "@/lib/site-url";
 
 interface Props {
   params: Promise<{ category: string; slug: string }>;
@@ -35,15 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       alternates: {
-        canonical: `https://bvyon-marketing.cl/blog/${category}/${slug}`,
+        canonical: `/blog/${category}/${slug}`,
       },
       openGraph: {
         title: seo.title,
         description: seo.description,
         type: "article",
         publishedTime: date,
-        url: `https://bvyon-marketing.cl/blog/${category}/${slug}`,
-        images: [{ url: coverImage, width: 1200, height: 630 }],
+        url: `/blog/${category}/${slug}`,
       },
       twitter: {
         card: "summary_large_image",
@@ -81,7 +81,7 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  const postUrl = `https://bvyon-marketing.cl/blog/${category}/${slug}`;
+  const postUrl = `${SITE_URL}/blog/${category}/${slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -94,23 +94,23 @@ export default async function PostPage({ params }: Props) {
     articleSection: CATEGORY_LABELS[category as Category],
     author: {
       "@type": "Person",
-      "@id": "https://bvyon-marketing.cl/nosotros#author",
+      "@id": `${SITE_URL}/nosotros#author`,
       name: "Bastian Vega Yon",
-      url: "https://bvyon-marketing.cl/nosotros",
+      url: `${SITE_URL}/nosotros`,
       jobTitle: "Especialista Freelance en Marketing Digital",
-      sameAs: ["https://bvyon-marketing.cl/nosotros"],
+      sameAs: [`${SITE_URL}/nosotros`],
     },
     publisher: {
       "@type": "Organization",
-      "@id": "https://bvyon-marketing.cl/#business",
+      "@id": `${SITE_URL}/#business`,
       name: "bvyon marketing",
-      url: "https://bvyon-marketing.cl",
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://bvyon-marketing.cl/og-image.png",
+        url: `${SITE_URL}/og-image.png`,
       },
     },
-    image: `https://bvyon-marketing.cl${post.frontmatter.coverImage}`,
+    image: `${SITE_URL}${post.frontmatter.coverImage}`,
     url: postUrl,
   };
 
@@ -118,9 +118,9 @@ export default async function PostPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://bvyon-marketing.cl" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://bvyon-marketing.cl/blog" },
-      { "@type": "ListItem", position: 3, name: CATEGORY_LABELS[category as Category], item: `https://bvyon-marketing.cl/blog/${category}` },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: CATEGORY_LABELS[category as Category], item: `${SITE_URL}/blog/${category}` },
       { "@type": "ListItem", position: 4, name: post.frontmatter.title, item: postUrl },
     ],
   };

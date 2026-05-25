@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Términos y Condiciones",
   description: "Términos y condiciones de uso del sitio bvyon-marketing.cl: objeto, propiedad intelectual, limitación de responsabilidad y ley aplicable.",
-  alternates: { canonical: "https://bvyon-marketing.cl/terminos" },
+  alternates: { canonical: "/terminos" },
   robots: { index: false, follow: false },
 };
 

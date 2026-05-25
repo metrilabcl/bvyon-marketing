@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${label} — Blog`,
     description: `Artículos y guías sobre ${label.toLowerCase()} en marketing digital para empresas del empresas B2B. Consejos prácticos y casos reales.`,
-    alternates: { canonical: `https://bvyon-marketing.cl/blog/${category}` },
+    alternates: { canonical: `/blog/${category}` },
     openGraph: {
       title: `${label} — Blog | bvyon marketing`,
       description: `Artículos sobre ${label.toLowerCase()} en marketing digital para el empresas B2B.`,
-      url: `https://bvyon-marketing.cl/blog/${category}`,
+      url: `/blog/${category}`,
       type: "website",
     },
     twitter: {

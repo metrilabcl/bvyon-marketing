@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Zap, BarChart3, Sparkles, Globe, Check } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { SITE_URL } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: {
@@ -10,11 +11,11 @@ export const metadata: Metadata = {
   },
   description:
     "Especialista freelance en marketing digital en Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B del sector minero y retail.",
-  alternates: { canonical: "https://bvyon-marketing.cl" },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
     description: "Automatizaciones, SEO y publicidad digital para empresas del sector minero y retail de Chile.",
-    url: "https://bvyon-marketing.cl",
+    url: "/",
     type: "website",
   },
   twitter: {
@@ -27,11 +28,11 @@ export const metadata: Metadata = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
-  "@id": "https://bvyon-marketing.cl/#business",
+  "@id": `${SITE_URL}/#business`,
   name: "bvyon marketing",
   description:
     "Especialista freelance en marketing digital: automatizaciones en la nube, SEO, publicidad digital y contenido con IA.",
-  url: "https://bvyon-marketing.cl",
+  url: SITE_URL,
   telephone: "+56937441215",
   email: "metrilabcl@gmail.com",
   address: {
@@ -50,7 +51,7 @@ const localBusinessJsonLd = {
   founder: {
     "@type": "Person",
     name: "Bastian Vega Yon",
-    url: "https://bvyon-marketing.cl/nosotros",
+    url: `${SITE_URL}/nosotros`,
     jobTitle: "Especialista Freelance en Marketing Digital",
   },
   priceRange: "CLP $290.000–$4.500.000",
@@ -60,10 +61,10 @@ const localBusinessJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://bvyon-marketing.cl/#website",
+  "@id": `${SITE_URL}/#website`,
   name: "bvyon marketing",
-  url: "https://bvyon-marketing.cl",
-  publisher: { "@id": "https://bvyon-marketing.cl/#business" },
+  url: SITE_URL,
+  publisher: { "@id": `${SITE_URL}/#business` },
 };
 
 interface HomeService {

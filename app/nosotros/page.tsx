@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Sobre mí · Bastian Vega Yon",
   description:
     "Bastian Vega Yon, especialista freelance en marketing digital. Automatizaciones, SEO y contenido con IA. Sin intermediarios.",
-  alternates: { canonical: "https://bvyon-marketing.cl/nosotros" },
+  alternates: { canonical: "/nosotros" },
   openGraph: {
     title: "Sobre mí · Bastian Vega Yon | bvyon marketing",
     description:
       "Especialista freelance en marketing digital. Automatizaciones, SEO y contenido con IA.",
-    url: "https://bvyon-marketing.cl/nosotros",
+    url: "/nosotros",
     type: "profile",
   },
   twitter: {
@@ -18,21 +19,20 @@ export const metadata: Metadata = {
     title: "Sobre mí · Bastian Vega Yon | bvyon marketing",
     description:
       "Especialista freelance en marketing digital con 5+ años de experiencia en marketing digital.",
-    images: ["/og-image.png"],
   },
 };
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://bvyon-marketing.cl/nosotros#person",
+  "@id": `${SITE_URL}/nosotros#person`,
   name: "Bastian Vega Yon",
   jobTitle: "Especialista en Marketing Digital",
   description: "Especialista freelance en marketing digital B2B. Automatizaciones, SEO y contenido con IA.",
-  url: "https://bvyon-marketing.cl",
+  url: SITE_URL,
   worksFor: {
     "@type": "Organization",
-    "@id": "https://bvyon-marketing.cl/#business",
+    "@id": `${SITE_URL}/#business`,
     name: "bvyon marketing",
   },
   knowsAbout: ["Marketing Digital", "SEO", "Marketing B2B", "Publicidad Digital", "Content Marketing"],

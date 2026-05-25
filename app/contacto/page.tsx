@@ -5,18 +5,17 @@ export const metadata: Metadata = {
   title: "Contacto · Solicita tu Cotización",
   description:
     "Solicita tu cotización de marketing digital. Especialista freelance. Primera consulta sin costo. Respuesta en menos de 48 horas.",
-  alternates: { canonical: "https://bvyon-marketing.cl/contacto" },
+  alternates: { canonical: "/contacto" },
   openGraph: {
     title: "Contacto · Solicita tu Cotización | bvyon marketing",
     description: "Primera consulta sin costo. Cotización de marketing digital.",
-    url: "https://bvyon-marketing.cl/contacto",
+    url: "/contacto",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Contacto · Solicita tu Cotización | bvyon marketing",
     description: "Primera consulta sin costo. Cotización de marketing digital.",
-    images: ["/og-image.png"],
   },
 };
 

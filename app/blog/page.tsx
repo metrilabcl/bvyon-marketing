@@ -8,22 +8,20 @@ export const metadata: Metadata = {
   description:
     "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia. Por Bastian Vega Yon.",
   alternates: {
-    canonical: "https://bvyon-marketing.cl/blog",
-    types: { "application/rss+xml": "https://bvyon-marketing.cl/blog/rss.xml" },
+    canonical: "/blog",
+    types: { "application/rss+xml": "/blog/rss.xml" },
   },
   openGraph: {
     title: "Blog | Marketing Digital — bvyon marketing",
     description:
       "Guías, tendencias y casos de éxito de marketing digital.",
-    url: "https://bvyon-marketing.cl/blog",
+    url: "/blog",
     type: "website",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog | Marketing Digital — bvyon marketing",
     description: "Guías, tendencias y casos de éxito de marketing digital.",
-    images: ["/og-image.png"],
   },
 };
 

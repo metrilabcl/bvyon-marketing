@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Servicios de Marketing Digital — Chile",
   description:
     "Automatizaciones 24/7, SEO, contenido con IA y diseño web para empresas B2B en Chile. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
-  alternates: { canonical: "https://bvyon-marketing.cl/servicios" },
+  alternates: { canonical: "/servicios" },
   openGraph: {
     title: "Servicios de Marketing Digital — Chile | bvyon marketing",
     description:
       "Automatizaciones, SEO, publicidad digital y contenido con IA para empresas del sector minero y retail de Chile.",
-    url: "https://bvyon-marketing.cl/servicios",
+    url: "/servicios",
     type: "website",
   },
   twitter: {
