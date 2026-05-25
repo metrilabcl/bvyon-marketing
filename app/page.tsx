@@ -288,7 +288,7 @@ export default function HomePage() {
               Mis Servicios
             </h2>
             <p className="text-[#4A5568] text-lg max-w-xl mx-auto">
-              Cuatro especialidades para hacer crecer tu negocio digital. Con ejemplos reales de lo que hago.
+              Mis servicios para hacer crecer tu negocio digital. Con ejemplos reales de lo que hago.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

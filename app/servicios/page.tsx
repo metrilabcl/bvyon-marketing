@@ -132,7 +132,7 @@ export default function ServiciosPage() {
               Servicios
             </h1>
             <p className="text-gray-300 text-lg">
-              Automatizaciones, análisis estratégico, contenido con IA y diseño web — los cuatro pilares que mueven tu negocio digital en el norte de Chile.
+              Automatizaciones, análisis estratégico, contenido con IA, diseño web, publicidad digital, branding y más — todo lo que necesita tu negocio digital en el norte de Chile.
             </p>
           </div>
         </div>
@@ -252,7 +252,7 @@ export default function ServiciosPage() {
             href="/contacto"
             className="inline-block px-10 py-4 bg-[#FF6B2B] text-[#0D1B4B] font-bold text-lg rounded-xl hover:bg-[#e85e22] transition-colors"
           >
-            Hablar conmigo
+            Solicitar cotización
           </Link>
         </div>
       </section>
