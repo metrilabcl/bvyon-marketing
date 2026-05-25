@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Iquique category removed — redirect specific post then catch remaining paths
+      // Iquique and norte-chile categories removed — redirect to guias or blog root
       {
         source: "/blog/iquique/marketing-digital-iquique-guia-2026",
         destination: "/blog/guias/marketing-digital-local-guia-2026",
@@ -62,6 +62,16 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/blog/iquique/:path*",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/norte-chile/marketing-digital-iquique-guia-2026",
+        destination: "/blog/guias/marketing-digital-local-guia-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/norte-chile/:path*",
         destination: "/blog",
         permanent: true,
       },
