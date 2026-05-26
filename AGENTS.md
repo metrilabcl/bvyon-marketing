@@ -5,8 +5,19 @@
 
 ## Quién hace qué
 
-- **El freelancer:** genera leads, cierra ventas, entrega proyectos cerrados al equipo. Nunca el equipo busca clientes.
-- **El equipo:** ejecuta cada proyecto entregado siguiendo el Protocolo de Kickoff obligatorio (sección siguiente).
+- **El freelancer:** genera leads, cierra ventas, entrega proyectos cerrados al equipo, y **ejecuta operativamente** (ads, desarrollo web, automatizaciones, contenido). Trabaja a tiempo completo en otra empresa — Bvyon es su actividad freelance. Máximo 2 proyectos activos.
+- **El equipo (agentes):** co-pilotan en automatización y planificación, son dueños del análisis de datos y la investigación de mercado. No ejecutan de forma autónoma — entregan insumos listos para que el freelancer revise y aplique.
+
+**División concreta:**
+
+| Rol | Quién |
+|-----|-------|
+| Ejecución operativa directa | Freelancer |
+| Automatización y planificación estratégica | Conjunto (freelancer + agentes) |
+| Análisis de datos y reporting | Agentes |
+| Investigación de mercado inicial | Agentes (ResearchExpert gatekeeper) |
+
+**Stack principal del freelancer:** n8n · Google Ads · Meta Ads · Search Console · GA4 · WordPress · Ubersuggest · AnswerThePublic · Google Drive · Claude Code.
 
 ## Servicios del portafolio
 

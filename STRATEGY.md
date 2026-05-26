@@ -1,7 +1,7 @@
 # Bvyon Marketing — Dirección Estratégica
 
-> **Versión:** v2 (corrige v1 tras aclaración del board sobre lead gen).
-> **Estatus:** Aprobada por el board (request_confirmation `confirmation:MET-148:strategy:v1` aceptada el 2026-05-26).
+> **Versión:** v3 (incorpora realidad operativa del freelancer: part-time, 2 proyectos max, ejecución propia).
+> **Estatus:** Aprobada por el board.
 > **Issue de origen:** MET-148 — Optimización GOALS, Cerebro.
 > **Última actualización:** 2026-05-26.
 
@@ -19,6 +19,47 @@ Bvyon Marketing operaba bajo posicionamiento "agencia 360 zona norte de Chile". 
 6. **Entrega cross-funcional** — todos los miembros del equipo se activan según su expertise en cada proyecto entregado.
 
 Los 20 goals originales fueron diseñados para un modelo agencia genérico. Son operacionales ("Mantener X funcionando") y no reflejan ni el modelo freelance, ni el research-first mandate, ni el protocolo cross-funcional.
+
+---
+
+## 1b. Realidad Operativa del Freelancer (v3 — crítico)
+
+> Esta sección define cómo opera realmente el freelancer. Todo agente debe leerla antes de tomar cualquier decisión de ejecución.
+
+**Capacidad:**
+- El freelancer tiene un **trabajo a tiempo completo** (clínica). Bvyon es su actividad freelance en tiempo libre.
+- Capacidad activa: **máximo 2 proyectos simultáneos** en cualquier momento.
+- Volumen bajo → cada proyecto cuenta. No hay margen para re-trabajo.
+
+**División real del trabajo:**
+
+| Tarea | ¿Quién la hace? |
+|-------|----------------|
+| Ejecución operativa (ads, contenido, desarrollo, etc.) | **El freelancer directamente** |
+| Automatización y planificación estratégica | **Conjunto** — freelancer + agentes como co-pilotos |
+| Análisis de datos y reporting | **Agentes** con sus herramientas |
+| Investigación de mercado inicial | **Agentes** (ResearchExpert gatekeeper) |
+
+**Las especialidades técnicas del freelancer:**
+- Automatización (n8n como herramienta principal)
+- Estrategias SEO
+- Paid Ads (Google Ads + Meta Ads)
+- Sitios web completos: frontend, backend, base de datos, funciones avanzadas
+
+**Stack de herramientas actual:**
+- Automatización: **n8n**
+- Ads: **Google Ads**, **Meta Ads**
+- Analytics: **Search Console**, **Google Analytics 4**
+- CMS/Web: **WordPress** (clientes), **Next.js** (proyectos avanzados)
+- SEO Research: **Ubersuggest**, **AnswerThePublic**
+- Storage/Collab: **Google Drive**
+- IA: **Claude Code** (suscripción Max — uso personal y empresarial)
+
+**Implicaciones para los agentes:**
+- Los agentes NO ejecutan en nombre del freelancer. **Son co-pilotos, no ejecutores.**
+- En Stage 4 los agentes entregan recomendaciones, drafts, análisis y automatizaciones listas para revisar — el freelancer decide e implementa.
+- Priorizar velocidad de entrega ligera sobre procesos pesados. Con 2 proyectos max, el protocolo debe ser ágil, no burocrático.
+- Cualquier automatización sugerida debe ser implementable en **n8n** preferentemente.
 
 ---
 
@@ -91,8 +132,12 @@ Stage 3 — Cross-Functional Plan
    Owners: CMO + CTO + UXDesigner + CreativeExpert + AccountManager
    Output: plan integrado con responsables, fechas y entregables.
 
-Stage 4 — Execution
-   Subtasks fan out a especialistas según su goal.
+Stage 4 — Execution (co-piloto, no ejecución autónoma)
+   El freelancer ejecuta. Los agentes entregan:
+   · Drafts de contenido, copy, diseño para revisión
+   · Automatizaciones (n8n) listas para importar y revisar
+   · Configuraciones de ads, SEO, analytics para aplicar
+   · Análisis de performance con recomendaciones priorizadas
    AccountManager comunica avances al cliente semanalmente.
 
 Stage 5 — Optimization & Reporting
