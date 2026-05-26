@@ -98,8 +98,17 @@ export async function submitLeadForm(
         message,
       }),
     });
-    if (!res.ok) {
-      console.error("[contact-form] Web3Forms error", res.status, await res.text().catch(() => ""));
+    const body = await res.json().catch(() => null);
+    if (!res.ok || body?.success === false) {
+      const w3msg: string = body?.message ?? `HTTP ${res.status}`;
+      console.error("[contact-form] Web3Forms error:", w3msg, body);
+      // Unverified / invalid access key
+      if (w3msg.toLowerCase().includes("invalid") || w3msg.toLowerCase().includes("disabled")) {
+        return {
+          success: false,
+          error: "El formulario no está activo aún. Por favor escríbenos directamente a metrilabcl@gmail.com o por WhatsApp.",
+        };
+      }
       return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor escríbenos directamente a metrilabcl@gmail.com" };
     }
   } catch (err) {
