@@ -8,10 +8,6 @@ export type LeadFormState = {
   error?: string;
 };
 
-function escapeHtml(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
 export async function submitLeadForm(
   prevState: LeadFormState,
   formData: FormData
@@ -64,70 +60,51 @@ export async function submitLeadForm(
       });
       if (!res.ok) {
         console.error("[contact-form] webhook error", res.status, await res.text().catch(() => ""));
-        return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a metrilabcl@gmail.com" };
+        return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor escríbenos directamente a metrilabcl@gmail.com" };
       }
     } catch (err) {
       console.error("[contact-form] webhook fetch error", err);
-      return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a metrilabcl@gmail.com" };
+      return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor escríbenos directamente a metrilabcl@gmail.com" };
     }
     return { success: true };
   }
 
-  // 3. Email via Resend — set RESEND_API_KEY (and optionally CONTACT_EMAIL) to enable
-  const resendKey = process.env.RESEND_API_KEY;
-  const contactEmail = process.env.CONTACT_EMAIL ?? "metrilabcl@gmail.com";
+  // 3. Email notification via Web3Forms — set WEB3FORMS_ACCESS_KEY to enable
+  //    Sign up free at web3forms.com (250 submissions/month, no domain verification needed)
+  const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-  // Guard: no delivery channel configured — surface an error instead of silently dropping leads
-  if (!resendKey) {
-    console.error("[contact-form] No delivery channel configured. Set RESEND_API_KEY or CONTACT_WEBHOOK_URL.");
+  if (!web3formsKey) {
+    console.error("[contact-form] No delivery channel configured. Set WEB3FORMS_ACCESS_KEY or CONTACT_WEBHOOK_URL.");
     return {
       success: false,
-      error: "El sistema de contacto no está configurado aún. Por favor escríbenos directamente a metrilabcl@gmail.com",
+      error: "El sistema de mensajes no está activo aún. Contáctanos directamente a metrilabcl@gmail.com o por WhatsApp.",
     };
   }
 
-  if (resendKey) {
-    const rows = [
-      ["Nombre", name],
-      ["Email", email],
-      ...(phone ? [["Teléfono", phone]] : []),
-      ...(company ? [["Empresa", company]] : []),
-      ...(service ? [["Servicio", service]] : []),
-      ["Mensaje", message],
-    ] as [string, string][];
-
-    const tableRows = rows
-      .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;font-weight:600;white-space:nowrap">${escapeHtml(k)}:</td><td style="padding:4px 0">${escapeHtml(v)}</td></tr>`)
-      .join("");
-
-    const html = `<!DOCTYPE html><html lang="es"><body style="font-family:sans-serif;color:#0D1B4B;max-width:600px;margin:0 auto;padding:24px">
-<h2 style="color:#FF6B2B;margin-top:0">Nuevo Lead — bvyon marketing</h2>
-<table style="border-collapse:collapse">${tableRows}</table>
-</body></html>`;
-
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${resendKey}`,
-        },
-        body: JSON.stringify({
-          from: "bvyon marketing Website <noreply@bvyon-marketing.cl>",
-          to: [contactEmail],
-          reply_to: email,
-          subject: `Nuevo lead: ${name}${company ? ` (${company})` : ""}`,
-          html,
-        }),
-      });
-      if (!res.ok) {
-        console.error("[contact-form] Resend error", res.status, await res.text().catch(() => ""));
-        return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a metrilabcl@gmail.com" };
-      }
-    } catch (err) {
-      console.error("[contact-form] Resend fetch error", err);
-      return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a metrilabcl@gmail.com" };
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: web3formsKey,
+        subject: `Nuevo lead: ${name}${company ? ` (${company})` : ""}`,
+        from_name: "bvyon marketing",
+        replyto: email,
+        name,
+        email,
+        ...(phone && { phone }),
+        ...(company && { empresa: company }),
+        ...(service && { servicio: service }),
+        message,
+      }),
+    });
+    if (!res.ok) {
+      console.error("[contact-form] Web3Forms error", res.status, await res.text().catch(() => ""));
+      return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor escríbenos directamente a metrilabcl@gmail.com" };
     }
+  } catch (err) {
+    console.error("[contact-form] Web3Forms fetch error", err);
+    return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor escríbenos directamente a metrilabcl@gmail.com" };
   }
 
   return { success: true };
