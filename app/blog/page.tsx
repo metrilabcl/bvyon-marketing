@@ -6,7 +6,7 @@ import BlogIndexCard from "@/components/blog/BlogIndexCard";
 export const metadata: Metadata = {
   title: { absolute: "Blog | Marketing Digital — bvyon marketing" },
   description:
-    "Guías, tendencias y casos de éxito sobre marketing digital, automatizaciones, SEO y estrategia. Por Bastian Vega Yon.",
+    "Noticias y tendencias de marketing digital e IA comentadas por Bastian Vega Yon. Qué está pasando y qué significa para tu negocio.",
   alternates: {
     canonical: "/blog",
     types: { "application/rss+xml": "/blog/rss.xml" },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | Marketing Digital — bvyon marketing",
     description:
-      "Guías, tendencias y casos de éxito de marketing digital.",
+      "Noticias de marketing digital e IA comentadas por Bastian Vega Yon.",
     url: "/blog",
     type: "website",
   },
@@ -53,7 +53,7 @@ export default async function BlogPage({ searchParams }: Props) {
             <span className="text-accent">Chile</span>
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mb-8">
-            Guías prácticas, tendencias, herramientas y casos de éxito de marketing digital para empresas B2B.
+            Noticias recientes de marketing digital e IA, comentadas para que sepas qué cambia y cómo afecta a tu negocio.
           </p>
           {/* Category filter */}
           <div className="flex flex-wrap gap-2">

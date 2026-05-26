@@ -6,14 +6,12 @@ import { z } from "zod";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/blog");
 
-export const CATEGORIES = ["guias", "tendencias", "casos", "herramientas"] as const;
+export const CATEGORIES = ["tendencias", "casos"] as const;
 export type Category = (typeof CATEGORIES)[number];
 
 export const CATEGORY_LABELS: Record<Category, string> = {
-  guias: "Guías",
   tendencias: "Tendencias",
   casos: "Casos de Éxito",
-  herramientas: "Herramientas",
 };
 
 const FrontmatterSchema = z.object({

@@ -45,7 +45,6 @@ export default function BlogIndexCard({ post }: Props) {
                 key={tag}
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
                 className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
-                onClick={(e) => e.stopPropagation()}
               >
                 #{tag}
               </Link>

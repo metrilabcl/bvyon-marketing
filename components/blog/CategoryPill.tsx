@@ -2,10 +2,8 @@ import Link from "next/link";
 import { CATEGORY_LABELS, type Category } from "@/lib/blog";
 
 const colors: Record<Category, string> = {
-  guias: "bg-blue-100 text-blue-800",
   tendencias: "bg-purple-100 text-purple-800",
   casos: "bg-green-100 text-green-800",
-  herramientas: "bg-orange-100 text-orange-800",
 };
 
 interface Props {

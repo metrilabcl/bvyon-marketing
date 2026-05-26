@@ -54,27 +54,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Iquique and norte-chile categories removed — redirect to guias or blog root
-      {
-        source: "/blog/iquique/marketing-digital-iquique-guia-2026",
-        destination: "/blog/guias/marketing-digital-local-guia-2026",
-        permanent: true,
-      },
-      {
-        source: "/blog/iquique/:path*",
-        destination: "/blog",
-        permanent: true,
-      },
-      {
-        source: "/blog/norte-chile/marketing-digital-iquique-guia-2026",
-        destination: "/blog/guias/marketing-digital-local-guia-2026",
-        permanent: true,
-      },
-      {
-        source: "/blog/norte-chile/:path*",
-        destination: "/blog",
-        permanent: true,
-      },
+      // Legacy city-specific and tutorial category URLs — redirect to blog root
+      { source: "/blog/iquique/:path*", destination: "/blog", permanent: true },
+      { source: "/blog/norte-chile/:path*", destination: "/blog", permanent: true },
+      { source: "/blog/guias/:path*", destination: "/blog", permanent: true },
+      { source: "/blog/herramientas/:path*", destination: "/blog", permanent: true },
       // Mining-specific slug retired per board directive (no sector targeting)
       {
         source: "/blog/casos/empresa-minera-antofagasta-seo",
