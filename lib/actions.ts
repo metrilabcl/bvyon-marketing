@@ -70,11 +70,22 @@ export async function submitLeadForm(
       console.error("[contact-form] webhook fetch error", err);
       return { success: false, error: "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo o escríbenos directamente a metrilabcl@gmail.com" };
     }
+    return { success: true };
   }
 
   // 3. Email via Resend — set RESEND_API_KEY (and optionally CONTACT_EMAIL) to enable
   const resendKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL ?? "metrilabcl@gmail.com";
+
+  // Guard: no delivery channel configured — surface an error instead of silently dropping leads
+  if (!resendKey) {
+    console.error("[contact-form] No delivery channel configured. Set RESEND_API_KEY or CONTACT_WEBHOOK_URL.");
+    return {
+      success: false,
+      error: "El sistema de contacto no está configurado aún. Por favor escríbenos directamente a metrilabcl@gmail.com",
+    };
+  }
+
   if (resendKey) {
     const rows = [
       ["Nombre", name],
