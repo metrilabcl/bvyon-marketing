@@ -59,17 +59,8 @@ const nextConfig: NextConfig = {
       { source: "/blog/norte-chile/:path*", destination: "/blog", permanent: true },
       { source: "/blog/guias/:path*", destination: "/blog", permanent: true },
       { source: "/blog/herramientas/:path*", destination: "/blog", permanent: true },
-      // Mining-specific slug retired per board directive (no sector targeting)
-      {
-        source: "/blog/casos/empresa-minera-antofagasta-seo",
-        destination: "/blog/casos/caso-seo-trafico-organico-b2b",
-        permanent: true,
-      },
-      {
-        source: "/blog/casos/empresa-minera-seo",
-        destination: "/blog/casos/caso-seo-trafico-organico-b2b",
-        permanent: true,
-      },
+      // casos category retired (MET-152) — all old caso URLs redirect to blog root
+      { source: "/blog/casos/:path*", destination: "/blog", permanent: true },
     ];
   },
 };

@@ -11,7 +11,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT_DIR = path.join(__dirname, "..", "content", "blog");
 
-const CATEGORIES = ["guias", "tendencias", "casos", "herramientas"];
+const CATEGORIES = ["tendencias"];
 
 function toKebabCase(str) {
   return str

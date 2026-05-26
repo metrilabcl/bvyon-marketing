@@ -3,7 +3,7 @@
 ## Flujo completo
 
 ```
-1. npm run blog:new -- --title "Mi post" --category guias
+1. npm run blog:new -- --title "Mi post" --category tendencias
 2. Editar el archivo .mdx generado
 3. git add .
 4. git commit -m "blog: agregar post"
@@ -15,10 +15,11 @@
 
 | Slug          | Nombre visible      |
 |---------------|---------------------|
-| `guias`       | Guías               |
 | `tendencias`  | Tendencias          |
-| `casos`       | Casos de Éxito      |
-| `herramientas`| Herramientas        |
+
+## Tono editorial
+
+El blog **comenta noticias del mundo de la IA y muestra usos cotidianos**. No publica tutoriales, paso-a-paso técnicos, ni descripciones de implementaciones del freelancer. El objetivo es informar y generar interés, no entregar la metodología.
 
 ## ⚠️ Regla editorial: Ciudades prohibidas en copy renderizado
 
@@ -43,7 +44,7 @@ Sustituciones recomendadas:
 ---
 title: "Título del post (incluye keyword principal)"
 date: 2026-05-24
-category: guias
+category: tendencias
 excerpt: "Resumen de hasta 160 caracteres que aparece en el listado del blog."
 coverImage: /images/blog/mi-post.jpg
 seo:

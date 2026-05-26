@@ -3,7 +3,6 @@ import { CATEGORY_LABELS, type Category } from "@/lib/blog";
 
 const colors: Record<Category, string> = {
   tendencias: "bg-purple-100 text-purple-800",
-  casos: "bg-green-100 text-green-800",
 };
 
 interface Props {
