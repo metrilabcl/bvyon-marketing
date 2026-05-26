@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     absolute: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
   },
   description:
-    "Especialista freelance en marketing digital en Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B del sector minero y retail.",
+    "Especialista freelance en marketing digital en Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B y B2C",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
-    description: "Automatizaciones, SEO y publicidad digital para empresas del sector minero y retail de Chile.",
+    description: "Automatizaciones, SEO y publicidad digital para empresas y emprendimientos en Chile.",
     url: "/",
     type: "website",
   },
