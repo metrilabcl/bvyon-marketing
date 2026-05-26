@@ -153,7 +153,7 @@ export default async function Image({ params }: Props) {
               display: "flex",
             }}
           >
-            Especialista freelance en marketing digital · Chile B2B
+            Especialista freelance en marketing digital · Chile
           </div>
         </div>
       </div>

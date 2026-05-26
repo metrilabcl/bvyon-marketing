@@ -33,7 +33,7 @@ export default function CasesPage() {
               <span className="text-accent">estrategia digital</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl">
-              Casos reales de empresas del sector minero y retail que escalaron sus resultados con automatizaciones, SEO y publicidad digital enfocada en conversión.
+              Casos reales de PYMEs y emprendimientos en Chile que escalaron sus resultados con automatizaciones, SEO y publicidad digital enfocada en conversión.
             </p>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function CasesPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">Minería</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">Empresa de Servicios</span>
             </div>
             <h2
               className="text-4xl font-black text-primary mb-4"
@@ -58,7 +58,7 @@ export default function CasesPage() {
               Empresa contratista: +85% en leads calificados
             </h2>
             <p className="text-lg text-slate mb-8 leading-relaxed max-w-2xl">
-              Una empresa de servicios al sector minero regional operaba con poca visibilidad online. Sin estrategia de SEO ni publicidad digital, dependían casi exclusivamente de referencias personales — lo que limitaba su escalabilidad.
+              Una empresa de servicios B2B regional operaba con poca visibilidad online. Sin estrategia de SEO ni publicidad digital, dependían casi exclusivamente de referencias personales — lo que limitaba su escalabilidad.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export default function CasesPage() {
             <ul className="space-y-3 text-slate">
               <li className="flex gap-3">
                 <span className="text-accent font-bold">•</span>
-                <span>Posicionamiento digital nulo: no aparecían en búsquedas de empresas mineras buscando contratistas de sus servicios.</span>
+                <span>Posicionamiento digital nulo: no aparecían en búsquedas de empresas buscando contratistas de sus servicios.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent font-bold">•</span>
@@ -101,7 +101,7 @@ export default function CasesPage() {
             <div className="grid gap-6">
               <div>
                 <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">SEO</span>
-                <p className="text-slate"><strong>Posicionamiento orgánico en Google.</strong> Optimizamos su sitio para palabras clave como "contratista minería", "servicios especializados industria". En 5 meses: primeras posiciones en búsquedas específicas del sector.</p>
+                <p className="text-slate"><strong>Posicionamiento orgánico en Google.</strong> Optimizamos su sitio para palabras clave de nicho del servicio específico que ofrecían. En 5 meses: primeras posiciones en búsquedas específicas del rubro.</p>
               </div>
               <div>
                 <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Automatización + CRM</span>
@@ -109,7 +109,7 @@ export default function CasesPage() {
               </div>
               <div>
                 <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Publicidad Digital</span>
-                <p className="text-slate"><strong>Pauta en Google Ads + LinkedIn.</strong> Campañas B2B enfocadas en empresas mineras. A/B testing continuo para optimizar costo por lead. ROI mejorado cada mes.</p>
+                <p className="text-slate"><strong>Pauta en Google Ads + LinkedIn.</strong> Campañas B2B enfocadas en el segmento objetivo. A/B testing continuo para optimizar costo por lead. ROI mejorado cada mes.</p>
               </div>
               <div>
                 <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Análisis y Reporting</span>
@@ -175,7 +175,7 @@ export default function CasesPage() {
             <p className="text-lg mb-4 italic">
               "Antes no sabíamos si nuestro dinero en publicidad estaba funcionando. Ahora vemos cada lead, de dónde viene, y cuánto nos costó traerlo. El sistema automático nos ahorra horas cada semana."
             </p>
-            <p className="font-semibold">— Gerente General, Empresa Contratista (Minería)</p>
+            <p className="font-semibold">— Gerente General, Empresa de Servicios B2B</p>
           </div>
         </div>
       </section>
@@ -190,7 +190,7 @@ export default function CasesPage() {
             Más casos próximamente
           </h2>
           <p className="text-lg text-slate max-w-2xl mx-auto mb-8">
-            Casos de éxito en retail, e-commerce y servicios digitales. Próximas historias disponibles en los próximos meses.
+            Casos de éxito en e-commerce, servicios y más rubros. Próximas historias disponibles en los próximos meses.
           </p>
         </div>
       </section>

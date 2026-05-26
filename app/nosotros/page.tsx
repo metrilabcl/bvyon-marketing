@@ -28,7 +28,7 @@ const personJsonLd = {
   "@id": `${SITE_URL}/nosotros#person`,
   name: "Bastian Vega Yon",
   jobTitle: "Especialista en Marketing Digital",
-  description: "Especialista freelance en marketing digital B2B. Automatizaciones, SEO y contenido con IA.",
+  description: "Especialista freelance en marketing digital. Automatizaciones, SEO y contenido con IA.",
   url: SITE_URL,
   worksFor: {
     "@type": "Organization",
@@ -42,7 +42,7 @@ const personJsonLd = {
 const values = [
   { icon: "🎯", title: "Orientado a resultados", desc: "Cada estrategia tiene KPIs claros. Tu crecimiento es mi éxito — leads, conversiones y ROI, no vanity metrics." },
   { icon: "📊", title: "Datos en cada decisión", desc: "Soy técnicamente riguroso. Cada peso invertido tiene atribución clara y reportes que cualquiera puede entender." },
-  { icon: "🤝", title: "Experiencia en minería y retail", desc: "Especializado en empresas B2B del sector minero y retail. Conozco las dinámicas, los clientes y los ciclos de venta." },
+  { icon: "🤝", title: "Adaptable a cualquier industria", desc: "He trabajado con PYMEs y emprendimientos de distintos rubros en Chile. Adapto la estrategia al modelo de negocio y ciclo de venta de cada cliente." },
   { icon: "🚀", title: "Sin intermediarios", desc: "Trabajas directamente conmigo — sin cuentas ejecutivas, sin burocracia. Más velocidad, más foco, mejores resultados." },
 ];
 
@@ -68,7 +68,7 @@ export default function NosotrosPage() {
             </h1>
             <p className="text-gray-300 text-lg">
               Especialista freelance en marketing digital donde los datos impulsan cada decisión.
-              Especializado en empresas B2B de sectores minero y retail.
+              Trabajo con PYMEs y emprendimientos de todo Chile.
             </p>
           </div>
         </div>

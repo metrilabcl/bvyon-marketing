@@ -23,18 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const label = CATEGORY_LABELS[category as Category];
   return {
     title: `${label} — Blog`,
-    description: `Artículos y guías sobre ${label.toLowerCase()} en marketing digital para empresas del empresas B2B. Consejos prácticos y casos reales.`,
+    description: `Artículos y guías sobre ${label.toLowerCase()} en marketing digital para PYMEs y emprendimientos en Chile. Consejos prácticos y casos reales.`,
     alternates: { canonical: `/blog/${category}` },
     openGraph: {
       title: `${label} — Blog | bvyon marketing`,
-      description: `Artículos sobre ${label.toLowerCase()} en marketing digital para el empresas B2B.`,
+      description: `Artículos sobre ${label.toLowerCase()} en marketing digital para PYMEs y emprendimientos en Chile.`,
       url: `/blog/${category}`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image" as const,
       title: `${label} — Blog | bvyon marketing`,
-      description: `Artículos sobre ${label.toLowerCase()} en marketing digital para el empresas B2B.`,
+      description: `Artículos sobre ${label.toLowerCase()} en marketing digital para PYMEs y emprendimientos en Chile.`,
     },
   };
 }

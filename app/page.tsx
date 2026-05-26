@@ -11,18 +11,18 @@ export const metadata: Metadata = {
     absolute: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
   },
   description:
-    "Especialista freelance en marketing digital en Chile. Automatizaciones, SEO, contenido con IA y diseño web para empresas B2B del sector minero y retail.",
+    "Especialista freelance en marketing digital en Chile. Automatizaciones, SEO, contenido con IA y diseño web para PYMEs y emprendimientos en Chile.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
-    description: "Automatizaciones, SEO y publicidad digital para empresas del sector minero y retail de Chile.",
+    description: "Automatizaciones, SEO y publicidad digital para PYMEs y emprendimientos en Chile.",
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Marketing Digital Chile · bvyon — Automatizaciones, SEO e IA",
-    description: "Automatizaciones, SEO y publicidad digital para empresas B2B de Chile.",
+    description: "Automatizaciones, SEO y publicidad digital para PYMEs y emprendimientos en Chile.",
   },
 };
 
@@ -124,7 +124,7 @@ const services: HomeService[] = [
 const stats = [
   { value: "5+", label: "Años especialista en marketing digital" },
   { value: "50+", label: "Empresas crecieron con mi estrategia" },
-  { value: "Minería + Retail", label: "Sectores focalizados" },
+  { value: "Chile", label: "Clientes en todo el país" },
   { value: "30 min", label: "Diagnóstico gratis sin costo" },
 ];
 
@@ -402,7 +402,7 @@ export default function HomePage() {
               Paquetes para cada etapa
             </h2>
             <p className="text-slate text-lg max-w-xl mx-auto">
-              Desde emprendimientos hasta grandes empresas del sector minero.
+              Desde emprendimientos hasta grandes empresas en Chile.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -410,7 +410,7 @@ export default function HomePage() {
               { name: "Emprendedor", price: "$290.000", period: "CLP / mes", desc: "Para PyMEs que inician su presencia digital." },
               { name: "Crecimiento", price: "$750.000", period: "CLP / mes", desc: "Empresas establecidas que quieren escalar.", highlight: true },
               { name: "Expansión", price: "$1.800.000", period: "CLP / mes", desc: "Marcas con presencia multi-ciudad." },
-              { name: "Corporativo", price: "Desde $4.500.000", period: "CLP / mes", desc: "Sector minero y grandes empresas." },
+              { name: "Corporativo", price: "Desde $4.500.000", period: "CLP / mes", desc: "Grandes empresas en crecimiento." },
             ].map((pkg) => (
               <div
                 key={pkg.name}

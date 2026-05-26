@@ -35,8 +35,8 @@ targetRegion: "norte"    # opcional — interno
 ```
 
 Sustituciones recomendadas:
-- Ciudad específica → "tu ciudad", "empresas regionales", "PyMEs del sector"
-- "Norte de Chile" → "sector minero y retail", "empresas B2B", "Chile"
+- Ciudad específica → "tu ciudad", "empresas locales", "Chile"
+- "Norte de Chile" → "empresas chilenas", "PYMEs en Chile", "Chile"
 
 ## Frontmatter obligatorio
 

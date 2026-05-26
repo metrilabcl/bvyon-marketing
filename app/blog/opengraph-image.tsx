@@ -84,7 +84,7 @@ export default function Image() {
             display: "flex",
           }}
         >
-          Guías, tendencias y casos de éxito para empresas B2B en Chile.
+          Guías, tendencias y casos de éxito para PYMEs y emprendimientos en Chile.
         </div>
 
         {/* Tags */}

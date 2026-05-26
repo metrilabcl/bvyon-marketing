@@ -10,7 +10,7 @@ export function GET() {
   const feed = new Feed({
     title: "Blog — bvyon marketing",
     description:
-      "Guías, tendencias y casos de éxito de marketing digital para empresas B2B.",
+      "Guías, tendencias y casos de éxito de marketing digital para PYMEs y emprendimientos en Chile.",
     id: `${BASE_URL}/blog`,
     link: `${BASE_URL}/blog`,
     language: "es",

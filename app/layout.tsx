@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     template: "%s | bvyon marketing",
   },
   description:
-    "Especialista freelance en marketing digital. Automatizaciones, SEO y publicidad digital para empresas B2B.",
+    "Especialista freelance en marketing digital. Automatizaciones, SEO y publicidad digital para PYMEs y emprendimientos en Chile.",
   keywords: [
     "agencia de marketing",
     "marketing digital",
-    "minería",
-    "retail",
+    "PYMEs Chile",
+    "emprendimientos",
     "SEO",
     "publicidad digital",
     "redes sociales",
