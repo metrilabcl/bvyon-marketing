@@ -1,4 +1,5 @@
 @AGENTS.md
+@SERVICES.md
 
 # Git Workflow — Required for All Agents
 
