@@ -1,15 +1,15 @@
 ---
-title: "Grok CLI: el agente de terminal de xAI que compite con Claude Code"
+title: "Grok Build: el agente de terminal de xAI que compite con Claude Code"
 date: 2026-06-04
 category: tendencias
-excerpt: "xAI lanzó Grok Build, un agente CLI para codificación con modo plan, subagentes paralelos e integración CI. Aquí todo lo que necesitas saber."
+excerpt: "xAI lanzó Grok Build, su agente CLI oficial para codificación. Modo plan, hasta 8 subagentes en paralelo, headless CI y un nuevo modelo agéntico."
 coverImage: /images/blog/grok-cli-xai-terminal-agent-2026.jpg
 seo:
-  title: "Grok CLI de xAI: Guía, Comparativa y Casos de Uso 2026"
-  description: "Grok Build es el agente de terminal de xAI con modo plan, subagentes paralelos y headless CI. Cómo instalarlo, qué hace y cómo compite con Claude Code."
+  title: "Grok Build de xAI: Guía del CLI oficial para terminal 2026"
+  description: "Grok Build es el agente CLI oficial de xAI: modo plan, hasta 8 subagentes en paralelo, headless CI y modelo grok-build-0.1. Cómo instalarlo y qué hace."
 ---
 
-xAI acaba de entrar al mercado de los agentes de codificación en terminal con **Grok Build**, su CLI para ingeniería de software. Al mismo tiempo, la comunidad de desarrolladores ya usa **Grok CLI** vía npm para automatizar tareas desde la consola con los modelos Grok. Aquí está lo que necesitas saber sobre ambas herramientas — y por qué este movimiento de xAI importa.
+xAI entró al mercado de los agentes de codificación en terminal con **Grok Build**, su CLI oficial para ingeniería de software disponible en [x.ai/cli](https://x.ai/cli). Lanzado el 14 de mayo de 2026, llega con una propuesta técnica diferenciada: un modelo agéntico propio, modo plan obligatorio antes de tocar archivos y hasta ocho subagentes en paralelo aislados en worktrees de git.
 
 ## El contexto: la guerra de los agentes CLI
 
@@ -17,21 +17,35 @@ Durante 2025 y 2026, el campo de batalla en herramientas de IA para desarrollado
 
 xAI llegó tarde al partido, pero con una propuesta técnica diferenciada: la arquitectura Heavy de múltiples agentes paralelos que ya usaba en Grok 4 aplicada ahora directamente al flujo de trabajo de un ingeniero de software en su terminal.
 
-## Grok Build: el CLI oficial de xAI
+## Qué es Grok Build
 
-**Grok Build** fue lanzado el 14 de mayo de 2026 como early beta exclusiva para suscriptores SuperGrok y X Premium Plus. Se instala con un solo comando:
+**Grok Build** es el CLI oficial de xAI para tareas agénticas de ingeniería de software. A diferencia de un chat de programación, Grok Build no se limita a sugerir código: planifica cambios, edita archivos, ejecuta comandos de shell, corre tests y itera sobre la salida del build hasta cerrar la tarea.
+
+Corre sobre **`grok-build-0.1`**, un modelo especializado para flujos agénticos multi-paso con una ventana de contexto de 256K tokens, disponible vía la API de Responses de xAI desde el 20 de mayo de 2026.
+
+### Instalación en un solo comando
 
 ```bash
 # macOS / Linux
 curl -fsSL https://x.ai/cli/install.sh | bash
 
-# Windows PowerShell
+# Windows PowerShell (disponible desde el 25 de mayo de 2026)
 irm https://x.ai/cli/install.ps1 | iex
 ```
 
-El primer uso abre una autenticación vía navegador vinculada a la cuenta de X. No requiere configuración adicional — el agente ya tiene acceso al modelo `grok-build-0.1` disponible vía la API de Responses de xAI.
+El primer `grok` dentro de un repositorio abre una autenticación vía navegador vinculada a la cuenta de X. Para entornos sin navegador — CI, servidores remotos, contenedores — basta con exportar la variable de entorno `GROK_CODE_XAI_API_KEY` (o `XAI_API_KEY`) y el CLI omite el flujo interactivo.
 
-### El ciclo Plan-Revisar-Aprobar
+### Acceso y precios
+
+En el lanzamiento, Grok Build era exclusivo para suscriptores SuperGrok Heavy (~$99/mes promocional, $299/mes estándar). El 24 de mayo de 2026 xAI expandió el acceso a los planes más accesibles:
+
+- **SuperGrok**: $30/mes — acceso completo a Grok Build
+- **X Premium+**: $40/mes — acceso completo a Grok Build
+- **SuperGrok Heavy**: $299/mes — Grok Build + acceso prioritario y rate limits superiores
+
+Esta apertura cambió radicalmente la accesibilidad: el CLI dejó de ser una herramienta para suscriptores premium y se volvió viable para desarrolladores individuales.
+
+## El ciclo Plan-Revisar-Aprobar
 
 La característica más diferenciadora de Grok Build es su flujo estructurado de ejecución. En lugar de modificar archivos inmediatamente, el agente:
 
@@ -39,33 +53,33 @@ La característica más diferenciadora de Grok Build es su flujo estructurado de
 2. **Presenta cada modificación como diff** para revisión antes de ejecutar
 3. **Espera aprobación** o comentarios del desarrollador antes de proceder
 
-Esto resuelve uno de los mayores puntos de fricción con los agentes de codificación autónomos: la pérdida de control. El agente actúa, pero el desarrollador mantiene visibilidad y aprobación en cada paso.
+En **modo plan**, cada edición queda bloqueada hasta que apruebes el plan, comentes pasos individuales o lo reescribas por completo. Esto resuelve uno de los mayores puntos de fricción con los agentes autónomos: la pérdida de control. El agente actúa, pero el desarrollador mantiene visibilidad y aprobación en cada paso.
 
 <Callout type="tip">
   El comando `/plan` muestra el plan activo en cualquier momento de la sesión. `/rewind` permite retroceder el estado de la conversación si algo salió mal. `/fork` crea una rama alternativa sin perder el progreso anterior.
 </Callout>
 
-### Subagentes paralelos con aislamiento en worktrees
+## Subagentes paralelos con aislamiento en worktrees
 
-Para tareas complejas, Grok Build delega trabajo a **subagentes especializados** que operan en paralelo. Cada subagente trabaja en su propio worktree de git, lo que garantiza que los cambios experimentales no contaminen la rama principal.
+Para tareas complejas, Grok Build delega trabajo a **subagentes especializados** que operan en paralelo — hasta **ocho subagentes simultáneos**, cada uno dentro de su propio worktree de git. Esa separación garantiza que los cambios experimentales no contaminen la rama principal y elimina el riesgo de conflictos de merge entre agentes.
 
-Esta arquitectura es una extensión directa del modelo Grok 4 Heavy, que usa múltiples trayectorias de razonamiento en paralelo. Aplicado al desarrollo de software, el resultado es que el agente puede investigar, implementar y revisar cambios de manera simultánea en lugar de secuencial.
+La nueva vista nativa de subagentes en la TUI fullscreen permite ver el progreso de cada uno en tiempo real, con soporte de mouse para navegar entre paneles. Es una extensión directa del modelo Grok 4 Heavy, que usa múltiples trayectorias de razonamiento en paralelo. Aplicado al desarrollo de software, el resultado es que el agente puede investigar, implementar y revisar cambios de manera simultánea en lugar de secuencial.
 
-### Modo headless para CI y scripts
+## Modo headless para CI y scripts
 
 Grok Build incluye soporte para ejecución **sin interfaz interactiva** mediante el flag `-p`:
 
 ```bash
-grok -p "Revisa todos los tests fallidos y propone un fix" --output json
+grok -p "Revisa todos los tests fallidos y propone un fix" --output-format streaming-json
 ```
 
-Los formatos de salida soportados son `plain`, `json` y `streaming-json`, lo que facilita la integración en pipelines de CI/CD y workflows automatizados donde no hay un humano revisando en tiempo real.
+Los formatos de salida soportados son `plain`, `json` y `streaming-json`, lo que facilita la integración en pipelines de CI/CD y workflows automatizados. Funciona con GitHub Actions, GitLab CI, CircleCI y Jenkins. Un caso de uso típico: ejecutar Grok como último paso antes del merge para generar el changelog, redactar notas de release, actualizar documentación de API y abrir un PR de documentación de forma automática.
 
 <Callout type="warning">
   El flag `--always-approve` omite las confirmaciones interactivas y ejecuta los cambios de forma autónoma. Es útil para pipelines de CI, pero debe usarse con precaución en repositorios de producción — el agente puede modificar archivos sin revisión humana.
 </Callout>
 
-### Integraciones y extensibilidad
+## Integraciones y extensibilidad
 
 Grok Build se integra de forma nativa con el ecosistema MCP (Model Context Protocol), lo que permite conectarlo con herramientas externas:
 
@@ -73,56 +87,23 @@ Grok Build se integra de forma nativa con el ecosistema MCP (Model Context Proto
 - **Sentry** para monitoreo de errores
 - **Grafana** para observabilidad
 
-Además soporta archivos `AGENTS.md` para instrucciones a nivel de proyecto, plugins compartibles por equipos y el comando `/skillify`, que captura una sesión completa como skill reutilizable.
+Además respeta los archivos `AGENTS.md` para instrucciones a nivel de proyecto, hooks pre/post-edición, plugins compartibles por equipos y el comando `/skillify`, que captura una sesión completa como skill reutilizable. xAI también anunció **notas de release diarias** para Grok Build, una cadencia agresiva pensada para iterar rápido durante la beta.
 
-## Grok CLI (@vibe-kit/grok-cli): la alternativa open source
+## Comparativa: Grok Build vs Claude Code vs Codex CLI
 
-Paralelo al CLI oficial de xAI existe **Grok CLI**, un paquete npm open source desarrollado por Superagent bajo el nombre `@vibe-kit/grok-cli`. Su sitio oficial está en [grokcli.io](https://grokcli.io).
-
-Esta herramienta apunta a un perfil diferente: desarrolladores que quieren interacción conversacional con archivos y proyectos desde la terminal, sin el peso de un CLI de empresa.
-
-### Instalación
-
-```bash
-# Instalación global con npm
-npm install -g @vibe-kit/grok-cli
-
-# Requiere Node.js 16+ y una API key de xAI
-export XAI_API_KEY="xai-..."
-```
-
-Una vez instalado, basta con ejecutar `grok` en el directorio del proyecto o `grok -d /ruta/al/proyecto` para especificar una carpeta.
-
-### Qué puede hacer
-
-Grok CLI ofrece una interfaz conversacional potenciada por **Grok-3** con las siguientes capacidades:
-
-- **Operaciones con archivos:** el agente usa herramientas para ver, crear y editar archivos de manera automática según la instrucción del usuario
-- **Integración bash:** permite ejecutar comandos de shell mediante lenguaje natural en la misma conversación
-- **Selección automática de herramientas:** el modelo decide qué herramienta usar según el contexto, sin que el usuario tenga que especificarlo
-- **Edición de alta velocidad:** modo opcional de edición a 4.500+ tokens/segundo con 98% de precisión
-- **Soporte MCP:** extensión con servidores de Model Context Protocol (GitHub, Linear, etc.)
-
-La interfaz está construida con **Ink**, la librería de React para terminales, lo que le da una apariencia visual más pulida que la mayoría de CLIs basados en texto plano.
-
-<Callout type="tip">
-  Grok CLI es la opción más accesible para empezar: no requiere suscripción premium, solo una API key de xAI. Ideal para proyectos personales, experimentación o equipos pequeños que quieren integrar Grok en su flujo de trabajo sin comprometerse con un plan de empresa.
-</Callout>
-
-## Comparativa: Grok Build vs Grok CLI vs Claude Code
-
-| Característica | Grok Build | Grok CLI (vibe-kit) | Claude Code |
+| Característica | Grok Build | Claude Code | Codex CLI |
 |---|---|---|---|
-| Desarrollador | xAI (oficial) | Superagent (open source) | Anthropic (oficial) |
-| Modelo base | grok-build-0.1 | Grok-3 | Claude (familia completa) |
-| Modo plan | Sí (nativo) | No | Sí |
-| Subagentes paralelos | Sí | No | Sí (herramientas) |
-| Headless / CI | Sí (`-p` flag) | Limitado | Sí |
-| Soporte MCP | Sí | Sí | Sí |
-| Worktrees aislados | Sí | No | Sí |
+| Desarrollador | xAI | Anthropic | OpenAI |
+| Modelo base | grok-build-0.1 | Claude (familia completa) | GPT-5.5 / codex-mini |
+| Ventana de contexto | 256K tokens | 200K tokens | 400K tokens |
+| Modo plan obligatorio | Sí (nativo) | Sí | Limitado |
+| Subagentes paralelos | Hasta 8 (worktrees aislados) | Sí (vía Task tool) | No nativo |
+| Headless / CI | Sí (`-p` + streaming-json) | Sí | Sí |
+| Soporte MCP | Sí | Sí | Limitado |
+| TUI fullscreen + mouse | Sí | Limitado | No |
 | Instalación | `curl \| bash` | `npm install -g` | `npm install -g` |
-| Acceso | SuperGrok / X Premium Plus | API key xAI | API key Anthropic |
-| Precio mínimo | ~$40/mes (X Premium Plus) | Por uso (API) | Por uso (API) |
+| Acceso | SuperGrok / X Premium+ | API key Anthropic | API key OpenAI |
+| Precio mínimo | $30/mes (SuperGrok) | Por uso (API) | Por uso (API) |
 
 ## Por qué importa este movimiento de xAI
 
@@ -130,13 +111,16 @@ xAI tiene un activo que ningún otro laboratorio de IA posee en este segmento: *
 
 La apuesta técnica también es sólida. El uso de worktrees de git para aislar subagentes paralelos es una arquitectura inteligente: permite explorar múltiples soluciones simultáneamente sin riesgo de conflictos, algo que los CLIs de un solo hilo no pueden hacer.
 
-La limitación actual es el acceso. Restringir Grok Build a suscriptores premium durante la beta es una estrategia de lanzamiento conservadora, pero reduce la adopción inmediata entre desarrolladores independientes y equipos pequeños que quieren probar la herramienta antes de comprometerse.
+La apertura del acceso a SuperGrok ($30/mes) el 24 de mayo eliminó la principal barrera de adopción. Lo que en el lanzamiento parecía una herramienta exclusiva para equipos de empresa con SuperGrok Heavy se transformó en una alternativa real para desarrolladores independientes que quieren probar el ecosistema de xAI sin pagar suscripciones de tres dígitos.
 
-## ¿Quién debería usar cada herramienta?
+## ¿Cuándo conviene usar Grok Build?
 
-**Grok Build** es para equipos de ingeniería que trabajan en proyectos complejos, necesitan autonomía agéntica con revisión humana, y ya tienen o están evaluando una suscripción SuperGrok. Su flujo Plan-Revisar-Aprobar lo hace especialmente adecuado para entornos donde no se puede permitir que el agente cometa errores sin supervisión.
+Grok Build encaja especialmente bien en estos escenarios:
 
-**Grok CLI (@vibe-kit/grok-cli)** es para desarrolladores individuales o equipos pequeños que quieren empezar a usar Grok en la terminal sin fricción. La instalación vía npm, el modelo conversacional y el soporte MCP lo hacen una entrada sólida para experimentar con agentes de codificación sin pagar una suscripción mensual fija.
+- **Equipos de ingeniería trabajando en refactors o features grandes** que se benefician de explorar múltiples enfoques en paralelo — los subagentes en worktrees aislados permiten investigar tres soluciones distintas sin contaminar la rama principal.
+- **Entornos donde el control humano es crítico** — el modo plan obligatorio y la aprobación paso a paso lo hacen apto para repositorios de producción donde un error agéntico tiene costo real.
+- **Pipelines de CI/CD** que necesitan acciones automatizadas más complejas que un simple linter: actualizar documentación, generar changelogs, revisar PRs con contexto del repo completo.
+- **Equipos que ya tienen una suscripción SuperGrok** y quieren consolidar herramientas en lugar de pagar por una API key adicional.
 
 Si ya usas **Claude Code** y estás satisfecho, no hay razón urgente para cambiar — Anthropic lleva más tiempo en este mercado y el ecosistema es más maduro. Pero si tu empresa está evaluando alternativas o quieres diversificar tu stack de herramientas de IA, Grok Build es la propuesta técnicamente más ambiciosa que xAI ha lanzado hasta la fecha.
 
@@ -147,8 +131,6 @@ Si ya usas **Claude Code** y estás satisfecho, no hay razón urgente para cambi
 ---
 
 **Fuentes:**
-- [Grok CLI — grokcli.io](https://grokcli.io)
-- [Grok CLI — npm (@vibe-kit/grok-cli)](https://www.npmjs.com/package/@vibe-kit/grok-cli)
-- [Grok Build CLI — xAI](https://x.ai/cli)
+- [Grok Build Beta — xAI](https://x.ai/cli)
 - [Introducing Grok Build — xAI Blog](https://x.ai/news/grok-build-cli)
-- [superagent-ai/grok-cli — GitHub](https://github.com/superagent-ai/grok-cli)
+- [xAI Documentación — docs.x.ai](https://docs.x.ai)
