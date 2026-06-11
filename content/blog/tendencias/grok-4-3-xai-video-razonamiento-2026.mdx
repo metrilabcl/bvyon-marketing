@@ -1,0 +1,98 @@
+---
+title: "Grok 4.3 de xAI: razonamiento avanzado, video nativo y contexto 1M"
+date: 2026-06-11
+category: tendencias
+excerpt: "xAI lanzó Grok 4.3 con 1M tokens de contexto, video nativo y precio desde $1.25/M tokens. Las capacidades reales y casos de uso que importan."
+coverImage: /images/blog/grok-4-3-xai-video-razonamiento-2026.jpg
+seo:
+  title: "Grok 4.3 de xAI: Specs, Precio y Casos de Uso 2026"
+  description: "Grok 4.3: 1M tokens de contexto, $1.25/M input, video nativo y web search. Specs verificadas y casos de uso para empresas en Chile."
+---
+
+xAI presentó **Grok 4.3** el 30 de abril de 2026 — un modelo que apareció primero en beta silenciosa el 17 de abril y que fue confirmado por múltiples fuentes de industria días después. La propuesta es concisa: arquitectura mejorada respecto a Grok 4.20, multimodalidad ampliada con video nativo, y un precio de API que subraya el posicionamiento agresivo de xAI en el mercado de modelos frontier.
+
+## El contexto: xAI acelera cadencia
+
+2026 está siendo el año con mayor densidad de lanzamientos de modelos de lenguaje de la historia. En ese contexto, xAI lleva una cadencia propia: Grok 4, luego Grok 4.1 Fast, después Grok 4.20 y ahora Grok 4.3 — todo en el arco de poco más de un año. A esto se suma que SpaceX anunció la adquisición de xAI en abril de 2026, lo que podría acelerar aún más los recursos disponibles para desarrollo de modelos.
+
+Grok 4.3 no es una actualización revolucionaria — es una iteración deliberada que ajusta la arquitectura de Grok 4.20 y añade capacidades multimodales que los modelos anteriores no tenían.
+
+## Especificaciones técnicas verificadas
+
+Los datos de **Vercel AI Gateway** — que integra el modelo directamente — entregan las especificaciones técnicas más completas disponibles al cierre de este artículo.
+
+| Especificación | Valor |
+|---|---|
+| Ventana de contexto | 1.000.000 tokens |
+| Precio input | $1,25 / millón de tokens |
+| Precio output | $2,50 / millón de tokens |
+| Caché implícita (lectura) | $0,20 / millón de tokens |
+| Latencia TTFT | ~1,0 segundo |
+| Throughput | 117 tokens / segundo |
+| Knowledge cutoff | Diciembre 2025 |
+| Proveedor | xAI |
+
+<Callout type="tip">
+  El precio de $1,25/M tokens de input coloca a Grok 4.3 entre los modelos frontier más accesibles del mercado. Claude Fable 5 — el modelo más poderoso de Anthropic disponible al público — cuesta $10/M tokens de input. Para cargas de trabajo de alto volumen, la diferencia en costo puede ser determinante.
+</Callout>
+
+## Capacidades clave
+
+### Razonamiento y uso de herramientas
+
+Grok 4.3 mantiene las capacidades de razonamiento estructurado heredadas de la familia Grok 4, con soporte nativo para uso de herramientas (tool use), búsqueda web en tiempo real, procesamiento de archivos e input de imágenes. La caché implícita reduce costos en flujos repetitivos al procesar tokens ya vistos en el contexto a un precio de lectura reducido ($0,20/M vs $1,25/M del precio estándar).
+
+### Video nativo
+
+La adición más significativa en Grok 4.3 es la capacidad de **comprensión de video nativa**: el modelo puede recibir video directamente como input, sin necesidad de preprocesamiento externo. Esta funcionalidad fue confirmada por testers del periodo beta y reportada por VentureBeat al momento del lanzamiento completo.
+
+### Generación de slides en chat
+
+xAI incorporó la posibilidad de generar **presentaciones de diapositivas directamente en la interfaz de chat**. Los usuarios pueden pedir al modelo que cree una presentación estructurada sobre cualquier tema y recibir el resultado listo para editar, sin salir de la interfaz.
+
+<Callout type="warning">
+  Las capacidades de video nativo y generación de slides fueron reportadas por fuentes de industria (VentureBeat, ChatlyAI) y confirmadas por testers beta, pero no están detalladas en la documentación oficial de xAI disponible al cierre de este artículo. Si son críticas para un caso de uso específico, verifica directamente en la plataforma antes de comprometerte con un flujo de trabajo.
+</Callout>
+
+## Casos de uso concretos
+
+### 1. Análisis de material audiovisual para equipos de marketing y ventas
+
+El video nativo convierte a Grok 4.3 en una herramienta directa para equipos que trabajan con contenido audiovisual: analizar grabaciones de reuniones con clientes, extraer los puntos clave de un video de capacitación, revisar material de campaña antes de publicar, o generar resúmenes de entrevistas sin necesidad de servicios de transcripción previos.
+
+El flujo se simplifica: sube el video, describe lo que necesitas, recibe el análisis. Lo que antes requería una cadena de herramientas (transcripción → modelo de texto → revisión) se comprime en un paso.
+
+### 2. Procesamiento de documentación extensa
+
+Con 1 millón de tokens de contexto, Grok 4.3 puede procesar en una sola sesión bases de documentación completas: licitaciones extensas, contratos corporativos, historiales de correspondencia o reportes técnicos. Esto elimina la necesidad de seleccionar qué fragmentos incluir — el modelo puede ver todo el contexto relevante simultáneamente.
+
+A $1,25/M tokens de input y con caché implícita a $0,20/M, el costo de procesar contextos grandes es significativamente más manejable que en modelos de mayor precio.
+
+### 3. Preparación rápida de presentaciones de negocio
+
+La generación nativa de slides abre un caso de uso directo en ventas y consultoría: tomar un brief de cliente, un análisis previo o los resultados de una reunión, y producir una presentación estructurada lista para revisar y enviar. Para equipos que generan presentaciones con frecuencia, esto reduce el tiempo de producción de forma concreta.
+
+<Callout type="info">
+  Combinado con la búsqueda web en tiempo real, Grok 4.3 puede construir presentaciones sobre temas que requieren información actualizada — métricas de mercado, datos sectoriales, novedades regulatorias — sin que el usuario necesite investigar y copiar manualmente la información al documento.
+</Callout>
+
+## Acceso y disponibilidad
+
+Al lanzamiento, Grok 4.3 estaba disponible exclusivamente para suscriptores **SuperGrok Heavy** ($300/mes). Los suscriptores de SuperGrok estándar ($30/mes) podían ver el modelo pero no acceder. xAI proyectó un rollout más amplio para la segunda quincena de mayo 2026.
+
+Para equipos de desarrollo, el modelo está disponible a través de la **API de xAI** y de la **Vercel AI Gateway** con los precios documentados arriba.
+
+## La apuesta de xAI
+
+Grok 4.3 muestra la dirección de xAI: iteraciones frecuentes sobre arquitecturas existentes, capacidades multimodales que se van integrando modelo a modelo, y precios de API diseñados para ganar adopción a escala. Con Grok Build — su CLI para ingeniería de software lanzado en mayo 2026 — el ecosistema xAI está tomando forma como alternativa real al stack de Anthropic y OpenAI para equipos de desarrollo.
+
+Para las empresas chilenas que evalúan herramientas de IA, el precio de Grok 4.3 abre la puerta a casos de uso que antes eran costosos de escalar. La ventana de 1M tokens y el video nativo son capacidades reales que pueden integrarse en flujos de trabajo concretos hoy.
+
+---
+
+**Fuentes:**
+- [Vercel AI Gateway — Grok 4.3 Specs](https://vercel.com/ai-gateway/models/grok-4.3)
+- [xAI — Grok 4 News](https://x.ai/news/grok-4)
+- [xAI lanza Grok 4.3 con precio bajo — VentureBeat](https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite)
+- [Grok 4.3 Beta: Video, Slides & Speech — ChatlyAI](https://chatlyai.app/news/xai-grok-4-3-beta-video)
+- [xAI Release Notes — docs.x.ai](https://docs.x.ai/developers/release-notes)
