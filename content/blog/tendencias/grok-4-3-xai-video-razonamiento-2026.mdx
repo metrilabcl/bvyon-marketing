@@ -9,11 +9,11 @@ seo:
   description: "Grok 4.3: 1M tokens de contexto, $1.25/M input, video nativo y web search. Specs verificadas y casos de uso para empresas en Chile."
 ---
 
-xAI presentó **Grok 4.3** el 30 de abril de 2026 — un modelo que apareció primero en beta silenciosa el 17 de abril y que fue confirmado por múltiples fuentes de industria días después. La propuesta es concisa: arquitectura mejorada respecto a Grok 4.20, multimodalidad ampliada con video nativo, y un precio de API que subraya el posicionamiento agresivo de xAI en el mercado de modelos frontier.
+xAI presentó **Grok 4.3** el 30 de abril de 2026 — confirmado por fuentes de industria, con disponibilidad pública y vía API documentada desde esa fecha. La propuesta es concisa: arquitectura mejorada respecto a Grok 4.20, multimodalidad ampliada, y un precio de API que subraya el posicionamiento agresivo de xAI en el mercado de modelos frontier.
 
 ## El contexto: xAI acelera cadencia
 
-2026 está siendo el año con mayor densidad de lanzamientos de modelos de lenguaje de la historia. En ese contexto, xAI lleva una cadencia propia: Grok 4, luego Grok 4.1 Fast, después Grok 4.20 y ahora Grok 4.3 — todo en el arco de poco más de un año. A esto se suma que SpaceX anunció la adquisición de xAI en abril de 2026, lo que podría acelerar aún más los recursos disponibles para desarrollo de modelos.
+2026 está siendo el año con mayor densidad de lanzamientos de modelos de lenguaje de la historia. En ese contexto, xAI lleva una cadencia propia: Grok 4, luego Grok 4.1 Fast, después Grok 4.20 y ahora Grok 4.3 — todo en el arco de poco más de un año. A esto se suma que SpaceX anunció la adquisición de xAI a comienzos de 2026 (anunciada el 2 de febrero), lo que podría acelerar aún más los recursos disponibles para desarrollo de modelos.
 
 Grok 4.3 no es una actualización revolucionaria — es una iteración deliberada que ajusta la arquitectura de Grok 4.20 y añade capacidades multimodales que los modelos anteriores no tenían.
 
@@ -27,8 +27,8 @@ Los datos de **Vercel AI Gateway** — que integra el modelo directamente — en
 | Precio input | $1,25 / millón de tokens |
 | Precio output | $2,50 / millón de tokens |
 | Caché implícita (lectura) | $0,20 / millón de tokens |
-| Latencia TTFT | ~1,0 segundo |
-| Throughput | 117 tokens / segundo |
+| Latencia TTFT | ~1,2 segundos |
+| Throughput | ~90 tokens / segundo |
 | Knowledge cutoff | Diciembre 2025 |
 | Proveedor | xAI |
 
@@ -42,23 +42,23 @@ Los datos de **Vercel AI Gateway** — que integra el modelo directamente — en
 
 Grok 4.3 mantiene las capacidades de razonamiento estructurado heredadas de la familia Grok 4, con soporte nativo para uso de herramientas (tool use), búsqueda web en tiempo real, procesamiento de archivos e input de imágenes. La caché implícita reduce costos en flujos repetitivos al procesar tokens ya vistos en el contexto a un precio de lectura reducido ($0,20/M vs $1,25/M del precio estándar).
 
-### Video nativo
+### Video nativo (reportado, no confirmado oficialmente)
 
-La adición más significativa en Grok 4.3 es la capacidad de **comprensión de video nativa**: el modelo puede recibir video directamente como input, sin necesidad de preprocesamiento externo. Esta funcionalidad fue confirmada por testers del periodo beta y reportada por VentureBeat al momento del lanzamiento completo.
+Entre las capacidades que mencionan algunos reportes de industria está la **comprensión de video nativa** — la posibilidad de recibir video directamente como input, sin preprocesamiento externo. Es importante ser claro: esta funcionalidad **no aparece en la documentación oficial de xAI** ni en las fichas técnicas de los proveedores que integran el modelo, que listan visión sobre imágenes, no video. Trátala como un reporte no confirmado hasta verificarla en la plataforma.
 
-### Generación de slides en chat
+### Generación de slides en chat (reportado, no confirmado)
 
-xAI incorporó la posibilidad de generar **presentaciones de diapositivas directamente en la interfaz de chat**. Los usuarios pueden pedir al modelo que cree una presentación estructurada sobre cualquier tema y recibir el resultado listo para editar, sin salir de la interfaz.
+Algunos reportes mencionan también la posibilidad de generar **presentaciones de diapositivas directamente en la interfaz de chat**. Al igual que el video nativo, esta capacidad **no está documentada oficialmente** por xAI al cierre de este artículo y debe verificarse antes de incorporarla a un flujo de trabajo.
 
 <Callout type="warning">
-  Las capacidades de video nativo y generación de slides fueron reportadas por fuentes de industria (VentureBeat, ChatlyAI) y confirmadas por testers beta, pero no están detalladas en la documentación oficial de xAI disponible al cierre de este artículo. Si son críticas para un caso de uso específico, verifica directamente en la plataforma antes de comprometerte con un flujo de trabajo.
+  Ni la comprensión de video nativa ni la generación de slides aparecen en la documentación oficial de xAI disponible al cierre de este artículo. Las mencionamos porque circulan en reportes de industria, pero no las tratamos como capacidades confirmadas. Si son críticas para tu caso de uso, verifícalas directamente en la plataforma antes de comprometerte con un flujo de trabajo.
 </Callout>
 
 ## Casos de uso concretos
 
 ### 1. Análisis de material audiovisual para equipos de marketing y ventas
 
-El video nativo convierte a Grok 4.3 en una herramienta directa para equipos que trabajan con contenido audiovisual: analizar grabaciones de reuniones con clientes, extraer los puntos clave de un video de capacitación, revisar material de campaña antes de publicar, o generar resúmenes de entrevistas sin necesidad de servicios de transcripción previos.
+*Si la comprensión de video nativa llega a confirmarse en la plataforma*, Grok 4.3 sería una herramienta directa para equipos que trabajan con contenido audiovisual: analizar grabaciones de reuniones con clientes, extraer los puntos clave de un video de capacitación, revisar material de campaña antes de publicar, o generar resúmenes de entrevistas sin necesidad de servicios de transcripción previos.
 
 El flujo se simplifica: sube el video, describe lo que necesitas, recibe el análisis. Lo que antes requería una cadena de herramientas (transcripción → modelo de texto → revisión) se comprime en un paso.
 
@@ -70,10 +70,10 @@ A $1,25/M tokens de input y con caché implícita a $0,20/M, el costo de procesa
 
 ### 3. Preparación rápida de presentaciones de negocio
 
-La generación nativa de slides abre un caso de uso directo en ventas y consultoría: tomar un brief de cliente, un análisis previo o los resultados de una reunión, y producir una presentación estructurada lista para revisar y enviar. Para equipos que generan presentaciones con frecuencia, esto reduce el tiempo de producción de forma concreta.
+*De confirmarse la generación nativa de slides*, se abre un caso de uso directo en ventas y consultoría: tomar un brief de cliente, un análisis previo o los resultados de una reunión, y producir una presentación estructurada lista para revisar y enviar. Para equipos que generan presentaciones con frecuencia, esto reduciría el tiempo de producción de forma concreta.
 
 <Callout type="info">
-  Combinado con la búsqueda web en tiempo real, Grok 4.3 puede construir presentaciones sobre temas que requieren información actualizada — métricas de mercado, datos sectoriales, novedades regulatorias — sin que el usuario necesite investigar y copiar manualmente la información al documento.
+  Combinado con la búsqueda web en tiempo real —esta sí confirmada en las fichas técnicas—, Grok 4.3 podría construir presentaciones sobre temas que requieren información actualizada (métricas de mercado, datos sectoriales, novedades regulatorias) sin que el usuario investigue y copie manualmente la información al documento.
 </Callout>
 
 ## Acceso y disponibilidad
@@ -91,8 +91,8 @@ Para las empresas chilenas que evalúan herramientas de IA, el precio de Grok 4.
 ---
 
 **Fuentes:**
-- [Vercel AI Gateway — Grok 4.3 Specs](https://vercel.com/ai-gateway/models/grok-4.3)
-- [xAI — Grok 4 News](https://x.ai/news/grok-4)
-- [xAI lanza Grok 4.3 con precio bajo — VentureBeat](https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite)
-- [Grok 4.3 Beta: Video, Slides & Speech — ChatlyAI](https://chatlyai.app/news/xai-grok-4-3-beta-video)
+- [xAI Docs — Grok 4.3 (specs primarias)](https://docs.x.ai/developers/models/grok-4.3)
+- [Vercel AI Gateway — Grok 4.3](https://vercel.com/ai-gateway/models/grok-4.3)
+- [Artificial Analysis — xAI lanza Grok 4.3 (fecha y precios)](https://artificialanalysis.ai/articles/xai-launches-grok-4-3-with-improved-agentic-performance-and-lower-pricing)
+- [xAI lanza Grok 4.3 con precio agresivo — VentureBeat](https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite)
 - [xAI Release Notes — docs.x.ai](https://docs.x.ai/developers/release-notes)

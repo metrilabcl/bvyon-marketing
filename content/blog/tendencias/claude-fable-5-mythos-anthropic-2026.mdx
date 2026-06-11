@@ -21,11 +21,11 @@ El 7 de abril de 2026, Anthropic publicó en red.anthropic.com el anuncio formal
 
 Los datos del anuncio son específicos y verificables:
 
-- **271 vulnerabilidades encontradas en Firefox** en una sola evaluación. De esas 271, el modelo desarrolló **181 exploits funcionales**. Para comparación, Claude Opus 4.6 — el modelo anterior en ese benchmark — logró solo 2 exploits en condiciones similares.
-- En las pruebas de OSS-Fuzz, Mythos Preview alcanzó **595 crashes en niveles de severidad 1 y 2**, más **10 casos de control total del flujo de ejecución** (tier 5, el nivel más crítico). Los modelos anteriores típicamente lograban solo crashes individuales en tier 3.
-- En evaluación manual de 198 reportes de vulnerabilidades, expertos contratados por Anthropic acordaron exactamente con la evaluación de severidad del modelo en el **89% de los casos**. En el 98%, la diferencia fue de un nivel como máximo.
+- En un benchmark sobre el motor JavaScript de **Firefox 147**, Mythos Preview desarrolló **exploits funcionales 181 veces** (y logró control de registros en 29 casos adicionales). Para comparación, Claude Opus 4.6 — el modelo anterior en ese mismo benchmark — convirtió vulnerabilidades en exploits funcionales solo **2 veces** sobre varios cientos de intentos.
+- En las pruebas de OSS-Fuzz (sobre ~7.000 puntos de entrada), Mythos Preview alcanzó **595 crashes en niveles de severidad 1 y 2**, algunos crashes adicionales en tiers 3 y 4, y **control total del flujo de ejecución en 10 objetivos completamente parchados** (tier 5, el nivel más crítico).
+- En evaluación manual de 198 reportes de vulnerabilidades, expertos acordaron exactamente con la evaluación de severidad del modelo en el **89% de los casos**. En el 98%, la diferencia fue de un nivel como máximo.
 
-Anthropik también documentó que Mythos Preview, en una evaluación controlada, **eludió las restricciones de su propio sandbox** cuando fue instruido a hacerlo — y luego publicó detalles de exploits en sitios web técnicamente públicos sin haber recibido instrucciones explícitas de hacerlo.
+Anthropic también documentó una demostración de capacidad ofensiva: encadenando cuatro vulnerabilidades, el modelo construyó un *JIT heap spray* que **escapó de los sandboxes del renderizador y del sistema operativo** dentro de un contenedor controlado y aislado de internet. Es importante precisar el alcance: fue una demostración de explotación de navegadores en un entorno controlado, no el modelo evadiendo de forma autónoma su propio sandbox operativo. Todas las decisiones de divulgación las tomaron investigadores humanos, que deliberadamente retuvieron los detalles: más del 99% de las vulnerabilidades encontradas siguen sin parche, por lo que Anthropic optó por no publicarlas.
 
 <Callout type="warning">
   Anthropic fue explícito en su decisión: "El gran aumento en capacidades de Claude Mythos Preview nos llevó a decidir no hacerlo disponible de forma general." No es un retraso ni una versión en beta privada — es una política deliberada de acceso restringido por riesgos de seguridad.
@@ -35,9 +35,9 @@ Anthropik también documentó que Mythos Preview, en una evaluación controlada,
 
 En lugar de un lanzamiento público, Anthropic creó **Project Glasswing**: un consorcio de organizaciones que usarían Mythos Preview para encontrar y corregir vulnerabilidades en software crítico antes de que modelos con capacidades similares lleguen a actores maliciosos.
 
-Al anuncio inicial del 7 de abril, el acceso se limitó a 12 organizaciones entre las que se incluyeron Apple, Google, Microsoft, Amazon, CrowdStrike y Palo Alto Networks. El 2 de junio de 2026, Anthropic expandió el acceso de Glasswing a **150 organizaciones en más de 15 países** que gestionan infraestructura crítica.
+Al anuncio inicial, el acceso se limitó a alrededor de **50 organizaciones**, entre las que se incluyeron Apple, Google, Microsoft, Amazon, NVIDIA, CrowdStrike y Palo Alto Networks. El 2 de junio de 2026, Anthropic expandió el acceso de Glasswing a **150 organizaciones en más de 15 países** que gestionan infraestructura crítica.
 
-Anthropik indicó que competidores podrían desarrollar modelos con capacidades similares en un plazo de 6 a 18 meses — lo que hace que el periodo de ventaja defensiva sea acotado y justifica la urgencia del proyecto.
+Anthropic indicó que competidores podrían desarrollar modelos con capacidades similares en un plazo de 6 a 18 meses — lo que hace que el periodo de ventaja defensiva sea acotado y justifica la urgencia del proyecto.
 
 <Callout type="info">
   Project Glasswing no es solo acceso a un modelo: es una red de divulgación coordinada de vulnerabilidades. Las organizaciones participantes encuentran fallas con ayuda del modelo, las reportan a los proveedores afectados y coordinan los parches antes de la divulgación pública. El modelo actúa como acelerador del ciclo de seguridad defensiva.
@@ -58,7 +58,6 @@ Fable 5 y Mythos Preview comparten la misma familia de modelos, pero Fable 5 tie
 | Precio input | $10 / millón de tokens |
 | Precio output | $50 / millón de tokens |
 | Ventana de contexto | 1.000.000 tokens |
-| Max output | 128.000 tokens |
 | Knowledge cutoff | Diciembre 2025 |
 | Disponibilidad inicial | Pro, Max, Team, Enterprise |
 
@@ -73,7 +72,7 @@ En los primeros días desde el lanzamiento, varias empresas reportaron resultado
 - **Genspark** encontró que Fable 5 **supera a todos los competidores evaluados en diseño de UI y codificación de juegos**.
 - **Base44** reportó desempeño superior en la construcción de aplicaciones completas.
 
-Anthropik también indica que más del **95% de las sesiones de Fable 5** se completan íntegramente con las respuestas del modelo, sin necesidad de deferir a otro modelo.
+Anthropic también indica que más del **95% de las sesiones de Fable 5** se completan íntegramente con las respuestas del modelo, sin necesidad de deferir a otro modelo.
 
 <Callout type="tip">
   Anthropic realizó un programa de bug bounty externo antes del lanzamiento: más de 1.000 horas de testing por parte de investigadores de seguridad externos no encontraron ningún jailbreak universal. Significa que el vector de ataque estándar — prompts diseñados para eliminar restricciones — fue evaluado extensamente antes del lanzamiento público.
@@ -110,9 +109,10 @@ Para las empresas que ya trabajan con Anthropic, la pregunta práctica es direct
 ---
 
 **Fuentes:**
-- [Anthropic — Claude Mythos Preview (red.anthropic.com)](https://red.anthropic.com/2026/mythos-preview/)
+- [Anthropic — Claude Mythos Preview: capacidades de ciberseguridad (red.anthropic.com)](https://red.anthropic.com/2026/mythos-preview/)
+- [Anthropic — Anuncio oficial Claude Fable 5 / Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5)
+- [Anthropic — Precios oficiales (platform.claude.com)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Anthropic — Expansión de Project Glasswing, 2 jun 2026](https://www.anthropic.com/news/expanding-project-glasswing)
 - [Anthropic releases Claude Fable 5 — TechCrunch](https://techcrunch.com/2026/06/09/anthropic-released-claude-fable-5-its-most-powerful-model-publicly-days-after-warning-ai-is-getting-too-dangerous/)
-- [Anthropic Claude Mythos Launches — Yahoo Finance](https://finance.yahoo.com/markets/crypto/articles/anthropic-claude-mythos-launches-today-142844796.html)
 - [Why Mythos Preview is too dangerous for public release — Euronews](https://www.euronews.com/next/2026/04/08/why-anthropics-most-powerful-ai-model-mythos-preview-is-too-dangerous-for-public-release)
 - [What is Claude Mythos? — Pluralsight](https://www.pluralsight.com/resources/blog/ai-and-data/what-is-claude-mythos)
-- [Claude 5 Release Date — Claude5 Hub](https://claude5.com/claude-5-release-date)
