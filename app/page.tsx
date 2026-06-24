@@ -209,7 +209,7 @@ export default function HomePage() {
               <span style={{ position: "absolute", top: 16, right: -10, background: "rgba(11,15,28,.9)", border: "1px solid rgba(255,255,255,.12)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 12, fontWeight: 700, padding: "8px 14px", borderRadius: 12, boxShadow: "0 10px 30px -12px rgba(0,0,0,.7)" }}>
                 <span style={{ color: "#FF6B2B" }}>24/7</span> Automatización
               </span>
-              <span style={{ position: "absolute", bottom: 40, left: -14, background: "rgba(11,15,28,.9)", border: "1px solid rgba(255,255,255,.12)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 12, fontWeight: 700, padding: "8px 14px", borderRadius: 12, boxShadow: "0 10px 30px -12px rgba(0,0,0,.7)" }}>
+              <span style={{ position: "absolute", top: "44%", left: -14, background: "rgba(11,15,28,.9)", border: "1px solid rgba(255,255,255,.12)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 12, fontWeight: 700, padding: "8px 14px", borderRadius: 12, boxShadow: "0 10px 30px -12px rgba(0,0,0,.7)" }}>
                 <span style={{ color: "#FF6B2B" }}>✦</span> IA Generativa
               </span>
             </div>
