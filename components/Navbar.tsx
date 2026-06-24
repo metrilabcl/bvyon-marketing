@@ -1,114 +1,173 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
-  { href: "/blog", label: "Blog" },
   { href: "/nosotros", label: "Sobre mí" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-primary-light shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-1">
-            <span
-              className="text-2xl font-black tracking-tight text-primary"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              bvyon<span className="text-accent"> marketing</span>
-            </span>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-primary font-semibold underline underline-offset-4 decoration-accent decoration-2"
-                      : "text-slate hover:text-primary"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-            <Link
-              href="/contacto"
-              className="px-5 py-2.5 bg-accent text-primary text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors"
-            >
-              Diagnóstico gratis
-            </Link>
-          </nav>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 rounded-lg text-slate hover:text-primary hover:bg-light"
-            onClick={() => setOpen(!open)}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
+    <header
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 200,
+        transition: "background .4s ease, backdrop-filter .4s ease, border-color .4s ease",
+        background: scrolled ? "rgba(6,9,18,.85)" : "rgba(6,9,18,0)",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
+        borderBottom: `1px solid ${scrolled ? "rgba(255,255,255,.08)" : "rgba(255,255,255,0)"}`,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1180,
+          margin: "0 auto",
+          padding: "0 24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 74,
+        }}
+      >
+        <Link
+          href="/"
+          style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}
+        >
+          <span
+            style={{
+              display: "grid",
+              placeItems: "center",
+              width: 34,
+              height: 34,
+              borderRadius: 9,
+              background: "var(--acc,#FF6B2B)",
+              color: "#060912",
+              fontFamily: "var(--font-heading, Montserrat, sans-serif)",
+              fontWeight: 900,
+              fontSize: 18,
+              letterSpacing: "-1px",
+            }}
           >
-            {open ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
+            bY
+          </span>
+          <span
+            style={{
+              fontFamily: "var(--font-heading, Montserrat, sans-serif)",
+              fontWeight: 800,
+              fontSize: 19,
+              letterSpacing: "-.5px",
+              color: "#fff",
+            }}
+          >
+            bvyon<span style={{ color: "var(--acc,#FF6B2B)" }}> marketing</span>
+          </span>
+        </Link>
 
-        {/* Mobile menu */}
-        {open && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-primary-light">
-            <nav aria-label="Navegación móvil" className="flex flex-col gap-1">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      isActive
-                        ? "text-primary font-semibold bg-light border-l-2 border-accent"
-                        : "text-slate hover:text-primary hover:bg-light"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <Link
-                href="/contacto"
-                onClick={() => setOpen(false)}
-                className="mt-2 px-5 py-3 bg-accent text-primary text-sm font-semibold rounded-lg text-center hover:bg-accent-hover"
-              >
-                Diagnóstico gratis
-              </Link>
-            </nav>
-          </div>
-        )}
+        {/* Desktop nav */}
+        <nav aria-label="Navegación principal" className="bv-desktop-nav">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="bv-nav-link">
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/contacto" className="bv-btn" style={{ padding: "11px 20px", fontSize: 13.5 }}>
+            Diagnóstico gratis
+          </Link>
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          className="bv-mobile-btn"
+        >
+          {open ? "✕" : "≡"}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div
+          id="mobile-menu"
+          className="bv-mobile-menu"
+          style={{
+            background: "rgba(8,12,24,.97)",
+            backdropFilter: "blur(14px)",
+            borderTop: "1px solid rgba(255,255,255,.08)",
+            padding: "18px 24px 26px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+          }}
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              style={{
+                color: "#cdd3e0",
+                textDecoration: "none",
+                padding: "12px 6px",
+                fontWeight: 500,
+                borderRadius: 8,
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contacto"
+            onClick={() => setOpen(false)}
+            style={{
+              marginTop: 8,
+              textAlign: "center",
+              color: "#060912",
+              background: "var(--acc,#FF6B2B)",
+              fontWeight: 700,
+              padding: 14,
+              borderRadius: 11,
+              textDecoration: "none",
+            }}
+          >
+            Diagnóstico gratis
+          </Link>
+        </div>
+      )}
+
+      <style>{`
+        .bv-desktop-nav { display: flex; align-items: center; gap: 34px; }
+        .bv-nav-link { font-size: 14px; font-weight: 500; color: #aab2c5; text-decoration: none; transition: color .2s; }
+        .bv-nav-link:hover { color: #fff; }
+        .bv-mobile-btn {
+          display: none; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+          color: #fff; width: 44px; height: 44px; border-radius: 11px; cursor: pointer; font-size: 20px;
+          align-items: center; justify-content: center;
+        }
+        @media (max-width: 860px) {
+          .bv-desktop-nav { display: none; }
+          .bv-mobile-btn { display: inline-flex; }
+        }
+        @media (min-width: 861px) { .bv-mobile-menu { display: none !important; } }
+      `}</style>
     </header>
   );
 }

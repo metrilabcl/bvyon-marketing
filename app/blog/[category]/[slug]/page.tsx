@@ -58,7 +58,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function ProseTable({ children, ...props }: React.ComponentPropsWithoutRef<"table">) {
   return (
-    <div className="overflow-x-auto my-6 rounded-xl border border-primary-light">
+    <div
+      className="overflow-x-auto my-6 rounded-xl"
+      style={{ border: "1px solid rgba(255,255,255,.08)" }}
+    >
       <table {...props}>{children}</table>
     </div>
   );
@@ -136,23 +139,44 @@ export default async function PostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <div className="pt-24 pb-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style={{ paddingTop: 110, paddingBottom: 90, position: "relative", overflow: "hidden" }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -140,
+            right: -120,
+            width: 460,
+            height: 460,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(255,107,43,.12), transparent 70%)",
+            filter: "blur(20px)",
+          }}
+        />
+        <div
+          className="px-4 sm:px-6 lg:px-8"
+          style={{ maxWidth: 768, margin: "0 auto", position: "relative", zIndex: 2 }}
+        >
           {/* Breadcrumb */}
-          <nav className="mb-8 flex items-center gap-2 text-sm text-slate">
-            <Link href="/blog" className="hover:text-primary">Blog</Link>
+          <nav
+            className="mb-8 flex items-center gap-2 text-sm"
+            style={{ color: "#6b7488", flexWrap: "wrap" }}
+          >
+            <Link href="/blog" className="bv-link">Blog</Link>
             <span>/</span>
-            <Link href={`/blog/${category}`} className="hover:text-primary capitalize">
+            <Link href={`/blog/${category}`} className="bv-link capitalize">
               {category}
             </Link>
             <span>/</span>
-            <span className="text-primary font-medium truncate max-w-xs">{post.frontmatter.title}</span>
+            <span style={{ color: "#aab2c5", fontWeight: 500 }} className="truncate max-w-xs">
+              {post.frontmatter.title}
+            </span>
           </nav>
 
           <BlogPostHeader post={post} />
 
           {/* MDX content */}
-          <div className="prose prose-lg prose-slate max-w-none prose-headings:font-black prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-code:text-accent prose-code:bg-accent/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-th:bg-primary prose-th:text-white prose-td:border-primary-light prose-th:border-primary/30">
+          <div className="bv-prose prose prose-lg prose-invert max-w-none prose-headings:font-black prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-code:text-accent prose-code:before:content-none prose-code:after:content-none">
             <MDXRemote
               source={post.content}
               components={mdxComponents}
@@ -171,16 +195,74 @@ export default async function PostPage({ params }: Props) {
           <CTABlock />
 
           {/* Back link */}
-          <div className="mt-8 pt-8 border-t border-primary-light">
+          <div style={{ marginTop: 32, paddingTop: 32, borderTop: "1px solid rgba(255,255,255,.08)" }}>
             <Link
               href="/blog"
-              className="text-sm font-semibold text-slate hover:text-primary transition-colors"
+              className="bv-link"
+              style={{ fontSize: 14, fontWeight: 600 }}
             >
               ← Volver al blog
             </Link>
           </div>
         </div>
       </div>
+
+      <style>{`
+        .bv-prose {
+          --tw-prose-body: #cdd3e0;
+          --tw-prose-headings: #ffffff;
+          --tw-prose-lead: #aab2c5;
+          --tw-prose-links: #FF6B2B;
+          --tw-prose-bold: #ffffff;
+          --tw-prose-counters: #aab2c5;
+          --tw-prose-bullets: #6b7488;
+          --tw-prose-hr: rgba(255,255,255,.1);
+          --tw-prose-quotes: #e6e9f2;
+          --tw-prose-quote-borders: #FF6B2B;
+          --tw-prose-captions: #6b7488;
+          --tw-prose-code: #FF6B2B;
+          --tw-prose-pre-code: #e6e9f2;
+          --tw-prose-pre-bg: #04060f;
+          --tw-prose-th-borders: rgba(255,255,255,.12);
+          --tw-prose-td-borders: rgba(255,255,255,.08);
+        }
+        .bv-prose :where(code):not(:where([class~="not-prose"] *)) {
+          background: rgba(255,107,43,.1);
+          padding: .15em .4em;
+          border-radius: 6px;
+          font-weight: 600;
+        }
+        .bv-prose :where(pre):not(:where([class~="not-prose"] *)) {
+          border: 1px solid rgba(255,255,255,.08);
+        }
+        .bv-prose :where(pre code):not(:where([class~="not-prose"] *)) {
+          background: transparent;
+          padding: 0;
+          font-weight: 400;
+        }
+        .bv-prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+          background: rgba(255,255,255,.03);
+          border-radius: 0 12px 12px 0;
+          padding: 4px 20px;
+          font-style: normal;
+        }
+        .bv-prose :where(a):not(:where([class~="not-prose"] *)) {
+          font-weight: 600;
+          text-decoration-color: rgba(255,107,43,.5);
+        }
+        .bv-prose :where(th):not(:where([class~="not-prose"] *)) {
+          background: rgba(255,107,43,.1);
+          color: #fff;
+        }
+        .bv-prose :where(table):not(:where([class~="not-prose"] *)) {
+          margin: 0;
+        }
+        .bv-prose :where(h1, h2, h3, h4):not(:where([class~="not-prose"] *)) {
+          font-family: var(--font-heading, Montserrat, sans-serif);
+          letter-spacing: -0.5px;
+          scroll-margin-top: 96px;
+        }
+      `}</style>
     </>
   );
 }

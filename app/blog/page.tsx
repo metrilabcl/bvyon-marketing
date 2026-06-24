@@ -25,6 +25,18 @@ export const metadata: Metadata = {
   },
 };
 
+const kicker: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 8,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: "2px",
+  textTransform: "uppercase",
+  color: "#FF6B2B",
+  marginBottom: 18,
+};
+
 interface Props {
   searchParams: Promise<{ tag?: string }>;
 }
@@ -40,51 +52,65 @@ export default async function BlogPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-br from-primary to-[#152260] text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-4">
+      {/* ============ HERO ============ */}
+      <section style={{ position: "relative", overflow: "hidden", paddingTop: 110 }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -120,
+            left: -80,
+            width: 480,
+            height: 480,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(255,107,43,.16), transparent 70%)",
+            filter: "blur(20px)",
+            animation: "bvBlob 18s ease-in-out infinite",
+          }}
+        />
+        <div className="bv-container" style={{ position: "relative", zIndex: 2, paddingBottom: 56 }}>
+          <span style={kicker}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#FF6B2B", display: "inline-block" }} />
             Blog
           </span>
           <h1
-            className="text-4xl sm:text-5xl font-black mb-4"
-            style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            style={{
+              fontFamily: "var(--font-heading, Montserrat, sans-serif)",
+              fontWeight: 900,
+              fontSize: "clamp(36px, 6vw, 60px)",
+              letterSpacing: "-1.5px",
+              lineHeight: 1.05,
+              margin: "0 0 18px",
+              maxWidth: 820,
+            }}
           >
-            Blog: Marketing Digital para Empresas de{" "}
-            <span className="text-accent">Chile</span>
+            Marketing Digital para Empresas de{" "}
+            <span style={{ color: "#FF6B2B" }}>Chile</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mb-8">
+          <p style={{ fontSize: 18, lineHeight: 1.6, color: "#aab2c5", maxWidth: 600, margin: "0 0 32px" }}>
             Noticias recientes de marketing digital e IA, comentadas para que sepas qué cambia y cómo afecta a tu negocio.
           </p>
+
           {/* Category filter */}
-          <div className="flex flex-wrap gap-2">
-            <Link
-              href="/blog"
-              className="px-4 py-1.5 rounded-full text-sm font-semibold bg-accent text-primary"
-            >
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <Link href="/blog" className="bv-filter bv-filter-active">
               Todos
             </Link>
             {CATEGORIES.map((cat) => (
-              <Link
-                key={cat}
-                href={`/blog/${cat}`}
-                className="px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-white/20 transition-colors"
-              >
+              <Link key={cat} href={`/blog/${cat}`} className="bv-filter">
                 {CATEGORY_LABELS[cat]}
               </Link>
             ))}
           </div>
+
           {/* Tag filter */}
           {allTags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-3">
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
               {allTags.map((t) => (
                 <Link
                   key={t}
                   href={tag === t ? "/blog" : `/blog?tag=${encodeURIComponent(t)}`}
-                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                    tag === t
-                      ? "bg-accent text-primary"
-                      : "bg-white/10 text-white hover:bg-white/20"
-                  }`}
+                  className={`bv-filter bv-filter-sm${tag === t ? " bv-filter-active" : ""}`}
                 >
                   #{t}
                 </Link>
@@ -94,26 +120,29 @@ export default async function BlogPage({ searchParams }: Props) {
         </div>
       </section>
 
-      <section className="py-16 bg-light">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ============ POSTS ============ */}
+      <section style={{ padding: "0 0 clamp(64px, 9vw, 110px)" }}>
+        <div className="bv-container">
           {tag && (
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-sm text-slate">Filtrando por tag:</span>
-              <span className="text-sm font-semibold text-accent">#{tag}</span>
-              <Link href="/blog" className="text-xs text-slate hover:text-accent underline ml-1">
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
+              <span style={{ fontSize: 14, color: "#aab2c5" }}>Filtrando por tag:</span>
+              <span style={{ fontSize: 14, fontWeight: 700, color: "#FF6B2B" }}>#{tag}</span>
+              <Link href="/blog" className="bv-link" style={{ fontSize: 12, marginLeft: 4, textDecoration: "underline" }}>
                 Limpiar filtro
               </Link>
             </div>
           )}
           {posts.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-slate mb-4">No hay posts con el tag <strong>#{tag}</strong>.</p>
-              <Link href="/blog" className="text-accent hover:underline font-semibold">
+            <div style={{ textAlign: "center", padding: "64px 0" }}>
+              <p style={{ color: "#aab2c5", marginBottom: 16 }}>
+                No hay posts con el tag <strong style={{ color: "#fff" }}>#{tag}</strong>.
+              </p>
+              <Link href="/blog" className="bv-link" style={{ color: "#FF6B2B", fontWeight: 600 }}>
                 Ver todos los posts
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bv-blog-grid">
               {posts.map((post) => (
                 <BlogIndexCard key={`${post.category}/${post.slug}`} post={post} />
               ))}
@@ -121,6 +150,37 @@ export default async function BlogPage({ searchParams }: Props) {
           )}
         </div>
       </section>
+
+      <style>{`
+        .bv-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .bv-filter {
+          display: inline-flex; align-items: center;
+          padding: 8px 16px; border-radius: 999px;
+          font-size: 14px; font-weight: 600; text-decoration: none;
+          color: #fff; background: rgba(255,255,255,.05);
+          border: 1px solid rgba(255,255,255,.1);
+          transition: background .2s, border-color .2s, color .2s;
+        }
+        .bv-filter:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22); }
+        .bv-filter-sm { padding: 5px 11px; font-size: 12px; }
+        .bv-filter-active {
+          background: #FF6B2B; color: #060912; border-color: #FF6B2B;
+        }
+        .bv-filter-active:hover { background: #ff7d45; border-color: #ff7d45; }
+        .bv-card-img { transition: transform .35s ease; }
+        .bv-card:hover .bv-card-img { transform: scale(1.05); }
+        .bv-card-title { transition: color .2s; }
+        .bv-card:hover .bv-card-title { color: #FF6B2B; }
+        .bv-tag:hover { color: #fff; border-color: rgba(255,107,43,.4); }
+        .bv-cat-pill:hover { background: rgba(255,107,43,.2); }
+        .bv-readmore:hover { text-decoration: underline; }
+        @media (max-width: 980px) {
+          .bv-blog-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 560px) {
+          .bv-blog-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </>
   );
 }

@@ -39,6 +39,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const kicker: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 8,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: "2px",
+  textTransform: "uppercase",
+  color: "#FF6B2B",
+  marginBottom: 14,
+};
+
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
   if (!CATEGORIES.includes(category as Category)) notFound();
@@ -49,37 +61,60 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-br from-primary to-[#152260] text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="text-sm text-gray-400 hover:text-white mb-4 inline-block">
+      {/* ============ HERO ============ */}
+      <section style={{ position: "relative", overflow: "hidden", paddingTop: 110 }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -120,
+            left: -80,
+            width: 480,
+            height: 480,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(255,107,43,.16), transparent 70%)",
+            filter: "blur(20px)",
+            animation: "bvBlob 18s ease-in-out infinite",
+          }}
+        />
+        <div className="bv-container" style={{ position: "relative", zIndex: 2, paddingBottom: 56 }}>
+          <Link
+            href="/blog"
+            className="bv-link"
+            style={{ fontSize: 14, marginBottom: 18, display: "inline-block" }}
+          >
             ← Blog
           </Link>
+          <span style={kicker}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#FF6B2B", display: "inline-block" }} />
+            Categoría
+          </span>
           <h1
-            className="text-4xl sm:text-5xl font-black mb-3"
-            style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            style={{
+              fontFamily: "var(--font-heading, Montserrat, sans-serif)",
+              fontWeight: 900,
+              fontSize: "clamp(36px, 6vw, 60px)",
+              letterSpacing: "-1.5px",
+              lineHeight: 1.05,
+              margin: "0 0 12px",
+            }}
           >
             {label}
           </h1>
-          <p className="text-gray-300 text-lg mb-8">
+          <p style={{ fontSize: 18, color: "#aab2c5", margin: "0 0 32px" }}>
             {posts.length} {posts.length === 1 ? "artículo" : "artículos"} publicados
           </p>
+
           {/* Category filter */}
-          <div className="flex flex-wrap gap-2">
-            <Link
-              href="/blog"
-              className="px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 text-white hover:bg-white/20 transition-colors"
-            >
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <Link href="/blog" className="bv-filter">
               Todos
             </Link>
             {CATEGORIES.map((c) => (
               <Link
                 key={c}
                 href={`/blog/${c}`}
-                className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
-                  c === cat
-                    ? "bg-accent text-primary"
-                    : "bg-white/10 text-white hover:bg-white/20"
-                }`}
+                className={`bv-filter${c === cat ? " bv-filter-active" : ""}`}
               >
                 {CATEGORY_LABELS[c]}
               </Link>
@@ -88,17 +123,18 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-16 bg-light">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ============ POSTS ============ */}
+      <section style={{ padding: "0 0 clamp(64px, 9vw, 110px)" }}>
+        <div className="bv-container">
           {posts.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-slate mb-4">No hay posts en esta categoría aún.</p>
-              <Link href="/blog" className="text-accent hover:underline font-semibold">
+            <div style={{ textAlign: "center", padding: "64px 0" }}>
+              <p style={{ color: "#aab2c5", marginBottom: 16 }}>No hay posts en esta categoría aún.</p>
+              <Link href="/blog" className="bv-link" style={{ color: "#FF6B2B", fontWeight: 600 }}>
                 Ver todos los posts
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bv-blog-grid">
               {posts.map((post) => (
                 <BlogIndexCard key={`${post.category}/${post.slug}`} post={post} />
               ))}
@@ -106,6 +142,36 @@ export default async function CategoryPage({ params }: Props) {
           )}
         </div>
       </section>
+
+      <style>{`
+        .bv-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .bv-filter {
+          display: inline-flex; align-items: center;
+          padding: 8px 16px; border-radius: 999px;
+          font-size: 14px; font-weight: 600; text-decoration: none;
+          color: #fff; background: rgba(255,255,255,.05);
+          border: 1px solid rgba(255,255,255,.1);
+          transition: background .2s, border-color .2s, color .2s;
+        }
+        .bv-filter:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.22); }
+        .bv-filter-active {
+          background: #FF6B2B; color: #060912; border-color: #FF6B2B;
+        }
+        .bv-filter-active:hover { background: #ff7d45; border-color: #ff7d45; }
+        .bv-card-img { transition: transform .35s ease; }
+        .bv-card:hover .bv-card-img { transform: scale(1.05); }
+        .bv-card-title { transition: color .2s; }
+        .bv-card:hover .bv-card-title { color: #FF6B2B; }
+        .bv-tag:hover { color: #fff; border-color: rgba(255,107,43,.4); }
+        .bv-cat-pill:hover { background: rgba(255,107,43,.2); }
+        .bv-readmore:hover { text-decoration: underline; }
+        @media (max-width: 980px) {
+          .bv-blog-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 560px) {
+          .bv-blog-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </>
   );
 }

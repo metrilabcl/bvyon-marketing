@@ -11,23 +11,55 @@ export default function BlogPostHeader({ post }: Props) {
   const { frontmatter, category, readingTime } = post;
 
   return (
-    <header className="mb-10">
-      <div className="flex items-center gap-2 mb-4">
+    <header style={{ marginBottom: 40 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
         <CategoryPill category={category} asLink />
-        <span className="text-sm text-slate">{readingTime}</span>
+        <span style={{ fontSize: 13, color: "#6b7488" }}>{readingTime}</span>
       </div>
       <h1
-        className="text-3xl sm:text-4xl lg:text-5xl font-black text-primary leading-tight mb-4"
-        style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+        style={{
+          fontFamily: "var(--font-heading, Montserrat, sans-serif)",
+          fontWeight: 900,
+          fontSize: "clamp(30px, 5vw, 48px)",
+          letterSpacing: "-1px",
+          lineHeight: 1.08,
+          color: "#fff",
+          margin: "0 0 16px",
+        }}
       >
         {frontmatter.title}
       </h1>
-      <p className="text-lg text-slate leading-relaxed mb-6">{frontmatter.excerpt}</p>
-      <div className="flex flex-wrap items-center gap-4 text-sm text-slate pb-6 border-b border-primary-light">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold">
+      <p style={{ fontSize: 18, color: "#aab2c5", lineHeight: 1.6, margin: "0 0 24px" }}>
+        {frontmatter.excerpt}
+      </p>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: 16,
+          fontSize: 14,
+          color: "#aab2c5",
+          paddingBottom: 24,
+          borderBottom: "1px solid rgba(255,255,255,.08)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span
+            style={{
+              display: "grid",
+              placeItems: "center",
+              width: 34,
+              height: 34,
+              borderRadius: "50%",
+              background: "#FF6B2B",
+              color: "#060912",
+              fontSize: 12,
+              fontWeight: 800,
+            }}
+          >
             BV
-          </div>
+          </span>
           <span>Bastian Vega Yon</span>
         </div>
         <time dateTime={frontmatter.date}>
@@ -38,12 +70,21 @@ export default function BlogPostHeader({ post }: Props) {
           })}
         </time>
         {frontmatter.tags && frontmatter.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {frontmatter.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
-                className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+                className="bv-tag"
+                style={{
+                  fontSize: 11,
+                  padding: "4px 10px",
+                  borderRadius: 999,
+                  background: "rgba(255,255,255,.05)",
+                  border: "1px solid rgba(255,255,255,.08)",
+                  color: "#aab2c5",
+                  textDecoration: "none",
+                }}
               >
                 #{tag}
               </Link>
@@ -51,7 +92,17 @@ export default function BlogPostHeader({ post }: Props) {
           </div>
         )}
       </div>
-      <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden mt-6">
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "16 / 9",
+          borderRadius: 18,
+          overflow: "hidden",
+          marginTop: 24,
+          border: "1px solid rgba(255,255,255,.08)",
+        }}
+      >
         <Image
           src={frontmatter.coverImage}
           alt={frontmatter.title}

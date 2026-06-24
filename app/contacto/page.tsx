@@ -19,110 +19,200 @@ export const metadata: Metadata = {
   },
 };
 
+const HEADING = "var(--font-heading, Montserrat, sans-serif)";
+
+const PROCESS_STEPS = [
+  { step: "1", title: "Diagnóstico inicial (gratis)", desc: "30 minutos para entender tu negocio, objetivos y desafíos actuales." },
+  { step: "2", title: "Propuesta a medida", desc: "Te envío una propuesta con alcance, KPIs y presupuesto en 48 horas." },
+  { step: "3", title: "Kickoff", desc: "Sesión de onboarding, acceso a sistemas y definición de brand voice." },
+  { step: "4", title: "Ejecución y resultados", desc: "Trabajo semanal con dashboard en tiempo real y reuniones de resultados." },
+];
+
 export default function ContactoPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-primary text-white pt-28 pb-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-4">
-              Hablemos
-            </span>
-            <h1
-              className="text-4xl sm:text-5xl font-black mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+      {/* ============ HERO ============ */}
+      <section style={{ position: "relative", overflow: "hidden", paddingTop: 150 }}>
+        {/* background image + gradient wash */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/hero.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.38,
+          }}
+        />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(6,9,18,.85), #060912 82%)" }} />
+        {/* animated grid */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+            animation: "bvGrid 9s linear infinite",
+            WebkitMaskImage: "radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 72%)",
+            maskImage: "radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 72%)",
+          }}
+        />
+        {/* ambient blob */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: "-25%",
+            right: "-5%",
+            width: "42vw",
+            height: "42vw",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(255,107,43,.18), transparent 65%)",
+            filter: "blur(34px)",
+            animation: "bvBlob 20s ease-in-out infinite",
+          }}
+        />
+
+        <div className="bv-container" style={{ position: "relative", zIndex: 5, paddingBottom: 70 }}>
+          <span
+            className="bv-kicker"
+            style={{
+              padding: "8px 16px",
+              borderRadius: 999,
+              border: "1px solid rgba(255,107,43,.35)",
+              background: "rgba(255,107,43,.1)",
+              marginBottom: 24,
+            }}
+          >
+            <span
+              style={{
+                width: 7,
+                height: 7,
+                borderRadius: "50%",
+                background: "#FF6B2B",
+                boxShadow: "0 0 12px #FF6B2B",
+                animation: "bvPulse 2.4s ease-in-out infinite",
+              }}
+            />
+            Hablemos
+          </span>
+          <h1
+            style={{
+              fontFamily: HEADING,
+              fontWeight: 900,
+              fontSize: "clamp(40px, 6vw, 76px)",
+              lineHeight: 1,
+              letterSpacing: "-2px",
+              margin: "0 0 20px",
+            }}
+          >
+            Contáctame
+          </h1>
+          <p style={{ fontSize: "clamp(16px, 1.4vw, 19px)", lineHeight: 1.65, color: "#aeb6c8", maxWidth: 600, margin: 0 }}>
+            La primera consulta es sin costo. Cuéntame sobre tu empresa y te ayudo a crecer sin límites.
+          </p>
+        </div>
+      </section>
+
+      {/* ============ CONTENT ============ */}
+      <section style={{ padding: "10px 24px clamp(72px, 9vw, 120px)" }}>
+        <div className="bv-contact-grid">
+          {/* left: process + data */}
+          <div>
+            <h2
+              style={{
+                fontFamily: HEADING,
+                fontWeight: 900,
+                fontSize: "clamp(26px, 3.2vw, 38px)",
+                letterSpacing: "-1px",
+                margin: "0 0 32px",
+              }}
             >
-              Contáctame
-            </h1>
-            <p className="text-gray-300 text-lg">
-              La primera consulta es sin costo. Cuéntame sobre tu empresa y te ayudo a crecer sin límites.
-            </p>
+              ¿Cómo trabajo?
+            </h2>
+            <ol style={{ listStyle: "none", margin: "0 0 40px", padding: 0, display: "flex", flexDirection: "column" }}>
+              {PROCESS_STEPS.map((item, i) => {
+                const isLast = i === PROCESS_STEPS.length - 1;
+                return (
+                  <li key={item.step} style={{ display: "flex", gap: 18, paddingBottom: isLast ? 0 : 26, position: "relative" }}>
+                    {!isLast && (
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          position: "absolute",
+                          left: 19,
+                          top: 40,
+                          bottom: 0,
+                          width: 2,
+                          background: "linear-gradient(rgba(255,107,43,.5), rgba(255,107,43,.05))",
+                        }}
+                      />
+                    )}
+                    <span
+                      style={{
+                        display: "grid",
+                        placeItems: "center",
+                        width: 40,
+                        height: 40,
+                        borderRadius: "50%",
+                        background: "#FF6B2B",
+                        color: "#060912",
+                        fontFamily: HEADING,
+                        fontWeight: 900,
+                        fontSize: 16,
+                        flexShrink: 0,
+                        zIndex: 1,
+                      }}
+                    >
+                      {item.step}
+                    </span>
+                    <div>
+                      <h4 style={{ fontFamily: HEADING, fontWeight: 800, fontSize: 16, margin: "8px 0 5px" }}>{item.title}</h4>
+                      <p style={{ fontSize: 14, lineHeight: 1.55, color: "#9aa3b8", margin: 0 }}>{item.desc}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+
+            <div style={{ border: "1px solid rgba(255,255,255,.08)", borderRadius: 18, padding: 24, background: "rgba(255,255,255,.025)" }}>
+              <h3 style={{ fontFamily: HEADING, fontWeight: 800, fontSize: 15, margin: "0 0 16px" }}>Datos de contacto</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>
+                <a
+                  href="tel:+56937441215"
+                  className="bv-data-link"
+                  style={{ display: "flex", gap: 11, alignItems: "center", fontSize: 14, color: "#c3cad8", textDecoration: "none", transition: "color .2s" }}
+                >
+                  <span aria-hidden="true" style={{ color: "#FF6B2B", fontSize: 16 }}>☎</span> +56 9 3744 1215
+                </a>
+                <div style={{ display: "flex", gap: 11, alignItems: "center", fontSize: 14, color: "#c3cad8" }}>
+                  <span aria-hidden="true" style={{ color: "#FF6B2B", fontSize: 16 }}>◆</span> Chile
+                </div>
+                <div style={{ display: "flex", gap: 11, alignItems: "center", fontSize: 14, color: "#c3cad8" }}>
+                  <span aria-hidden="true" style={{ color: "#FF6B2B", fontSize: 16 }}>◷</span> Lun–Vie, 9:00–18:00
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* right: channels */}
+          <ContactForm />
         </div>
       </section>
 
-      {/* Contact content */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
-            {/* Info col */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h2
-                  className="text-2xl font-black text-primary mb-5"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  ¿Cómo trabajo?
-                </h2>
-                <ol className="space-y-5">
-                  {[
-                    { step: "1", title: "Diagnóstico inicial (gratis)", desc: "30 minutos para entender tu negocio, objetivos y desafíos actuales." },
-                    { step: "2", title: "Propuesta a medida", desc: "Enviamos propuesta con alcance, KPIs y presupuesto en 48 horas." },
-                    { step: "3", title: "Kickoff", desc: "Sesión de onboarding, acceso a sistemas y definición de brand voice." },
-                    { step: "4", title: "Ejecución y resultados", desc: "Trabajo semanal con dashboard en tiempo real y reuniones de resultados." },
-                  ].map((item) => (
-                    <li key={item.step} className="flex gap-4">
-                      <div className="w-8 h-8 rounded-full bg-accent text-primary text-sm font-bold flex items-center justify-center shrink-0"
-                        style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                      >
-                        {item.step}
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-primary text-sm">{item.title}</h4>
-                        <p className="text-slate text-sm">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              <div className="bg-light rounded-2xl p-6">
-                <h3
-                  className="font-bold text-primary mb-4"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  Datos de contacto
-                </h3>
-                <ul className="space-y-3 text-sm text-slate">
-                  <li className="flex gap-3 items-center">
-                    <svg aria-hidden="true" className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <a href="tel:+56937441215" className="hover:text-primary">
-                      +56 9 3744 1215
-                    </a>
-                  </li>
-                  <li className="flex gap-3 items-center">
-                    <svg aria-hidden="true" className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    Chile
-                  </li>
-                  <li className="flex gap-3 items-center">
-                    <svg aria-hidden="true" className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Lun–Vie, 9:00–18:00
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Form col */}
-            <div className="lg:col-span-3">
-              <h2
-                className="text-2xl font-black text-primary mb-6"
-                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-              >
-                Escríbeme directamente
-              </h2>
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      <style>{`
+        .bv-contact-grid {
+          max-width: 1180px; margin: 0 auto;
+          display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start;
+        }
+        .bv-data-link:hover { color: #fff; }
+        @media (max-width: 980px) {
+          .bv-contact-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+      `}</style>
     </>
   );
 }

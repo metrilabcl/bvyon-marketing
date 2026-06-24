@@ -71,6 +71,8 @@ export default function RootLayout({
         className="antialiased"
         style={{
           fontFamily: "var(--font-body, Inter, system-ui, sans-serif)",
+          background: "#060912",
+          color: "#ffffff",
         }}
       >
         <a
@@ -79,6 +81,7 @@ export default function RootLayout({
         >
           Saltar al contenido principal
         </a>
+        <div aria-hidden="true" className="bv-grain" />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />

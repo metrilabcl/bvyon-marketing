@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Zap, BarChart3, Sparkles, Globe, Check } from "lucide-react";
+import { Zap, BarChart3, Sparkles, Globe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SITE_URL } from "@/lib/site-url";
 import { getAllPosts, CATEGORY_LABELS } from "@/lib/blog";
@@ -63,7 +63,6 @@ const websiteJsonLd = {
 
 interface HomeService {
   Icon: LucideIcon;
-  color: string;
   badge: string;
   title: string;
   desc: string;
@@ -73,317 +72,264 @@ interface HomeService {
 const services: HomeService[] = [
   {
     Icon: Zap,
-    color: "from-primary to-[#152260]",
     badge: "24/7",
     title: "Automatizaciones en la Nube",
     desc: "Sistemas que trabajan mientras duermes: flujos automatizados, CRM, notificaciones y seguimiento de leads sin intervención manual.",
     examples: [
-      { label: "Lead → CRM automático", detail: "Cada formulario del sitio dispara un registro en tu CRM y envía un WhatsApp al instante." },
-      { label: "Seguimiento sin esfuerzo", detail: "Si un lead no responde en 24 hrs, el sistema envía un recordatorio por email o WhatsApp sin que hagas nada." },
-      { label: "Reportes automáticos", detail: "Cada lunes recibes un resumen de métricas de la semana en tu correo, generado sin intervención manual." },
+      { label: "Lead → CRM automático", detail: "Cada formulario del sitio dispara un registro en tu CRM y un WhatsApp al instante." },
+      { label: "Seguimiento sin esfuerzo", detail: "Si un lead no responde en 24 hrs, el sistema envía un recordatorio sin que hagas nada." },
+      { label: "Reportes automáticos", detail: "Resumen de métricas en tu correo cada lunes, generado sin intervención manual." },
     ],
   },
   {
     Icon: BarChart3,
-    color: "from-[#1a3a6b] to-primary",
     badge: "Datos reales",
     title: "Análisis Estratégico Completo",
     desc: "Radiografía total de tu negocio digital: ADS, orgánico, web, competencia y comportamiento de clientes.",
     examples: [
-      { label: "Auditoría de ADS", detail: "Revisamos tus campañas activas e identificamos qué está quemando presupuesto sin convertir." },
-      { label: "Benchmark de competencia", detail: "Mapeamos qué están haciendo tus competidores en redes, SEO y pauta para encontrar tus ventanas de oportunidad." },
-      { label: "Roadmap de 90 días", detail: "Entregamos un plan accionable con KPIs claros: qué hacer primero, por qué y cuánto invertir." },
+      { label: "Auditoría de ADS", detail: "Identificamos qué campañas queman presupuesto sin convertir." },
+      { label: "Benchmark de competencia", detail: "Mapeamos redes, SEO y pauta de tus competidores." },
+      { label: "Roadmap de 90 días", detail: "Plan accionable con KPIs claros." },
     ],
   },
   {
     Icon: Sparkles,
-    color: "from-[#2d1a4b] to-primary",
-    badge: "IA generativa",
+    badge: "IA Generativa",
     title: "Contenido y Visuales con IA",
-    desc: "Creatividades, copy y visuales de alto impacto generados con inteligencia artificial, alineados a tu marca.",
+    desc: "Creatividades, copy y visuales de alto impacto generados con IA, alineados a tu marca.",
     examples: [
-      { label: "Pack mensual de contenido", detail: "30 piezas listas para publicar: imágenes, carruseles y copy para Instagram, TikTok y LinkedIn." },
-      { label: "Ads creativos A/B", detail: "Generamos 5 variaciones visuales del mismo anuncio para testear cuál convierte mejor." },
-      { label: "Video con IA en minutos", detail: "Avatares, voice-over y subtítulos generados con IA para campañas de video sin producción costosa." },
+      { label: "Pack mensual", detail: "30 piezas para Instagram, TikTok y LinkedIn." },
+      { label: "Ads creativos A/B", detail: "5 variaciones del mismo anuncio para testear." },
+      { label: "Video con IA", detail: "Avatares, voice-over y subtítulos sin producción costosa." },
     ],
   },
   {
     Icon: Globe,
-    color: "from-primary to-[#1a2f5e]",
-    badge: "Full conversion",
+    badge: "Full Conversion",
     title: "Diseño Web Full Conversion",
-    desc: "Sitios web y landing pages diseñados para convertir visitantes en clientes: UX estratégico y velocidad.",
+    desc: "Sitios y landing pages diseñados para convertir visitantes en clientes: UX estratégico y velocidad.",
     examples: [
-      { label: "Landing de alta conversión", detail: "Una página enfocada en un solo objetivo: capturar leads o cerrar ventas, con formulario y chat integrado." },
-      { label: "Sitio corporativo con CRM", detail: "Web institucional conectada a GA4, Meta Pixel y tu CRM para rastrear cada visitante y lead." },
-      { label: "Optimización de velocidad", detail: "Mejoramos Core Web Vitals para que Google te posicione mejor y los usuarios no abandonen antes de cargar." },
+      { label: "Landing de alta conversión", detail: "Una página, un objetivo: formulario y chat integrado." },
+      { label: "Sitio + CRM", detail: "Web conectada a GA4, Meta Pixel y tu CRM." },
+      { label: "Velocidad", detail: "Core Web Vitals optimizados para mejor ranking." },
     ],
   },
 ];
 
 const stats = [
   { value: "5+", label: "Años especialista en marketing digital" },
-  { value: "50+", label: "Empresas crecieron con mi estrategia" },
+  { value: "4", label: "Servicios integrales bajo una sola mano" },
   { value: "Chile", label: "Clientes en todo el país" },
   { value: "30 min", label: "Diagnóstico gratis sin costo" },
 ];
 
-const whyUs = [
-  { title: "Siempre encendido", desc: "Las automatizaciones en la nube trabajan las 24 horas, los 7 días. Tu negocio genera resultados incluso fuera del horario laboral." },
-  { title: "Datos en cada decisión", desc: "Cada estrategia está respaldada por métricas reales: ADS, orgánico, web, competencia y clientes. Sin suposiciones, sin vanity metrics." },
-  { title: "IA al servicio de tu marca", desc: "Contenido generado con inteligencia artificial de vanguardia, revisado y ajustado para que suene humano y convierta de verdad." },
-  { title: "Sitios que venden", desc: "No solo diseño bonito — cada página está construida para guiar al visitante hacia la acción que importa: cotizar, comprar o contactar." },
+const marqueeTags = [
+  "Publicidad Digital",
+  "Contenido con IA",
+  "Diseño Web",
+  "CRM & GA4",
+  "Meta & Google Ads",
+  "Automatizaciones",
 ];
+
+const whyUs = [
+  { title: "Siempre encendido", desc: "Las automatizaciones trabajan 24/7. Tu negocio genera resultados incluso fuera del horario laboral." },
+  { title: "Datos en cada decisión", desc: "Cada estrategia respaldada por métricas reales. Sin suposiciones, sin vanity metrics." },
+  { title: "IA al servicio de tu marca", desc: "Contenido generado con IA de vanguardia, revisado para que suene humano y convierta." },
+  { title: "Sitios que venden", desc: "Cada página construida para guiar al visitante hacia la acción que importa." },
+];
+
+const packages = [
+  { name: "Emprendedor", price: "$290.000", period: "CLP / mes", desc: "Para PyMEs que inician su presencia digital." },
+  { name: "Crecimiento", price: "$750.000", period: "CLP / mes", desc: "Negocios establecidos que quieren escalar.", highlight: true },
+  { name: "Expansión", price: "$1.800.000", period: "CLP / mes", desc: "Marcas con presencia multi-ciudad." },
+  { name: "Corporativo", price: "Desde $4.500.000", period: "CLP / mes", desc: "Grandes empresas en crecimiento." },
+];
+
+const kicker: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 8,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: "2px",
+  textTransform: "uppercase",
+  color: "#FF6B2B",
+  marginBottom: 18,
+};
 
 export default function HomePage() {
   const recentPosts = getAllPosts().slice(0, 3);
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-      />
-      {/* Hero — Profile layout with founder photo */}
-      <section className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden bg-[#060c1e]">
-        {/* Brand gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#091438] to-[#060c1e]" />
-        {/* Subtle ambient glow behind photo (right half) */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20 hidden lg:block"
-          style={{ backgroundImage: "url('/banner.webp')", backgroundSize: "cover", backgroundPosition: "center top", filter: "blur(48px)" }}
-        />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left — text content */}
-            <div>
-              <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-6">
-                Marketing Digital · Chile
-              </span>
-              <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
-                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-              >
-                Marketing Digital en{" "}
-                <span className="text-accent">Chile</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
-                Soy Bastian Vega Yon, especialista en automatizaciones en la nube, análisis estratégico digital, contenido con IA y diseño web orientado a conversión. Resultados reales, sin intermediarios.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contacto"
-                  className="px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-colors text-center text-lg"
-                >
-                  Solicitar cotización
-                </Link>
-                <Link
-                  href="/servicios"
-                  className="px-8 py-4 border-2 border-white/60 text-white font-bold rounded-xl hover:border-white hover:bg-white/10 transition-colors text-center text-lg"
-                >
-                  Ver servicios
-                </Link>
-              </div>
-            </div>
-            {/* Right — profile photo */}
-            <div className="hidden lg:flex justify-center lg:justify-end items-center">
-              <div className="relative">
-                {/* Portrait card */}
-                <div className="relative w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border border-primary shadow-2xl">
-                  <Image
-                    src="/banner.webp"
-                    alt="Bastian Vega Yon — Especialista en marketing digital"
-                    fill
-                    priority
-                    className="object-cover object-top"
-                    sizes="(max-width: 1280px) 320px, 384px"
-                  />
-                </div>
-                {/* Name tag */}
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-accent text-primary text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-                  Bastian Vega Yon · bvyon
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 leading-none">
-          <svg aria-hidden="true" className="relative block w-full" style={{height: "60px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z" fill="white" />
-          </svg>
-        </div>
-      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
 
-      {/* Stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <div
-                  className="text-4xl font-black text-primary mb-1"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  {s.value}
-                </div>
-                <div className="text-sm text-slate">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ============ HERO ============ */}
+      <section id="top" style={{ position: "relative", overflow: "hidden", paddingTop: 74 }}>
+        {/* ambient glows */}
+        <div aria-hidden="true" style={{ position: "absolute", top: -120, left: -80, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,107,43,.18), transparent 70%)", filter: "blur(20px)", animation: "bvBlob 18s ease-in-out infinite" }} />
+        <div aria-hidden="true" style={{ position: "absolute", top: 80, right: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(56,90,180,.22), transparent 70%)", filter: "blur(20px)", animation: "bvBlob 22s ease-in-out infinite reverse" }} />
 
-      {/* Banner — full-bleed landscape background */}
-      <section className="relative overflow-hidden" style={{ minHeight: "70vh" }}>
-        {/* Background: landscape scene */}
-        <div
-          className="absolute inset-0"
-          style={{ backgroundImage: "url('/hero.webp')", backgroundSize: "cover", backgroundPosition: "center top" }}
-        />
-        {/* Horizontal gradient: dark left (text legibility) → transparent right (person visible) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/55 to-black/10" />
-        {/* Bottom fade into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-light to-transparent" />
-
-        <div
-          className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center"
-          style={{ minHeight: "70vh" }}
-        >
-          <div className="max-w-lg text-white py-20">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-white/10 text-white/70 rounded-full mb-6">
-              Quién soy
+        <div className="bv-hero-grid" style={{ position: "relative", zIndex: 2 }}>
+          {/* left */}
+          <div>
+            <span style={kicker}>
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#FF6B2B", display: "inline-block" }} />
+              Marketing Digital · Chile
             </span>
-            <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              La persona detrás de tu{" "}
-              <span className="text-accent">estrategia</span>
-            </h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              Soy un especialista freelance en marketing digital con enfoque en automatización, análisis de datos y resultados medibles. Trabajo directamente contigo — sin capas, sin intermediarios, sin burocracia.
+            <h1 style={{ fontSize: "clamp(40px, 7vw, 76px)", fontWeight: 900, lineHeight: 1, letterSpacing: "-2px", margin: "0 0 22px" }}>
+              Marketing<br />digital{" "}
+              <span style={{ color: "#FF6B2B" }}>sin límites.</span>
+            </h1>
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: "#aab2c5", maxWidth: 520, margin: "0 0 34px" }}>
+              Soy Bastian Vega Yon, especialista en automatizaciones en la nube, análisis estratégico, contenido con IA y diseño web orientado a conversión. Resultados reales, sin intermediarios.
             </p>
-            <Link
-              href="/nosotros"
-              className="inline-block px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-accent-hover transition-colors text-lg"
-            >
-              Conocer más
-            </Link>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
+              <Link href="/contacto" className="bv-btn" style={{ padding: "15px 28px", fontSize: 15 }}>
+                Solicitar cotización →
+              </Link>
+              <Link href="/servicios" className="bv-btn-ghost" style={{ padding: "15px 28px", fontSize: 15 }}>
+                Ver servicios
+              </Link>
+            </div>
+          </div>
+
+          {/* right — portrait card */}
+          <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+            <div style={{ position: "relative", width: "100%", maxWidth: 420, animation: "bvFloat 7s ease-in-out infinite" }}>
+              <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", border: "1px solid rgba(255,255,255,.1)", boxShadow: "0 40px 80px -30px rgba(0,0,0,.8)", aspectRatio: "4 / 5" }}>
+                <Image src="/banner.webp" alt="Bastian Vega Yon — especialista en marketing digital" fill priority className="object-cover" style={{ objectPosition: "center top" }} sizes="(max-width: 980px) 90vw, 420px" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(6,9,18,0) 40%, rgba(6,9,18,.85))" }} />
+                <div style={{ position: "absolute", left: 18, bottom: 18, display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ display: "grid", placeItems: "center", width: 30, height: 30, borderRadius: 8, background: "#FF6B2B", color: "#060912", fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: 15 }}>bY</span>
+                  <span style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 800, fontSize: 16 }}>Bastian Vega Yon</span>
+                </div>
+              </div>
+              <span style={{ position: "absolute", top: 16, right: -10, background: "rgba(11,15,28,.9)", border: "1px solid rgba(255,255,255,.12)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 12, fontWeight: 700, padding: "8px 14px", borderRadius: 12, boxShadow: "0 10px 30px -12px rgba(0,0,0,.7)" }}>
+                <span style={{ color: "#FF6B2B" }}>24/7</span> Automatización
+              </span>
+              <span style={{ position: "absolute", bottom: 40, left: -14, background: "rgba(11,15,28,.9)", border: "1px solid rgba(255,255,255,.12)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 12, fontWeight: 700, padding: "8px 14px", borderRadius: 12, boxShadow: "0 10px 30px -12px rgba(0,0,0,.7)" }}>
+                <span style={{ color: "#FF6B2B" }}>✦</span> IA Generativa
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* marquee */}
+        <div aria-hidden="true" style={{ position: "relative", zIndex: 2, marginTop: 70, padding: "20px 0", borderTop: "1px solid rgba(255,255,255,.07)", borderBottom: "1px solid rgba(255,255,255,.07)", overflow: "hidden", maskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)" }}>
+          <div style={{ display: "flex", gap: 0, width: "max-content", animation: "bvMarquee 26s linear infinite" }}>
+            {[...marqueeTags, ...marqueeTags, ...marqueeTags, ...marqueeTags].map((t, i) => (
+              <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 26, paddingRight: 26, fontSize: 15, fontWeight: 700, color: "#5b6479" }}>
+                {t}
+                <span style={{ color: "#FF6B2B" }}>◆</span>
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Services overview */}
-      <section className="py-20 bg-light">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2
-              className="text-3xl sm:text-4xl font-black text-primary mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              Mis Servicios
-            </h2>
-            <p className="text-slate text-lg max-w-xl mx-auto">
-              Mis servicios para hacer crecer tu negocio digital. Con ejemplos reales de lo que hago.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {services.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white rounded-2xl overflow-hidden border border-primary-light hover:shadow-xl hover:border-accent/30 transition-all group"
-              >
-                {/* Visual header */}
-                <div className={`bg-gradient-to-br ${s.color} px-6 pt-7 pb-6 flex items-start gap-4`}>
-                  <s.Icon className="w-8 h-8 text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
-                  <div className="flex-1">
-                    <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold uppercase tracking-wider rounded-full mb-2">
-                      {s.badge}
-                    </span>
-                    <h3
-                      className="text-lg font-bold text-white leading-snug group-hover:text-accent transition-colors"
-                      style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                    >
-                      {s.title}
-                    </h3>
-                  </div>
-                </div>
-                {/* Body */}
-                <div className="px-6 py-5">
-                  <p className="text-slate text-sm leading-relaxed mb-5">{s.desc}</p>
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#0D1B4B] mb-3">Ejemplos prácticos</p>
-                  <div className="space-y-3">
-                    {s.examples.map((ex) => (
-                      <div key={ex.label} className="flex gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
-                        <div>
-                          <span className="text-sm font-semibold text-primary">{ex.label}:</span>{" "}
-                          <span className="text-sm text-slate">{ex.detail}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+      {/* ============ STATS ============ */}
+      <section style={{ padding: "70px 0" }}>
+        <div className="bv-container">
+          <div className="bv-stats-grid">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: 44, color: "#FF6B2B", lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
+                <div style={{ fontSize: 14, color: "#aab2c5", lineHeight: 1.4 }}>{s.label}</div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/servicios"
-              className="inline-block px-8 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-[#0a1540] transition-colors"
-            >
-              Ver todos los servicios y tarifas
+        </div>
+      </section>
+
+      {/* ============ SERVICES ============ */}
+      <section id="servicios" className="bv-section">
+        <div className="bv-container">
+          <span style={kicker}>Qué hago</span>
+          <h2 className="bv-h2" style={{ marginBottom: 14 }}>Cuatro ángulos que mueven tu negocio</h2>
+          <p style={{ color: "#aab2c5", fontSize: 18, maxWidth: 560, margin: "0 0 48px" }}>
+            Servicios diseñados para crecer, con ejemplos reales de lo que entrego.
+          </p>
+          <div className="bv-cards-2">
+            {services.map((s) => (
+              <article key={s.title} className="bv-card" style={{ padding: 28 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
+                  <span style={{ display: "grid", placeItems: "center", width: 46, height: 46, borderRadius: 13, background: "rgba(255,107,43,.12)", border: "1px solid rgba(255,107,43,.3)", flexShrink: 0 }}>
+                    <s.Icon className="w-5 h-5" style={{ color: "#FF6B2B" }} strokeWidth={2} aria-hidden="true" />
+                  </span>
+                  <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "1.5px", textTransform: "uppercase", color: "#FF6B2B", background: "rgba(255,107,43,.1)", padding: "5px 10px", borderRadius: 999 }}>{s.badge}</span>
+                </div>
+                <h3 style={{ fontSize: 21, fontWeight: 800, margin: "0 0 10px" }}>{s.title}</h3>
+                <p style={{ color: "#aab2c5", fontSize: 14.5, lineHeight: 1.6, margin: "0 0 18px" }}>{s.desc}</p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 11 }}>
+                  {s.examples.map((ex) => (
+                    <div key={ex.label} style={{ display: "flex", gap: 11 }}>
+                      <span style={{ color: "#FF6B2B", fontWeight: 800, flexShrink: 0 }}>›</span>
+                      <p style={{ margin: 0, fontSize: 13.5, color: "#cdd3e0", lineHeight: 1.5 }}>
+                        <strong style={{ color: "#fff" }}>{ex.label}:</strong> {ex.detail}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div style={{ marginTop: 40 }}>
+            <Link href="/servicios" className="bv-btn-ghost" style={{ padding: "14px 26px" }}>
+              Ver todos los servicios y tarifas →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why us */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      {/* ============ BANNER / QUIÉN SOY ============ */}
+      <section style={{ position: "relative", overflow: "hidden", minHeight: "62vh", display: "flex", alignItems: "center" }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
+          <Image src="/hero.webp" alt="" fill className="object-cover" style={{ objectPosition: "center" }} sizes="100vw" />
+        </div>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(6,9,18,.95) 0%, rgba(6,9,18,.7) 45%, rgba(6,9,18,.2) 100%)" }} />
+        <div className="bv-container" style={{ position: "relative", zIndex: 2 }}>
+          <div style={{ maxWidth: 520, padding: "60px 0" }}>
+            <span style={kicker}>Quién soy</span>
+            <h2 className="bv-h2" style={{ marginBottom: 18 }}>
+              La persona detrás de tu <span style={{ color: "#FF6B2B" }}>estrategia</span>
+            </h2>
+            <p style={{ fontSize: 17, lineHeight: 1.7, color: "#cdd3e0", margin: "0 0 30px" }}>
+              Especialista freelance en marketing digital con enfoque en automatización, análisis de datos y resultados medibles. Trabajo directamente contigo — sin capas, sin intermediarios, sin burocracia.
+            </p>
+            <Link href="/nosotros" className="bv-btn" style={{ padding: "14px 26px" }}>Conocer más →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ WHY US ============ */}
+      <section className="bv-section">
+        <div className="bv-container">
+          <div className="bv-why-grid">
             <div>
-              <h2
-                className="text-3xl sm:text-4xl font-black text-primary mb-6"
-                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-              >
-                Tu socio de marketing digital sin límites
-              </h2>
-              <div className="space-y-5">
+              <h2 className="bv-h2" style={{ marginBottom: 28 }}>Tu socio de marketing digital sin límites</h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 {whyUs.map((item) => (
-                  <div key={item.title} className="flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 text-accent" strokeWidth={3} aria-hidden="true" />
-                    </div>
+                  <div key={item.title} style={{ display: "flex", gap: 14 }}>
+                    <span style={{ display: "grid", placeItems: "center", width: 26, height: 26, borderRadius: "50%", background: "rgba(255,107,43,.15)", color: "#FF6B2B", fontWeight: 800, flexShrink: 0, marginTop: 2 }}>✓</span>
                     <div>
-                      <h4 className="font-bold text-primary">{item.title}</h4>
-                      <p className="text-slate text-sm">{item.desc}</p>
+                      <h4 style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 700 }}>{item.title}</h4>
+                      <p style={{ margin: 0, fontSize: 14, color: "#aab2c5", lineHeight: 1.5 }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary to-[#152260] rounded-3xl p-8 text-white">
-              <div
-                className="text-5xl font-black mb-2 text-accent"
-                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-              >
-                360°
-              </div>
-              <h3
-                className="text-2xl font-bold mb-4"
-                style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-              >
-                Marketing Integral
-              </h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                Automatizaciones, estrategia, contenido con IA y diseño web — los cuatro ángulos que mueven negocios digitales hoy. Todo bajo una sola mano, con foco total en tu resultado.
+            <div style={{ background: "linear-gradient(160deg, #15224d, #0c1430)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 24, padding: 36 }}>
+              <div style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: 56, color: "#FF6B2B", lineHeight: 1, marginBottom: 8 }}>360°</div>
+              <h3 style={{ fontSize: 24, fontWeight: 800, margin: "0 0 14px" }}>Marketing Integral</h3>
+              <p style={{ color: "#cdd3e0", lineHeight: 1.7, margin: "0 0 22px", fontSize: 15 }}>
+                Automatizaciones, estrategia, contenido con IA y diseño web — los cuatro ángulos que mueven negocios digitales hoy. Todo bajo una sola mano.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {["Automatizaciones 24/7", "Análisis estratégico", "Contenido con IA", "Web que convierte"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">{tag}</span>
+                  <span key={tag} style={{ padding: "7px 13px", background: "rgba(255,255,255,.07)", borderRadius: 999, fontSize: 12.5, fontWeight: 500 }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -391,163 +337,115 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Pricing teaser */}
-      <section className="py-20 bg-light">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2
-              className="text-3xl sm:text-4xl font-black text-primary mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              Paquetes para cada etapa
-            </h2>
-            <p className="text-slate text-lg max-w-xl mx-auto">
-              Desde emprendimientos hasta grandes empresas en Chile.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Emprendedor", price: "$290.000", period: "CLP / mes", desc: "Para PyMEs que inician su presencia digital." },
-              { name: "Crecimiento", price: "$750.000", period: "CLP / mes", desc: "Empresas establecidas que quieren escalar.", highlight: true },
-              { name: "Expansión", price: "$1.800.000", period: "CLP / mes", desc: "Marcas con presencia multi-ciudad." },
-              { name: "Corporativo", price: "Desde $4.500.000", period: "CLP / mes", desc: "Grandes empresas en crecimiento." },
-            ].map((pkg) => (
+      {/* ============ PRICING ============ */}
+      <section id="precios" className="bv-section">
+        <div className="bv-container">
+          <span style={kicker}>Precios</span>
+          <h2 className="bv-h2" style={{ marginBottom: 14 }}>Paquetes para cada etapa</h2>
+          <p style={{ color: "#aab2c5", fontSize: 18, maxWidth: 520, margin: "0 0 48px" }}>
+            Desde emprendimientos hasta grandes marcas en Chile.
+          </p>
+          <div className="bv-pricing-grid">
+            {packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`rounded-2xl p-6 border transition-all ${
-                  pkg.highlight
-                    ? "bg-primary border-primary text-white shadow-xl lg:scale-105"
-                    : "bg-white border-primary-light hover:shadow-md"
-                }`}
+                style={{
+                  position: "relative",
+                  borderRadius: 20,
+                  padding: 26,
+                  background: pkg.highlight ? "linear-gradient(170deg, #1b2c63, #101a3d)" : "rgba(255,255,255,.03)",
+                  border: pkg.highlight ? "1px solid rgba(255,107,43,.5)" : "1px solid rgba(255,255,255,.08)",
+                  boxShadow: pkg.highlight ? "0 30px 60px -30px rgba(255,107,43,.35)" : "none",
+                }}
               >
                 {pkg.highlight && (
-                  <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-3">
-                    Popular
-                  </span>
+                  <span style={{ position: "absolute", top: -11, left: 26, background: "#FF6B2B", color: "#060912", fontSize: 11, fontWeight: 800, letterSpacing: "1px", textTransform: "uppercase", padding: "4px 12px", borderRadius: 999 }}>Popular</span>
                 )}
-                <h3
-                  className={`text-lg font-bold mb-2 ${pkg.highlight ? "text-white" : "text-primary"}`}
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  {pkg.name}
-                </h3>
-                <div className={`text-2xl font-black mb-0.5 ${pkg.highlight ? "text-accent" : "text-primary"}`}>
-                  {pkg.price}
-                </div>
-                {pkg.period && (
-                  <div className={`text-xs mb-3 ${pkg.highlight ? "text-gray-400" : "text-slate"}`}>{pkg.period}</div>
-                )}
-                <p className={`text-sm leading-relaxed mb-4 ${pkg.highlight ? "text-gray-300" : "text-slate"}`}>{pkg.desc}</p>
-                <Link
-                  href="/contacto"
-                  className={`block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                    pkg.highlight
-                      ? "bg-accent text-primary hover:bg-accent-hover"
-                      : "border border-primary text-primary hover:bg-primary hover:text-white"
-                  }`}
-                >
+                <h3 style={{ fontSize: 17, fontWeight: 700, margin: "0 0 12px" }}>{pkg.name}</h3>
+                <div style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: 28, color: pkg.highlight ? "#FF6B2B" : "#fff", lineHeight: 1 }}>{pkg.price}</div>
+                <div style={{ fontSize: 12, color: "#6b7488", margin: "6px 0 16px" }}>{pkg.period}</div>
+                <p style={{ fontSize: 13.5, color: "#aab2c5", lineHeight: 1.5, margin: "0 0 22px", minHeight: 60 }}>{pkg.desc}</p>
+                <Link href="/contacto" className={pkg.highlight ? "bv-btn" : "bv-btn-ghost"} style={{ width: "100%", justifyContent: "center", padding: "11px 0", fontSize: 14 }}>
                   Solicitar
                 </Link>
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-slate mt-6">
+          <p style={{ textAlign: "center", fontSize: 12.5, color: "#6b7488", marginTop: 24 }}>
             * Presupuesto de pauta no incluido. Contrato mínimo 3 meses.
           </p>
         </div>
       </section>
 
-      {/* Últimas noticias */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2
-              className="text-3xl sm:text-4xl font-black text-primary mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              Últimas noticias
-            </h2>
-            <p className="text-slate text-lg max-w-xl mx-auto">
-              Guías, casos y análisis del marketing digital chileno.
-            </p>
+      {/* ============ BLOG ============ */}
+      <section className="bv-section">
+        <div className="bv-container">
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: 16, marginBottom: 44 }}>
+            <div>
+              <span style={kicker}>Blog</span>
+              <h2 className="bv-h2">Últimas noticias</h2>
+            </div>
+            <Link href="/blog" className="bv-link" style={{ fontWeight: 600, color: "#FF6B2B" }}>Ver todas →</Link>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="bv-cards-3">
             {recentPosts.map((post) => {
               const href = `/blog/${post.category}/${post.slug}`;
               return (
-                <article
-                  key={`${post.category}/${post.slug}`}
-                  className="bg-light rounded-2xl border border-primary-light overflow-hidden hover:shadow-lg hover:border-accent/30 transition-all group"
-                >
-                  <Link href={href} className="block relative h-48 bg-primary/5" aria-label={post.frontmatter.title} tabIndex={-1} aria-hidden="true">
-                    <Image
-                      src={post.frontmatter.coverImage}
-                      alt=""
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
+                <article key={`${post.category}/${post.slug}`} className="bv-card" style={{ overflow: "hidden" }}>
+                  <Link href={href} aria-label={post.frontmatter.title} style={{ display: "block", position: "relative", height: 190 }}>
+                    <Image src={post.frontmatter.coverImage} alt="" fill className="object-cover" sizes="(max-width: 980px) 100vw, 380px" />
                   </Link>
-                  <div className="p-5">
-                    <div className="mb-3">
-                      <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold uppercase tracking-wider rounded-full">
-                        {CATEGORY_LABELS[post.category]}
-                      </span>
-                    </div>
-                    <Link href={href}>
-                      <h3
-                        className="text-lg font-bold text-primary mb-2 leading-snug group-hover:text-accent transition-colors line-clamp-2"
-                        style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                      >
-                        {post.frontmatter.title}
-                      </h3>
+                  <div style={{ padding: 22 }}>
+                    <span style={{ display: "inline-block", fontSize: 11, fontWeight: 800, letterSpacing: "1px", textTransform: "uppercase", color: "#FF6B2B", background: "rgba(255,107,43,.1)", padding: "4px 10px", borderRadius: 999, marginBottom: 12 }}>
+                      {CATEGORY_LABELS[post.category]}
+                    </span>
+                    <Link href={href} style={{ textDecoration: "none", color: "#fff" }}>
+                      <h3 style={{ fontSize: 17, fontWeight: 800, lineHeight: 1.35, margin: "0 0 8px" }}>{post.frontmatter.title}</h3>
                     </Link>
-                    <p className="text-slate text-sm leading-relaxed mb-3 line-clamp-2">
-                      {post.frontmatter.excerpt}
-                    </p>
-                    <time className="text-xs text-slate/70" dateTime={post.frontmatter.date}>
-                      {new Date(post.frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
+                    <p style={{ fontSize: 13.5, color: "#aab2c5", lineHeight: 1.55, margin: "0 0 12px" }}>{post.frontmatter.excerpt}</p>
+                    <time dateTime={post.frontmatter.date} style={{ fontSize: 12, color: "#6b7488" }}>
+                      {new Date(post.frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", { year: "numeric", month: "long", day: "numeric" })}
                     </time>
                   </div>
                 </article>
               );
             })}
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/blog"
-              className="inline-block px-8 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-[#0a1540] transition-colors"
-            >
-              Ver todas las publicaciones
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-accent">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl sm:text-4xl font-black text-primary mb-4"
-            style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-          >
+      {/* ============ CTA ============ */}
+      <section style={{ padding: "0 24px 90px" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto", position: "relative", overflow: "hidden", borderRadius: 28, padding: "70px 40px", textAlign: "center", background: "linear-gradient(120deg, #FF6B2B, #ff9255)" }}>
+          <h2 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: "clamp(28px, 4.5vw, 44px)", letterSpacing: "-1px", color: "#060912", margin: "0 0 14px" }}>
             ¿Listo para crecer sin límites?
           </h2>
-          <p className="text-primary/80 text-lg mb-8">
+          <p style={{ fontSize: 18, color: "rgba(6,9,18,.78)", margin: "0 0 30px" }}>
             La primera consulta es sin costo. Cuéntame sobre tu negocio.
           </p>
-          <Link
-            href="/contacto"
-            className="inline-block px-10 py-4 bg-primary text-white font-bold text-lg rounded-xl hover:bg-[#0a1540] transition-colors"
-          >
-            Contáctame ahora
+          <Link href="/contacto" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#060912", color: "#fff", fontWeight: 700, fontSize: 16, padding: "16px 34px", borderRadius: 14, textDecoration: "none" }}>
+            Contáctame ahora →
           </Link>
         </div>
       </section>
+
+      <style>{`
+        .bv-hero-grid { max-width: 1180px; margin: 0 auto; padding: clamp(48px,8vw,96px) 24px 0; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+        .bv-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .bv-cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+        .bv-cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .bv-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+        .bv-pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+        @media (max-width: 980px) {
+          .bv-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+          .bv-cards-2, .bv-why-grid { grid-template-columns: 1fr; }
+          .bv-cards-3, .bv-pricing-grid { grid-template-columns: 1fr 1fr; }
+          .bv-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        }
+        @media (max-width: 560px) {
+          .bv-cards-3, .bv-pricing-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </>
   );
 }

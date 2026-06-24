@@ -14,47 +14,70 @@ export default function BlogIndexCard({ post }: Props) {
   const href = `/blog/${category}/${slug}`;
 
   return (
-    <article className="bg-white rounded-2xl border border-primary-light overflow-hidden hover:shadow-lg hover:border-accent/30 transition-all group">
-      <Link href={href} className="block relative h-48 bg-primary/5">
+    <article className="bv-card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      <Link
+        href={href}
+        aria-label={frontmatter.title}
+        style={{ display: "block", position: "relative", height: 190, overflow: "hidden" }}
+      >
         <Image
           src={frontmatter.coverImage}
-          alt={frontmatter.title}
+          alt=""
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          className="object-cover bv-card-img"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </Link>
-      <div className="p-5">
-        <div className="flex items-center gap-2 mb-3">
+      <div style={{ padding: 22, display: "flex", flexDirection: "column", flex: 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
           <CategoryPill category={category} asLink />
-          <span className="text-xs text-slate">{readingTime}</span>
+          <span style={{ fontSize: 12, color: "#6b7488" }}>{readingTime}</span>
         </div>
-        <Link href={href}>
+        <Link href={href} style={{ textDecoration: "none", color: "#fff" }}>
           <h2
-            className="text-lg font-bold text-primary mb-2 leading-snug group-hover:text-accent transition-colors line-clamp-2"
-            style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
+            style={{ fontSize: 17, fontWeight: 800, lineHeight: 1.35, margin: "0 0 8px" }}
+            className="bv-card-title"
           >
             {frontmatter.title}
           </h2>
         </Link>
-        <p className="text-slate text-sm leading-relaxed mb-3 line-clamp-3">{frontmatter.excerpt}</p>
+        <p style={{ fontSize: 13.5, color: "#aab2c5", lineHeight: 1.55, margin: "0 0 12px" }}>
+          {frontmatter.excerpt}
+        </p>
         {frontmatter.tags && frontmatter.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-3">
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
             {frontmatter.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/blog?tag=${encodeURIComponent(tag)}`}
-                className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+                className="bv-tag"
+                style={{
+                  fontSize: 11,
+                  padding: "3px 9px",
+                  borderRadius: 999,
+                  background: "rgba(255,255,255,.05)",
+                  border: "1px solid rgba(255,255,255,.08)",
+                  color: "#aab2c5",
+                  textDecoration: "none",
+                }}
               >
                 #{tag}
               </Link>
             ))}
           </div>
         )}
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-0.5">
-            <span className="text-xs text-slate font-medium">{AUTHOR}</span>
-            <time className="text-xs text-slate/70" dateTime={frontmatter.date}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: "auto",
+            paddingTop: 4,
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <span style={{ fontSize: 12, color: "#aab2c5", fontWeight: 500 }}>{AUTHOR}</span>
+            <time style={{ fontSize: 12, color: "#6b7488" }} dateTime={frontmatter.date}>
               {new Date(frontmatter.date + "T12:00:00").toLocaleDateString("es-CL", {
                 year: "numeric",
                 month: "long",
@@ -64,7 +87,8 @@ export default function BlogIndexCard({ post }: Props) {
           </div>
           <Link
             href={href}
-            className="text-xs font-semibold text-accent hover:underline"
+            className="bv-readmore"
+            style={{ fontSize: 12, fontWeight: 700, color: "#FF6B2B", textDecoration: "none" }}
           >
             Leer más →
           </Link>

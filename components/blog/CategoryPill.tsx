@@ -1,8 +1,18 @@
 import Link from "next/link";
 import { CATEGORY_LABELS, type Category } from "@/lib/blog";
 
-const colors: Record<Category, string> = {
-  tendencias: "bg-purple-100 text-purple-800",
+const pillStyle: React.CSSProperties = {
+  display: "inline-block",
+  fontSize: 11,
+  fontWeight: 800,
+  letterSpacing: "1px",
+  textTransform: "uppercase",
+  color: "#FF6B2B",
+  background: "rgba(255,107,43,.1)",
+  padding: "4px 12px",
+  borderRadius: 999,
+  textDecoration: "none",
+  lineHeight: 1.4,
 };
 
 interface Props {
@@ -12,15 +22,14 @@ interface Props {
 
 export default function CategoryPill({ category, asLink = false }: Props) {
   const label = CATEGORY_LABELS[category];
-  const className = `inline-block px-3 py-0.5 rounded-full text-xs font-semibold ${colors[category]}`;
 
   if (asLink) {
     return (
-      <Link href={`/blog/${category}`} className={`${className} hover:opacity-80 transition-opacity`}>
+      <Link href={`/blog/${category}`} className="bv-cat-pill" style={pillStyle}>
         {label}
       </Link>
     );
   }
 
-  return <span className={className}>{label}</span>;
+  return <span style={pillStyle}>{label}</span>;
 }

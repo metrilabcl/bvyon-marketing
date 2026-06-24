@@ -14,207 +14,202 @@ export const metadata: Metadata = {
   },
 };
 
+const kicker: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 8,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: "2px",
+  textTransform: "uppercase",
+  color: "#FF6B2B",
+  marginBottom: 18,
+};
+
+const challenges = [
+  "Posicionamiento digital nulo: no aparecían en búsquedas de empresas buscando contratistas de sus servicios.",
+  "Gestión manual de leads: cada consulta requería seguimiento humano sin sistema de CRM.",
+  "Sin datos de conversión: desconocían cuál era su costo real de adquisición de clientes.",
+  "Presupuesto digital mínimo: apenas invertían en pauta digital, confiaban en red personal.",
+];
+
+const strategy = [
+  {
+    badge: "SEO",
+    title: "Posicionamiento orgánico en Google.",
+    detail:
+      "Optimizamos su sitio para palabras clave de nicho del servicio específico que ofrecían. En 5 meses: primeras posiciones en búsquedas específicas del rubro.",
+  },
+  {
+    badge: "Automatización + CRM",
+    title: "Sistema de leads automático.",
+    detail:
+      "Cada consulta desde el sitio se registra en su CRM, gatilla un email automático de confirmación, y el gerente recibe una notificación en Slack al instante. Ningún lead se pierde.",
+  },
+  {
+    badge: "Publicidad Digital",
+    title: "Pauta en Google Ads + LinkedIn.",
+    detail:
+      "Campañas B2B enfocadas en el segmento objetivo. A/B testing continuo para optimizar costo por lead. ROI mejorado cada mes.",
+  },
+  {
+    badge: "Análisis y Reporting",
+    title: "Dashboard mensual con KPIs claros.",
+    detail:
+      "Costo por lead, tasa de conversión, origen de cada cliente. Datos que guían cada decisión.",
+  },
+];
+
+const results = [
+  { value: "+85%", label: "Aumento en leads calificados de SEO + pauta" },
+  { value: "-40%", label: "Reducción en costo por lead gracias a optimización" },
+  { value: "0 min", label: "Tiempo de respuesta a nuevos leads (automático)" },
+  { value: "3x", label: "ROI en campañas de pauta digital" },
+];
+
 export default function CasesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden bg-[#060c1e]">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#091438] to-[#060c1e]" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10 w-full">
-          <div className="max-w-3xl">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-accent/20 text-accent rounded-full mb-6">
+      {/* ============ HERO ============ */}
+      <section style={{ position: "relative", overflow: "hidden", paddingTop: 110 }}>
+        {/* ambient glows */}
+        <div
+          aria-hidden="true"
+          style={{ position: "absolute", top: -120, left: -80, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,107,43,.18), transparent 70%)", filter: "blur(20px)", animation: "bvBlob 18s ease-in-out infinite" }}
+        />
+        <div
+          aria-hidden="true"
+          style={{ position: "absolute", top: 60, right: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(56,90,180,.22), transparent 70%)", filter: "blur(20px)", animation: "bvBlob 22s ease-in-out infinite reverse" }}
+        />
+
+        <div className="bv-container" style={{ position: "relative", zIndex: 2, paddingTop: "clamp(20px,5vw,48px)", paddingBottom: "clamp(20px,5vw,48px)" }}>
+          <div style={{ maxWidth: 760 }}>
+            <span style={kicker}>
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#FF6B2B", display: "inline-block" }} />
               Resultados reales
             </span>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
+            <h1 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontSize: "clamp(38px, 6.5vw, 68px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-2px", margin: "0 0 22px" }}>
               Empresas que crecieron con{" "}
-              <span className="text-accent">estrategia digital</span>
+              <span style={{ color: "#FF6B2B" }}>estrategia digital</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl">
+            <p style={{ fontSize: 18, lineHeight: 1.7, color: "#aab2c5", maxWidth: 620, margin: 0 }}>
               Casos reales de PYMEs y emprendimientos en Chile que escalaron sus resultados con automatizaciones, SEO y publicidad digital enfocada en conversión.
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 leading-none">
-          <svg aria-hidden="true" className="relative block w-full" style={{height: "60px"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,60 C300,0 900,0 1200,60 L1200,60 L0,60 Z" fill="white" />
-          </svg>
-        </div>
       </section>
 
-      {/* Case Study */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">Empresa de Servicios</span>
-            </div>
-            <h2
-              className="text-4xl font-black text-primary mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
+      {/* ============ CASE STUDY ============ */}
+      <section className="bv-section" style={{ paddingTop: "clamp(40px,6vw,72px)" }}>
+        <div className="bv-container" style={{ maxWidth: 880 }}>
+          {/* intro */}
+          <div style={{ marginBottom: 48 }}>
+            <span style={{ display: "inline-block", fontSize: 11, fontWeight: 800, letterSpacing: "1.5px", textTransform: "uppercase", color: "#FF6B2B", background: "rgba(255,107,43,.1)", padding: "5px 12px", borderRadius: 999, marginBottom: 18 }}>
+              Empresa de Servicios
+            </span>
+            <h2 className="bv-h2" style={{ marginBottom: 16 }}>
               Empresa contratista: +85% en leads calificados
             </h2>
-            <p className="text-lg text-slate mb-8 leading-relaxed max-w-2xl">
+            <p style={{ fontSize: 18, lineHeight: 1.7, color: "#aab2c5", maxWidth: 640, margin: 0 }}>
               Una empresa de servicios B2B regional operaba con poca visibilidad online. Sin estrategia de SEO ni publicidad digital, dependían casi exclusivamente de referencias personales — lo que limitaba su escalabilidad.
             </p>
           </div>
 
           {/* The Challenge */}
-          <div className="mb-12 pb-8 border-b border-primary-light">
-            <h3
-              className="text-2xl font-bold text-primary mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              El desafío
-            </h3>
-            <ul className="space-y-3 text-slate">
-              <li className="flex gap-3">
-                <span className="text-accent font-bold">•</span>
-                <span>Posicionamiento digital nulo: no aparecían en búsquedas de empresas buscando contratistas de sus servicios.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-accent font-bold">•</span>
-                <span>Gestión manual de leads: cada consulta requería seguimiento humano sin sistema de CRM.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-accent font-bold">•</span>
-                <span>Sin datos de conversión: desconocían cuál era su costo real de adquisición de clientes.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-accent font-bold">•</span>
-                <span>Presupuesto digital mínimo: apenas invertían en pauta digital, confiaban en red personal.</span>
-              </li>
-            </ul>
+          <div style={{ marginBottom: 44, paddingBottom: 36, borderBottom: "1px solid rgba(255,255,255,.08)" }}>
+            <h3 style={{ fontSize: 24, fontWeight: 800, margin: "0 0 18px", letterSpacing: "-0.5px" }}>El desafío</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>
+              {challenges.map((c) => (
+                <div key={c} style={{ display: "flex", gap: 12 }}>
+                  <span style={{ color: "#FF6B2B", fontWeight: 800, flexShrink: 0, marginTop: 1 }}>›</span>
+                  <p style={{ margin: 0, fontSize: 15.5, color: "#cdd3e0", lineHeight: 1.6 }}>{c}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* The Solution */}
-          <div className="mb-12 pb-8 border-b border-primary-light">
-            <h3
-              className="text-2xl font-bold text-primary mb-4"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              La estrategia
-            </h3>
-            <div className="grid gap-6">
-              <div>
-                <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">SEO</span>
-                <p className="text-slate"><strong>Posicionamiento orgánico en Google.</strong> Optimizamos su sitio para palabras clave de nicho del servicio específico que ofrecían. En 5 meses: primeras posiciones en búsquedas específicas del rubro.</p>
-              </div>
-              <div>
-                <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Automatización + CRM</span>
-                <p className="text-slate"><strong>Sistema de leads automático.</strong> Cada consulta desde el sitio se registra en su CRM, gatilla un email automático de confirmación, y el gerente recibe una notificación en Slack al instante. Ningún lead se pierde.</p>
-              </div>
-              <div>
-                <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Publicidad Digital</span>
-                <p className="text-slate"><strong>Pauta en Google Ads + LinkedIn.</strong> Campañas B2B enfocadas en el segmento objetivo. A/B testing continuo para optimizar costo por lead. ROI mejorado cada mes.</p>
-              </div>
-              <div>
-                <span className="inline-block px-2 py-0.5 bg-accent text-primary text-xs font-bold rounded-full mb-2">Análisis y Reporting</span>
-                <p className="text-slate"><strong>Dashboard mensual con KPIs claros.</strong> Costo por lead, tasa de conversión, origen de cada cliente. Datos que guían cada decisión.</p>
-              </div>
+          <div style={{ marginBottom: 44, paddingBottom: 36, borderBottom: "1px solid rgba(255,255,255,.08)" }}>
+            <h3 style={{ fontSize: 24, fontWeight: 800, margin: "0 0 22px", letterSpacing: "-0.5px" }}>La estrategia</h3>
+            <div className="bv-casos-strategy">
+              {strategy.map((s) => (
+                <article key={s.badge} className="bv-card" style={{ padding: 24 }}>
+                  <span style={{ display: "inline-block", fontSize: 11, fontWeight: 800, letterSpacing: "1px", textTransform: "uppercase", color: "#FF6B2B", background: "rgba(255,107,43,.1)", border: "1px solid rgba(255,107,43,.3)", padding: "5px 11px", borderRadius: 999, marginBottom: 14 }}>
+                    {s.badge}
+                  </span>
+                  <p style={{ margin: 0, fontSize: 14.5, color: "#aab2c5", lineHeight: 1.6 }}>
+                    <strong style={{ color: "#fff" }}>{s.title}</strong> {s.detail}
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
 
           {/* The Results */}
-          <div className="mb-12">
-            <h3
-              className="text-2xl font-bold text-primary mb-6"
-              style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-            >
-              Los resultados
-            </h3>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-light rounded-2xl p-6 border border-primary-light">
-                <div
-                  className="text-4xl font-black text-accent mb-2"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  +85%
+          <div style={{ marginBottom: 44 }}>
+            <h3 style={{ fontSize: 24, fontWeight: 800, margin: "0 0 24px", letterSpacing: "-0.5px" }}>Los resultados</h3>
+            <div className="bv-casos-results">
+              {results.map((r) => (
+                <div key={r.label} style={{ background: "rgba(255,255,255,.03)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 20, padding: 26 }}>
+                  <div style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: 40, color: "#FF6B2B", lineHeight: 1, marginBottom: 10 }}>
+                    {r.value}
+                  </div>
+                  <p style={{ margin: 0, fontSize: 14, color: "#aab2c5", lineHeight: 1.5 }}>{r.label}</p>
                 </div>
-                <p className="text-slate text-sm">Aumento en leads calificados de SEO + pauta</p>
-              </div>
-              <div className="bg-light rounded-2xl p-6 border border-primary-light">
-                <div
-                  className="text-4xl font-black text-accent mb-2"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  -40%
-                </div>
-                <p className="text-slate text-sm">Reducción en costo por lead gracias a optimización</p>
-              </div>
-              <div className="bg-light rounded-2xl p-6 border border-primary-light">
-                <div
-                  className="text-4xl font-black text-accent mb-2"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  0 min
-                </div>
-                <p className="text-slate text-sm">Tiempo de respuesta a nuevos leads (automático)</p>
-              </div>
-              <div className="bg-light rounded-2xl p-6 border border-primary-light">
-                <div
-                  className="text-4xl font-black text-accent mb-2"
-                  style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-                >
-                  3x
-                </div>
-                <p className="text-slate text-sm">ROI en campañas de pauta digital</p>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Quote */}
-          <div className="bg-gradient-to-br from-primary to-[#152260] rounded-2xl p-8 text-white mb-12">
-            <svg className="w-8 h-8 text-accent mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <div style={{ background: "linear-gradient(160deg, #15224d, #0c1430)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 24, padding: 36 }}>
+            <svg className="w-8 h-8" style={{ color: "#FF6B2B", marginBottom: 16 }} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.25-2-7-2s-7 .75-7 2v10c0 1 0 4 3 5z" />
               <path d="M15 21c3 0 7-1 7-8V5c0-1.25-4.25-2-7-2s-7 .75-7 2v10c0 1 0 4 3 5z" />
             </svg>
-            <p className="text-lg mb-4 italic">
-              "Antes no sabíamos si nuestro dinero en publicidad estaba funcionando. Ahora vemos cada lead, de dónde viene, y cuánto nos costó traerlo. El sistema automático nos ahorra horas cada semana."
+            <p style={{ fontSize: 18, lineHeight: 1.7, color: "#fff", fontStyle: "italic", margin: "0 0 16px" }}>
+              &ldquo;Antes no sabíamos si nuestro dinero en publicidad estaba funcionando. Ahora vemos cada lead, de dónde viene, y cuánto nos costó traerlo. El sistema automático nos ahorra horas cada semana.&rdquo;
             </p>
-            <p className="font-semibold">— Gerente General, Empresa de Servicios B2B</p>
+            <p style={{ margin: 0, fontWeight: 700, color: "#cdd3e0" }}>— Gerente General, Empresa de Servicios B2B</p>
           </div>
         </div>
       </section>
 
-      {/* More Cases Coming */}
-      <section className="py-20 bg-light">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl sm:text-4xl font-black text-primary mb-4"
-            style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-          >
-            Más casos próximamente
-          </h2>
-          <p className="text-lg text-slate max-w-2xl mx-auto mb-8">
+      {/* ============ MORE CASES COMING ============ */}
+      <section className="bv-section" style={{ paddingTop: 0 }}>
+        <div className="bv-container" style={{ maxWidth: 880, textAlign: "center" }}>
+          <span style={{ ...kicker, justifyContent: "center" }}>Próximamente</span>
+          <h2 className="bv-h2" style={{ marginBottom: 16 }}>Más casos próximamente</h2>
+          <p style={{ fontSize: 18, lineHeight: 1.7, color: "#aab2c5", maxWidth: 620, margin: "0 auto" }}>
             Casos de éxito en e-commerce, servicios y más rubros. Próximas historias disponibles en los próximos meses.
           </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-accent">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl sm:text-4xl font-black text-primary mb-4"
-            style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)" }}
-          >
+      {/* ============ CTA ============ */}
+      <section style={{ padding: "0 24px 90px" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto", position: "relative", overflow: "hidden", borderRadius: 28, padding: "70px 40px", textAlign: "center", background: "linear-gradient(120deg, #FF6B2B, #ff9255)" }}>
+          <h2 style={{ fontFamily: "var(--font-heading, Montserrat, sans-serif)", fontWeight: 900, fontSize: "clamp(28px, 4.5vw, 44px)", letterSpacing: "-1px", color: "#060912", margin: "0 0 14px" }}>
             ¿Tu negocio podría ser el próximo caso?
           </h2>
-          <p className="text-primary/80 text-lg mb-8">
+          <p style={{ fontSize: 18, color: "rgba(6,9,18,.78)", margin: "0 0 30px" }}>
             Hablemos sobre tu desafío digital. La primera consulta es sin costo.
           </p>
-          <Link
-            href="/contacto"
-            className="inline-block px-10 py-4 bg-primary text-white font-bold text-lg rounded-xl hover:bg-[#0a1540] transition-colors"
-          >
-            Solicitar diagnóstico
+          <Link href="/contacto" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#060912", color: "#fff", fontWeight: 700, fontSize: 16, padding: "16px 34px", borderRadius: 14, textDecoration: "none" }}>
+            Solicitar diagnóstico →
           </Link>
         </div>
       </section>
+
+      <style>{`
+        .bv-casos-strategy { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .bv-casos-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        @media (max-width: 980px) {
+          .bv-casos-strategy { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+          .bv-casos-results { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </>
   );
 }
