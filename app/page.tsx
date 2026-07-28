@@ -119,7 +119,6 @@ const services: HomeService[] = [
 const stats = [
   { value: "5+", label: "Años especialista en marketing digital" },
   { value: "4", label: "Servicios integrales bajo una sola mano" },
-  { value: "Chile", label: "Clientes en todo el país" },
   { value: "30 min", label: "Diagnóstico gratis sin costo" },
 ];
 
@@ -431,7 +430,7 @@ export default function HomePage() {
 
       <style>{`
         .bv-hero-grid { max-width: 1180px; margin: 0 auto; padding: clamp(48px,8vw,96px) 24px 0; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
-        .bv-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .bv-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
         .bv-cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
         .bv-cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
         .bv-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -440,10 +439,11 @@ export default function HomePage() {
           .bv-hero-grid { grid-template-columns: 1fr; gap: 40px; }
           .bv-cards-2, .bv-why-grid { grid-template-columns: 1fr; }
           .bv-cards-3, .bv-pricing-grid { grid-template-columns: 1fr 1fr; }
-          .bv-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+          .bv-stats-grid { gap: 28px; }
         }
         @media (max-width: 560px) {
           .bv-cards-3, .bv-pricing-grid { grid-template-columns: 1fr; }
+          .bv-stats-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </>

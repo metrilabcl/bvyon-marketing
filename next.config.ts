@@ -61,6 +61,8 @@ const nextConfig: NextConfig = {
       { source: "/blog/herramientas/:path*", destination: "/blog", permanent: true },
       // casos category retired (MET-152) — all old caso URLs redirect to blog root
       { source: "/blog/casos/:path*", destination: "/blog", permanent: true },
+      // /casos retired — page held a fabricated case study and testimonial
+      { source: "/casos", destination: "/", permanent: true },
     ];
   },
 };
