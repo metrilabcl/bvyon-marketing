@@ -6,7 +6,7 @@ import type { LucideIcon } from "lucide-react";
 export const metadata: Metadata = {
   title: "Servicios de Marketing Digital — Chile",
   description:
-    "Automatizaciones 24/7, SEO, contenido con IA y diseño web para PYMEs y emprendimientos en Chile. Paquetes desde $290.000 CLP/mes. Primera consulta sin costo.",
+    "Automatizaciones 24/7, SEO, contenido con IA y diseño web para PYMEs y emprendimientos en Chile. Planes a medida. Primera consulta sin costo.",
   alternates: { canonical: "/servicios" },
   openGraph: {
     title: "Servicios de Marketing Digital — Chile | bvyon marketing",
@@ -90,39 +90,12 @@ const services: ServicioCard[] = [
   },
 ];
 
-const packages = [
-  {
-    name: "Emprendedor",
-    price: "$290.000",
-    period: "CLP / mes",
-    desc: "PyMEs y emprendimientos que inician su presencia digital.",
-    features: ["2 canales (Instagram + Facebook)", "12 posts/mes + stories", "Community management Lun–Vie", "Gestión de 1 campaña de pauta", "Reunión mensual (30 min)"],
-    highlight: false,
-  },
-  {
-    name: "Crecimiento",
-    price: "$750.000",
-    period: "CLP / mes",
-    desc: "Empresas establecidas que quieren escalar su presencia y captar nuevos clientes.",
-    features: ["3 canales (Instagram + Facebook + TikTok/LinkedIn)", "20 posts/mes + stories + 2 reels", "Community management Lun–Sáb", "Hasta 3 campañas de pauta", "1 sesión fotográfica/trimestre", "SEO básico + 1 artículo/mes", "2 reuniones/mes (45 min)"],
-    highlight: true,
-  },
-  {
-    name: "Expansión",
-    price: "$1.800.000",
-    period: "CLP / mes",
-    desc: "Marcas en crecimiento, franquicias y empresas con presencia multi-ciudad.",
-    features: ["Todos los canales relevantes", "30+ piezas/mes", "Community management 7 días (<4 hrs)", "Campañas ilimitadas de pauta", "Fotos + 2 videos/mes", "SEO completo + 2 artículos/mes", "2 campañas de email/mes", "Account manager dedicado"],
-    highlight: false,
-  },
-  {
-    name: "Corporativo",
-    price: "Desde $4.500.000",
-    period: "CLP / mes",
-    desc: "Grandes empresas y grupos empresariales en crecimiento.",
-    features: ["Suite completa de marketing 360", "Comunicaciones corporativas", "Marketing en español e inglés", "SLA personalizado", "Ejecutivo sénior + visitas en terreno", "Reportes ejecutivos semanales"],
-    highlight: false,
-  },
+const planIncluye = [
+  "Canales y volumen de contenido según tu operación",
+  "Gestión de pauta en Meta, Google o TikTok",
+  "Automatizaciones e integración con tu CRM",
+  "SEO y contenido, si tu negocio lo requiere",
+  "Reportes con los indicadores que te importan",
 ];
 
 const heading = "var(--font-heading, Montserrat, sans-serif)";
@@ -191,53 +164,50 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* ============ PRICING ============ */}
-      <section className="bv-section" style={{ paddingTop: "clamp(48px, 7vw, 80px)" }}>
+      {/* ============ PLAN PERSONALIZADO ============ */}
+      <section id="precios" className="bv-section" style={{ paddingTop: "clamp(48px, 7vw, 80px)" }}>
         <div className="bv-container">
-          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-            <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#FF6B2B" }}>Precios</span>
-            <h2 className="bv-h2" style={{ fontWeight: 900, fontSize: "clamp(32px, 4.6vw, 54px)", letterSpacing: "-1.5px", margin: "16px 0" }}>Paquetes y tarifas</h2>
+          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
+            <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#FF6B2B" }}>Planes</span>
+            <h2 className="bv-h2" style={{ fontWeight: 900, fontSize: "clamp(32px, 4.6vw, 54px)", letterSpacing: "-1.5px", margin: "16px 0" }}>Un plan a la medida de tu negocio</h2>
             <p style={{ fontSize: 16, lineHeight: 1.6, color: "#9aa3b8", margin: 0 }}>
-              Precios en CLP. Contrato mínimo 3 meses. El presupuesto de pauta va directo a las plataformas.
+              Cada negocio parte de un punto distinto. Definimos alcance y presupuesto después del diagnóstico.
             </p>
           </div>
-          <div className="bv-pricing-grid">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.name}
-                style={{
-                  position: "relative",
-                  borderRadius: 20,
-                  padding: 26,
-                  background: pkg.highlight ? "linear-gradient(165deg, #1b2c63, #0a1130)" : "rgba(255,255,255,.025)",
-                  border: pkg.highlight ? "1px solid #FF6B2B" : "1px solid rgba(255,255,255,.09)",
-                  boxShadow: pkg.highlight ? "0 30px 70px -30px rgba(255,107,43,.5)" : "none",
-                }}
-              >
-                {pkg.highlight && (
-                  <span style={{ position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)", background: "#FF6B2B", color: "#060912", fontSize: 11, fontWeight: 800, letterSpacing: "1px", textTransform: "uppercase", padding: "5px 14px", borderRadius: 999, whiteSpace: "nowrap" }}>Popular</span>
-                )}
-                <h3 style={{ fontFamily: heading, fontWeight: 800, fontSize: 17, margin: "0 0 12px" }}>{pkg.name}</h3>
-                <div style={{ fontFamily: heading, fontWeight: 900, fontSize: 26, color: pkg.highlight ? "#FF6B2B" : "#fff", lineHeight: 1 }}>{pkg.price}</div>
-                <div style={{ fontSize: 12, color: pkg.highlight ? "#9aa3b8" : "#7e879c", margin: "6px 0 16px" }}>{pkg.period}</div>
-                <p style={{ fontSize: 13, lineHeight: 1.5, color: pkg.highlight ? "#c3cad8" : "#9aa3b8", margin: "0 0 18px" }}>{pkg.desc}</p>
-                <ul style={{ listStyle: "none", margin: "0 0 22px", padding: 0, display: "flex", flexDirection: "column", gap: 8 }}>
-                  {pkg.features.map((f) => (
-                    <li key={f} style={{ display: "flex", gap: 8, fontSize: 12.5, color: pkg.highlight ? "#c3cad8" : "#aab2c5", lineHeight: 1.4 }}>
-                      <Check className="w-3.5 h-3.5 shrink-0" style={{ color: "#FF6B2B", marginTop: 2 }} strokeWidth={2.5} aria-hidden="true" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contacto"
-                  className={pkg.highlight ? "bv-btn" : "bv-btn-ghost"}
-                  style={{ width: "100%", justifyContent: "center", padding: "12px 0", fontSize: 14 }}
-                >
-                  Solicitar
-                </Link>
-              </div>
-            ))}
+
+          <div
+            style={{
+              maxWidth: 560,
+              margin: "0 auto",
+              borderRadius: 24,
+              padding: "clamp(28px, 5vw, 40px)",
+              background: "linear-gradient(165deg, #1b2c63, #0a1130)",
+              border: "1px solid rgba(255,107,43,.45)",
+              boxShadow: "0 30px 70px -35px rgba(255,107,43,.35)",
+            }}
+          >
+            <h3 style={{ fontFamily: heading, fontWeight: 900, fontSize: "clamp(24px, 3.4vw, 32px)", margin: "0 0 12px" }}>Plan personalizado</h3>
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "#c3cad8", margin: "0 0 26px" }}>
+              Armamos el alcance según lo que tu negocio necesita hoy, sin pagar por servicios que no vas a usar.
+            </p>
+            <ul style={{ listStyle: "none", margin: "0 0 30px", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+              {planIncluye.map((f) => (
+                <li key={f} style={{ display: "flex", gap: 10, fontSize: 14.5, color: "#c3cad8", lineHeight: 1.5 }}>
+                  <Check className="w-4 h-4 shrink-0" style={{ color: "#FF6B2B", marginTop: 3 }} strokeWidth={2.5} aria-hidden="true" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/contacto"
+              className="bv-btn"
+              style={{ width: "100%", justifyContent: "center", padding: "15px 0", fontSize: 15 }}
+            >
+              Solicitar diagnóstico gratis
+            </Link>
+            <p style={{ fontSize: 12.5, lineHeight: 1.5, color: "#7e879c", margin: "18px 0 0", textAlign: "center" }}>
+              Contrato mínimo 3 meses. El presupuesto de pauta va directo a las plataformas.
+            </p>
           </div>
         </div>
       </section>
@@ -252,20 +222,15 @@ export default function ServiciosPage() {
             Conversemos y te recomiendo la mejor solución para tu negocio. Primera consulta sin costo.
           </p>
           <Link href="/contacto" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#060912", color: "#fff", fontWeight: 800, fontSize: 17, padding: "18px 38px", borderRadius: 14, textDecoration: "none" }}>
-            Solicitar cotización →
+            Solicitar diagnóstico gratis →
           </Link>
         </div>
       </section>
 
       <style>{`
         .bv-svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .bv-pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
         @media (max-width: 980px) {
           .bv-svc-grid { grid-template-columns: 1fr; }
-          .bv-pricing-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 560px) {
-          .bv-pricing-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </>

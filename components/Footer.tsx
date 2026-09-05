@@ -1,13 +1,5 @@
 import Link from "next/link";
 
-const services = [
-  "Automatizaciones 24/7",
-  "Análisis Estratégico",
-  "Contenido con IA",
-  "Diseño Web",
-  "SEO y Posicionamiento",
-];
-
 const links = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
@@ -83,18 +75,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Services */}
-        <div>
-          <h4 style={colHeading}>Servicios</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {services.map((s) => (
-              <Link key={s} href="/servicios" className="bv-link" style={{ fontSize: 13.5 }}>
-                {s}
-              </Link>
-            ))}
-          </div>
-        </div>
-
         {/* Nav */}
         <div>
           <h4 style={colHeading}>Navegación</h4>
@@ -146,7 +126,7 @@ export default function Footer() {
       </div>
 
       <style>{`
-        .bv-footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; }
+        .bv-footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 40px; }
         .bv-social { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,.06); color: #cdd3e0; transition: background .25s, color .25s; }
         .bv-social:hover { background: var(--acc,#FF6B2B); color: #060912; }
         @media (max-width: 860px) { .bv-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
