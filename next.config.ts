@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
 const securityHeaders = [
   // Prevents MIME-type sniffing attacks
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -21,13 +23,16 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      // 'unsafe-eval' solo en desarrollo: React lo necesita para reconstruir
+      // callstacks y para el hot reload de Turbopack. Nunca se envia en produccion.
+      isDev ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'" : "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self'",
       // YouTube embeds used in blog posts (YouTubeEmbed component)
       "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
-      "connect-src 'self'",
+      // websocket del hot reload en desarrollo
+      isDev ? "connect-src 'self' ws: wss:" : "connect-src 'self'",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
